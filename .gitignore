@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Audit / Scratch data
+scratch_full_audit.json
+scratch_models_report.json

@@ -1,0 +1,3428 @@
+(function(){
+  // ==========================================================
+  // DATASET: IPHONE MODELS BY SERIES & ACCURATE HARDWARE SPECS
+  // ==========================================================
+  var IPHONE_MODELS = [
+    // 17 Series
+    { 
+      id: 'ip17pm', 
+      name: 'iPhone 17 Pro Max', 
+      series: '17', 
+      year: 2025, 
+      chip: 'A19 Pro', 
+      screen: '6.9″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-3',
+      buttonType: 'action-button',
+      hasCameraControl: true,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-5x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'TrueDepth', 'Kaca Belakang'],
+      officialCodes: 'A3250, A3251, A3252',
+      tags: ['Aluminium Unibody', '48MP Periskop 5x', 'ProMotion 120Hz', 'Camera Control'], 
+      desc: 'Cek sasis bodi aluminium unibody baru, modul kamera plateau lebar, sensor Camera Control, & port USB-C 3.0.',
+      knownFlaws: [
+        '<strong>Rangka Aluminium Unibody Baru</strong>: Apple beralih dari Titanium ke Aluminium pada 17 Pro Max demi efisiensi termal dan bobot lebih ringan. Periksa frame dari risiko baret dan dent benturan pada sudut sasis aluminium.',
+        '<strong>Modul Kamera Belakang Lebar (Camera Plateau)</strong>: Cek kerataan dan kebersihan sela-sela housing kamera belakang aluminium unibody baru.',
+        '<strong>Sensor Camera Control</strong>: Uji respon sensor kapasitif sentuh geser di sisi kanan bawah untuk zoom kamera serta klik haptic shutter.',
+        '<strong>Cycle Count Baterai Asli</strong>: Cek langsung di Pengaturan > Baterai > Kesehatan & Pengisian Baterai untuk melihat riwayat siklus produksi riil pabrik.'
+      ]
+    },
+    { 
+      id: 'ip17p', 
+      name: 'iPhone 17 Pro', 
+      series: '17', 
+      year: 2025, 
+      chip: 'A19 Pro', 
+      screen: '6.3″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-3',
+      buttonType: 'action-button',
+      hasCameraControl: true,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-5x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'TrueDepth', 'Kaca Belakang'],
+      officialCodes: 'A3245, A3246, A3247',
+      tags: ['Aluminium Unibody', '48MP Triple 5x', 'ProMotion 120Hz', 'Camera Control'], 
+      desc: 'Cek rangka aluminium unibody baru, refresh rate 120Hz ProMotion, modul kamera plateau, & Camera Control.',
+      knownFlaws: [
+        '<strong>Rangka Aluminium Unibody</strong>: Seri 17 Pro mengadopsi rangka aluminium demi pelepasan panas chip A19 Pro yang lebih optimal. Cek sudut bodi dari benturan keras.',
+        '<strong>Tombol Camera Control & Action</strong>: Pastikan tombol responsif tanpa macet dan sensor haptic memberikan umpan balik presisi.',
+        '<strong>Sensor LiDAR & Macro Mode</strong>: Buka app Pengukur dan dekatkan kamera 2cm untuk memastikan transisi fokus makro mulus.',
+        '<strong>Parts & Service History</strong>: Periksa riwayat penggantian TrueDepth dan Layar pada menu Mengenai.'
+      ]
+    },
+    { 
+      id: 'ip17air', 
+      name: 'iPhone 17 Air', 
+      series: '17', 
+      year: 2025, 
+      chip: 'A19', 
+      screen: '6.6″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-2',
+      buttonType: 'action-button',
+      hasCameraControl: true,
+      biometrics: 'face-id',
+      cameraSetup: 'single',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: true,
+      materialFrame: 'titanium',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
+      officialCodes: 'A3260, A3261',
+      tags: ['Ultra Slim 5.6mm', 'Titanium Grade 5 Frame', 'ProMotion 120Hz', 'Camera Control'], 
+      desc: 'Cek rangka Titanium ultra-kuat untuk mencegah risiko bengkok pada bodi 5.6mm, ketahanan baterai, & layar 120Hz.',
+      knownFlaws: [
+        '<strong>Rangka Titanium Anti-Bengkok (Anti-Bend)</strong>: Pada bodi setipis 5.6mm, Apple menggunakan rangka Titanium Grade 5 demi mempertahankan rigiditas. Letakkan ponsel di meja datar untuk memastikan bodi tetap lurus sempurna.',
+        '<strong>Kamera Tunggal 48MP Fusion</strong>: Pastikan in-sensor crop zoom 2x tajam dan autofocus tidak hunting.',
+        '<strong>Konektor USB-C Ultra Slim</strong>: Periksa lubang port dari kotoran atau kerenggangan kabel.'
+      ]
+    },
+    { 
+      id: 'ip17', 
+      name: 'iPhone 17', 
+      series: '17', 
+      year: 2025, 
+      chip: 'A19', 
+      screen: '6.3″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-2',
+      buttonType: 'action-button',
+      hasCameraControl: true,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
+      officialCodes: 'A3240, A3241, A3242',
+      tags: ['Layar 120Hz Baru', 'Dual 48MP Fusion', 'Camera Control', 'Aluminium'], 
+      desc: 'Cek panel 120Hz ProMotion pertama di seri reguler, tombol Camera Control, modul dual kamera, & True Tone.',
+      knownFlaws: [
+        '<strong>Panel 120Hz ProMotion Baru</strong>: Pastikan scrolling mulus dan bandingkan dengan Low Power Mode (cap 60Hz).',
+        '<strong>Sensor Sentuh Camera Control</strong>: Geser untuk zoom kamera bawaan tanpa delay.',
+        '<strong>Cycle Count Baterai</strong>: Verifikasi jumlah siklus pengisian riil di Pengaturan Baterai.'
+      ]
+    },
+
+    // 16 Series
+    { 
+      id: 'ip16pm', 
+      name: 'iPhone 16 Pro Max', 
+      series: '16', 
+      year: 2024, 
+      chip: 'A18 Pro', 
+      screen: '6.9″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-3',
+      buttonType: 'action-button',
+      hasCameraControl: true,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-5x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'titanium',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'TrueDepth', 'Kaca Belakang'],
+      officialCodes: 'A3084, A3295, A3296, A3297',
+      tags: ['Titanium Grade 5', 'Camera Control', '48MP Fusion 5x', 'USB-C 3.0'], 
+      desc: 'Cek sensor Camera Control baru, frame Titanium, lensa periskop 5x, & kelancaran port USB-C 3.0.',
+      knownFlaws: [
+        '<strong>Tombol Camera Control Sapphire</strong>: Uji gesture gesek (slide zoom/exposure) dan half-press fokus di aplikasi Kamera.',
+        '<strong>Lensa Periskop 5x Tetraprism</strong>: Pindah ke 5x optical zoom, pastikan lensa tidak buram dan OIS stabil.',
+        '<strong>Cycle Count Baterai Bawaan</strong>: Cek di Pengaturan > Baterai (siklus, tanggal pembuatan, tanggal pertama pakai).'
+      ]
+    },
+    { 
+      id: 'ip16p', 
+      name: 'iPhone 16 Pro', 
+      series: '16', 
+      year: 2024, 
+      chip: 'A18 Pro', 
+      screen: '6.3″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-3',
+      buttonType: 'action-button',
+      hasCameraControl: true,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-5x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'titanium',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'TrueDepth', 'Kaca Belakang'],
+      officialCodes: 'A3083, A3292, A3293, A3294',
+      tags: ['Titanium Grade 5', 'Camera Control', '48MP Fusion 5x', 'Action Button'], 
+      desc: 'Cek respons Camera Control, ketahanan baterai, layar 120Hz ProMotion, & Face ID.',
+      knownFlaws: [
+        '<strong>Sensor Camera Control</strong>: Pastikan tombol terpasang rata dengan frame dan tidak oblak/macet.',
+        '<strong>Lensa 5x Telephoto Baru di 16 Pro</strong>: Uji zoom 5x, foto jarak jauh dengan pencahayaan cukup.',
+        '<strong>Action Button & Port USB-C 3</strong>: Uji charging bolak-balik dan konfigurasi pintasan tombol.'
+      ]
+    },
+    { 
+      id: 'ip16plus', 
+      name: 'iPhone 16 Plus', 
+      series: '16', 
+      year: 2024, 
+      chip: 'A18', 
+      screen: '6.7″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-2',
+      buttonType: 'action-button',
+      hasCameraControl: true,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
+      officialCodes: 'A3082, A3289, A3290, A3291',
+      tags: ['Layar 6.7"', 'Camera Control', 'Action Button', 'Dual Fusion'], 
+      desc: 'Cek bodi aluminium, tombol Action & Camera Control, serta kesehatan baterai jumbo.',
+      knownFlaws: [
+        '<strong>Camera Control & Action Button</strong>: Uji kedua tombol fisik baru tersebut.',
+        '<strong>Kamera Vertikal Baru</strong>: Uji perekaman Spatial Video dan transisi Ultra Wide ke Wide.',
+        '<strong>Baterai Cycle Count</strong>: Cek jumlah siklus pengisian bawaan di menu Baterai.'
+      ]
+    },
+    { 
+      id: 'ip16', 
+      name: 'iPhone 16', 
+      series: '16', 
+      year: 2024, 
+      chip: 'A18', 
+      screen: '6.1″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-2',
+      buttonType: 'action-button',
+      hasCameraControl: true,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
+      officialCodes: 'A3081, A3286, A3287, A3288',
+      tags: ['Layar 6.1"', 'Camera Control', 'Action Button', 'Dual Fusion'], 
+      desc: 'Cek kerapatan bezel, kamera vertikal baru, respon sentuh layar, & Camera Control.',
+      knownFlaws: [
+        '<strong>Tombol Camera Control</strong>: Pastikan kaca kristal safir tombol bebas baret dalam.',
+        '<strong>Macro Mode di Seri Reguler</strong>: Dekatkan 2cm ke objek, pastikan makro otomatis aktif.',
+        '<strong>Cycle Count Baterai Asli</strong>: Cek tanggal rilis vs jumlah siklus pengisian.'
+      ]
+    },
+
+    // 15 Series
+    { 
+      id: 'ip15pm', 
+      name: 'iPhone 15 Pro Max', 
+      series: '15', 
+      year: 2023, 
+      chip: 'A17 Pro', 
+      screen: '6.7″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-3',
+      buttonType: 'action-button',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-5x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'titanium',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'TrueDepth', 'Kaca Belakang'],
+      officialCodes: 'A2849, A3105, A3106, A3108',
+      tags: ['Titanium Grade 5', 'Action Button', 'USB-C 3.0', 'Telephoto 5x'], 
+      desc: 'Cek baret pada frame Titanium, tombol Action Button, port USB-C, dan lensa 5x periskop.',
+      knownFlaws: [
+        '<strong>Frame Titanium & Dent Sudut</strong>: Cek sudut frame dari penyok benturan keras dan perubahan warna sidik jari.',
+        '<strong>Lensa Periskop 5x Tetraprism</strong>: Uji zoom 5x, pastikan tidak buram dan fokus cepat.',
+        '<strong>Baterai Cycle Count & Limit 80%</strong>: Seri 15 pertama yang menampilkan siklus cas asli di menu Baterai.'
+      ]
+    },
+    { 
+      id: 'ip15p', 
+      name: 'iPhone 15 Pro', 
+      series: '15', 
+      year: 2023, 
+      chip: 'A17 Pro', 
+      screen: '6.1″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-3',
+      buttonType: 'action-button',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-3x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'titanium',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'TrueDepth', 'Kaca Belakang'],
+      officialCodes: 'A2848, A3101, A3102, A3104',
+      tags: ['Titanium Grade 5', 'Action Button', 'USB-C 3.0', 'ProMotion 120Hz'], 
+      desc: 'Cek suhu bodi, Action Button, TrueDepth Face ID, dan mulusnya refresh rate 120Hz.',
+      knownFlaws: [
+        '<strong>Action Button Haptic</strong>: Tekan dan tahan tombol aksi, pastikan getaran solid dan pintasan jalan.',
+        '<strong>Port USB-C 3.0</strong>: Uji koneksi data USB 3 dan colokan kabel pas tanpa goyang.',
+        '<strong>Kamera Telephoto 3x</strong>: Uji zoom 3x optik, pastikan bebas bercak jamur debu.'
+      ]
+    },
+    { 
+      id: 'ip15plus', 
+      name: 'iPhone 15 Plus', 
+      series: '15', 
+      year: 2023, 
+      chip: 'A16 Bionic', 
+      screen: '6.7″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-2',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: true,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
+      officialCodes: 'A2847, A3093, A3094, A3096',
+      tags: ['Dynamic Island', '48MP Main', 'USB-C', 'Baterai Jumbo'], 
+      desc: 'Cek keaslian layar Dynamic Island, bodi aluminium, dan fungsi charging Type-C.',
+      knownFlaws: [
+        '<strong>Dynamic Island Interaktif</strong>: Jalankan musik/timer, ketuk pulau untuk expand.',
+        '<strong>Port USB-C Universal</strong>: Cek lubang port bersih dari debu/serat kain.',
+        '<strong>Cycle Count Baterai Bawaan</strong>: Cek jumlah siklus asli di Pengaturan > Baterai.'
+      ]
+    },
+    { 
+      id: 'ip15', 
+      name: 'iPhone 15', 
+      series: '15', 
+      year: 2023, 
+      chip: 'A16 Bionic', 
+      screen: '6.1″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'dynamic-island',
+      portType: 'usb-c-2',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: true,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: true,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
+      officialCodes: 'A2846, A3089, A3090, A3092',
+      tags: ['Dynamic Island', '48MP Main', 'USB-C', 'Matte Glass'], 
+      desc: 'Cek tekstur kaca belakang matte, Dynamic Island, dan keaslian modul kamera 48MP.',
+      knownFlaws: [
+        '<strong>Sensor Kamera 48MP Baru</strong>: Uji in-sensor zoom 2x, pastikan tidak pecah.',
+        '<strong>Kaca Belakang Matte Berwarna</strong>: Cek baret atau retak di sekitar logo Apple.',
+        '<strong>Varian US Tanpa SIM Tray</strong>: Jika unit US (LL/A), pastikan tidak ada lubang SIM hasil bor manual.'
+      ]
+    },
+
+    // 14 Series
+    { 
+      id: 'ip14pm', 
+      name: 'iPhone 14 Pro Max', 
+      series: '14', 
+      year: 2022, 
+      chip: 'A16 Bionic', 
+      screen: '6.7″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-3x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2651, A2893, A2894, A2896',
+      tags: ['Dynamic Island', 'Always-On Display', '48MP Triple', 'Stainless Steel'], 
+      desc: 'Cek fitur Always-On Display, burn-in layar OLED, Dynamic Island, dan port Lightning.',
+      knownFlaws: [
+        '<strong>Getar OIS Kamera (Camera Rattle)</strong>: Buka kamera di Instagram/TikTok, pastikan lensa tidak bergetar berisik.',
+        '<strong>Burn-in Layar Always-On Display</strong>: Cek di layar abu-abu/hitam apakah bayangan jam membekas.',
+        '<strong>Frame Stainless Steel</strong>: Cek baret mikro (swirl marks) pada bezel mengkilap.'
+      ]
+    },
+    { 
+      id: 'ip14p', 
+      name: 'iPhone 14 Pro', 
+      series: '14', 
+      year: 2022, 
+      chip: 'A16 Bionic', 
+      screen: '6.1″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'dynamic-island',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-3x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: true,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2650, A2889, A2890, A2892',
+      tags: ['Dynamic Island', 'Always-On Display', 'ProMotion 120Hz', 'LiDAR'], 
+      desc: 'Cek baret di bezel stainless steel, fungsi sensor LiDAR, Dynamic Island, dan keaslian layar.',
+      knownFlaws: [
+        '<strong>Getar OIS Kamera di Aplikasi Medsos</strong>: Uji modul kamera di Instagram/TikTok/WhatsApp.',
+        '<strong>Sensor LiDAR 3D</strong>: Uji dengan aplikasi bawaan Pengukur (Measure).',
+        '<strong>ProMotion 120Hz Mulus</strong>: Pastikan tidak ada lag scrolling dan True Tone aktif.'
+      ]
+    },
+    { 
+      id: 'ip14plus', 
+      name: 'iPhone 14 Plus', 
+      series: '14', 
+      year: 2022, 
+      chip: 'A15 Bionic', 
+      screen: '6.7″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
+      officialCodes: 'A2632, A2885, A2886, A2888',
+      tags: ['Layar 6.7"', 'Dual Cam', 'Kaca Belakang Modular', 'Baterai Awet'], 
+      desc: 'Cek bodi lebar dari benturan/bengkok, autofocus kamera ganda, dan True Tone.',
+      knownFlaws: [
+        '<strong>Kelurusan Bodi Lebar 6.7″</strong>: Pastikan sasis aluminium tidak melengkung akibat tekanan kantong.',
+        '<strong>Kaca Belakang Desain Modular</strong>: Cek celah sela kaca belakang dan frame.',
+        '<strong>Model US eSIM Only</strong>: Jika berkode LL/A, unit resmi tidak memiliki baki SIM fisik sama sekali.'
+      ]
+    },
+    { 
+      id: 'ip14', 
+      name: 'iPhone 14', 
+      series: '14', 
+      year: 2022, 
+      chip: 'A15 Bionic', 
+      screen: '6.1″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
+      officialCodes: 'A2649, A2881, A2882, A2884',
+      tags: ['Photonic Engine', 'Action Mode Video', 'OLED Super Retina', 'Lightning'], 
+      desc: 'Cek keaslian layar Super Retina XDR, baut bawah, True Tone, dan respon tombol.',
+      knownFlaws: [
+        '<strong>Stabilisasi Action Mode</strong>: Uji mode Action di kamera video, pastikan penstabil gambar mulus.',
+        '<strong>Riwayat Servis Display</strong>: Cek di Pengaturan > Mengenai dari indikasi layar Unknown Part.',
+        '<strong>Port Lightning</strong>: Periksa kebersihan pin dari korosi.'
+      ]
+    },
+
+    // 13 Series
+    { 
+      id: 'ip13pm', 
+      name: 'iPhone 13 Pro Max', 
+      series: '13', 
+      year: 2021, 
+      chip: 'A15 Bionic', 
+      screen: '6.7″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-3x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2484, A2641, A2643, A2645',
+      tags: ['ProMotion 120Hz', 'Macro Mode', 'Triple 3x', 'Stainless Steel'], 
+      desc: 'Waspadai isu White/Green Screen pada layar 120Hz, uji lensa Macro, dan cek baut pentalobe.',
+      knownFlaws: [
+        '<strong>⚠️ RISIKO WSOD (White/Green Screen of Death)</strong>: Sangat rawan terjadi pada panel 120Hz seri 13 Pro akibat jalur display rapuh. Wajib tes kecerahan 100% pada latar putih solid dan restart unit berkali-kali!',
+        '<strong>Lensa Macro Otomatis</strong>: Dekatkan kamera 2cm dari tulisan, pastikan otomatis beralih tajam.',
+        '<strong>Telephoto 3x Optical Zoom</strong>: Cek mode 3x, pastikan tidak ada bintik debu di dalam lensa.'
+      ]
+    },
+    { 
+      id: 'ip13p', 
+      name: 'iPhone 13 Pro', 
+      series: '13', 
+      year: 2021, 
+      chip: 'A15 Bionic', 
+      screen: '6.1″ Super Retina XDR OLED (120Hz ProMotion)',
+      displayType: 'oled-120',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-3x',
+      hasLidar: true,
+      hasMacro: true,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2483, A2636, A2638, A2640',
+      tags: ['ProMotion 120Hz', 'Macro Mode', 'Triple 3x', 'LiDAR'], 
+      desc: 'Waspadai riwayat servis layar 120Hz, uji stabilitas autofocus kamera, dan Face ID.',
+      knownFlaws: [
+        '<strong>⚠️ RISIKO WSOD (White Screen / Layar Hijau)</strong>: Cek riwayat servis layar di Pengaturan > Mengenai. Jika layar pernah jumper teknisi, risiko kambuh sangat tinggi.',
+        '<strong>Sensor LiDAR & Portrait Malam</strong>: Pastikan fokus cepat di ruangan remang-remang.',
+        '<strong>True Tone & ProMotion</strong>: Pastikan kedua fitur aktif tanpa glitch.'
+      ]
+    },
+    { 
+      id: 'ip13', 
+      name: 'iPhone 13', 
+      series: '13', 
+      year: 2021, 
+      chip: 'A15 Bionic', 
+      screen: '6.1″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2482, A2631, A2633, A2635',
+      tags: ['Diagonal Dual Cam', 'Sensor-Shift OIS', 'Cinematic Video'], 
+      desc: 'Cek True Tone, baut pentalobe bawah, dan pastikan kamera tidak bergetar saat OIS aktif.',
+      knownFlaws: [
+        '<strong>Cinematic Mode Video</strong>: Uji perpindahan fokus wajah otomatis pada video Cinematic.',
+        '<strong>Notch Lebih Kecil 20%</strong>: Pastikan earpiece speaker atas bersih dan suara telepon lantang.',
+        '<strong>Riwayat Parts & Service</strong>: Cek status baterai & display di menu Mengenai.'
+      ]
+    },
+    { 
+      id: 'ip13mini', 
+      name: 'iPhone 13 mini', 
+      series: '13', 
+      year: 2021, 
+      chip: 'A15 Bionic', 
+      screen: '5.4″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2481, A2626, A2628, A2630',
+      tags: ['Compact 5.4"', 'Dual Cam', 'MagSafe', 'Lightning'], 
+      desc: 'Cek kapasitas maksimum baterai, keaslian layar compact, dan fungsi speaker.',
+      knownFlaws: [
+        '<strong>Kapasitas Baterai Kompak (2406 mAh)</strong>: Cek Battery Health di atas 80%, model mini lebih cepat aus baterainya.',
+        '<strong>Respons Sentuh di Ujung Sudut Layar</strong>: Pastikan layar mungil responsif terhadap ketukan jempol.',
+        '<strong>True Tone & Kerapatan OLED</strong>: Pastikan panel original tanpa dead pixel.'
+      ]
+    },
+
+    // 12 Series
+    { 
+      id: 'ip12pm', 
+      name: 'iPhone 12 Pro Max', 
+      series: '12', 
+      year: 2020, 
+      chip: 'A14 Bionic', 
+      screen: '6.7″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-2.5x',
+      hasLidar: true,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2342, A2410, A2411, A2412',
+      tags: ['Sensor-Shift OIS', 'LiDAR Sensor', 'Flat Edge', 'Triple 2.5x'], 
+      desc: 'Cek bezel stainless steel, sensor LiDAR, True Tone, dan kerapatan layar OLED flat edge.',
+      knownFlaws: [
+        '<strong>Sensor-Shift OIS Kamera Utama</strong>: Cek foto malam hari dan video, pastikan sensor stabil tanpa blur berlebih.',
+        '<strong>Sensor LiDAR 3D</strong>: Uji aplikasi Pengukur untuk mendeteksi kontur ruangan.',
+        '<strong>Bezel Stainless Steel Lebar</strong>: Cek baret mikro dan kelurusan bodi besar.'
+      ]
+    },
+    { 
+      id: 'ip12p', 
+      name: 'iPhone 12 Pro', 
+      series: '12', 
+      year: 2020, 
+      chip: 'A14 Bionic', 
+      screen: '6.1″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-2x',
+      hasLidar: true,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2341, A2406, A2407, A2408',
+      tags: ['LiDAR Sensor', 'Triple Cam', 'Ceramic Shield', 'Stainless Steel'], 
+      desc: 'Cek bodi kaca belakang, fungsi 3 lensa kamera, kelayakan baterai, dan Face ID.',
+      knownFlaws: [
+        '<strong>⚠️ ISU RECEIVER SPEAKER TELEPON</strong>: Model 12 & 12 Pro punya riwayat program servis resmi akibat modul speaker kuping mati (tidak keluar suara saat nelpon biasa). Wajib coba lakukan panggilan telepon biasa!',
+        '<strong>Green Tint pada Layar OLED Gelap</strong>: Buka gambar abu-abu pada kecerahan rendah di ruangan gelap, pastikan tidak ada rona kehijauan abnormal.'
+      ]
+    },
+    { 
+      id: 'ip12', 
+      name: 'iPhone 12', 
+      series: '12', 
+      year: 2020, 
+      chip: 'A14 Bionic', 
+      screen: '6.1″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2172, A2402, A2403, A2404',
+      tags: ['OLED Super Retina', 'MagSafe', 'Dual Cam', 'Flat Edge'], 
+      desc: 'Cek layar dari green tint / burn-in, riwayat servis Display di Mengenai, dan speaker penerima suara telepon.',
+      knownFlaws: [
+        '<strong>⚠️ ISU SPEAKER KUPING MATI (No Sound from Receiver)</strong>: Lakukan panggilan telepon langsung tanpa speakerphone, pastikan suara penelepon terdengar jernih dan keras.',
+        '<strong>Pemasangan Layar Flat Edge</strong>: Seri pertama dengan frame datar, pastikan tidak ada sela celah antara layar dan frame aluminium.'
+      ]
+    },
+    { 
+      id: 'ip12mini', 
+      name: 'iPhone 12 mini', 
+      series: '12', 
+      year: 2020, 
+      chip: 'A14 Bionic', 
+      screen: '5.4″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar', 'Kamera Belakang'],
+      officialCodes: 'A2176, A2398, A2399, A2400',
+      tags: ['Compact 5.4"', 'MagSafe', 'Dual Cam', 'OLED Flat'], 
+      desc: 'Periksa battery health secara teliti (kapasitas bawaan kecil 2227 mAh) dan sensitivitas sentuhan.',
+      knownFlaws: [
+        '<strong>Kapasitas Baterai Cepat Menurun (2227 mAh)</strong>: Cek apakah unit cepat panas saat browsing/video.',
+        '<strong>Respons Sentuh Lockscreen dengan Case</strong>: Pastikan sentuhan lockscreen lancar tanpa lag grounding.'
+      ]
+    },
+
+    // 11 Series
+    { 
+      id: 'ip11pm', 
+      name: 'iPhone 11 Pro Max', 
+      series: '11', 
+      year: 2019, 
+      chip: 'A13 Bionic', 
+      screen: '6.5″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-2x',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar'],
+      officialCodes: 'A2161, A2218, A2220',
+      tags: ['Midnight Green', 'Triple Cam 2x', 'Matte Back', 'OLED 6.5"'], 
+      desc: 'Cek baret di kaca kamera, keaslian layar OLED (bukan ganti LCD murah), dan Face ID.',
+      knownFlaws: [
+        '<strong>Layar Palsu (Diganti LCD Murah)</strong>: Banyak unit rekondisi yang layarnya diganti panel LCD KW. Cek deep black dan True Tone!',
+        '<strong>Face ID Rentan Kena Air</strong>: Pastikan Face ID tidak disabled akibat korosi di sensor atas.'
+      ]
+    },
+    { 
+      id: 'ip11p', 
+      name: 'iPhone 11 Pro', 
+      series: '11', 
+      year: 2019, 
+      chip: 'A13 Bionic', 
+      screen: '5.8″ Super Retina XDR OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'triple-2x',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar'],
+      officialCodes: 'A2160, A2215, A2217',
+      tags: ['Triple Cam 2x', 'Matte Back', 'Super Retina XDR', 'Compact Pro'], 
+      desc: 'Cek kelayakan baterai, 3 mode lensa kamera, dan riwayat Parts and Service History.',
+      knownFlaws: [
+        '<strong>Kamera 3 Lensa</strong>: Pindah 0.5x, 1x, 2x, pastikan ketiga lensa menyala dan fokus jernih.',
+        '<strong>Kaca Belakang Matte</strong>: Cek retak halus di sela modul kamera segitiga.'
+      ]
+    },
+    { 
+      id: 'ip11', 
+      name: 'iPhone 11', 
+      series: '11', 
+      year: 2019, 
+      chip: 'A13 Bionic', 
+      screen: '6.1″ Liquid Retina HD (LCD IPS)',
+      displayType: 'lcd',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai', 'Layar'],
+      officialCodes: 'A2111, A2221, A2223',
+      tags: ['Liquid Retina LCD', 'Dual Cam', 'Aluminium', 'Face ID'], 
+      desc: 'Model paling banyak beredar second. Waspadai layar ganti KW tebal, cek baut bawah & True Tone.',
+      knownFlaws: [
+        '<strong>⚠️ LAYAR LCD KW TEBAL (BEZEL TIDAK RATA)</strong>: iPhone 11 paling sering diganti layar LCD non-ori murah dengan bezel hitam tebal dan touch delay.',
+        '<strong>True Tone Hilang</strong>: Cek di Pusat Kontrol; jika tombol True Tone tidak ada, layar pasti pernah diganti tanpa copy serial.'
+      ]
+    },
+
+    // X / XS / XR & SE Series
+    { 
+      id: 'ipxsmax', 
+      name: 'iPhone XS Max', 
+      series: 'x-se', 
+      year: 2018, 
+      chip: 'A12 Bionic', 
+      screen: '6.5″ Super Retina HD OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai'],
+      officialCodes: 'A1921, A2101, A2102, A2104',
+      tags: ['OLED 6.5"', 'Dual Cam 2x', 'Stainless Steel', 'Face ID'], 
+      desc: 'Cek True Tone, Face ID (rawan mati jika pernah kena air), dan keaslian layar OLED.',
+      knownFlaws: [
+        '<strong>Face ID Mati Akibat Keringat/Air</strong>: Uji pendaftaran Face ID secara penuh.',
+        '<strong>Layar OLED Diganti LCD Murah</strong>: Perhatikan apakah layar terlihat tebal dan warna hitam tidak pekat.'
+      ]
+    },
+    { 
+      id: 'ipxs', 
+      name: 'iPhone XS', 
+      series: 'x-se', 
+      year: 2018, 
+      chip: 'A12 Bionic', 
+      screen: '5.8″ Super Retina HD OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai'],
+      officialCodes: 'A1920, A2097, A2098, A2100',
+      tags: ['OLED 5.8"', 'Dual Cam 2x', 'Stainless Steel', 'Face ID'], 
+      desc: 'Cek fungsi Face ID, keutuhan baut pentalobe, True Tone, dan kondisi baterai.',
+      knownFlaws: [
+        '<strong>Baterai Cepat Drop</strong>: Cek kapasitas maksimum baterai di Pengaturan.',
+        '<strong>Green Line OLED</strong>: Periksa apakah ada garis vertikal hijau di layar akibat benturan.'
+      ]
+    },
+    { 
+      id: 'ipxr', 
+      name: 'iPhone XR', 
+      series: 'x-se', 
+      year: 2018, 
+      chip: 'A12 Bionic', 
+      screen: '6.1″ Liquid Retina HD (LCD IPS)',
+      displayType: 'lcd',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'single',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai'],
+      officialCodes: 'A1984, A2105, A2106, A2108',
+      tags: ['Liquid Retina LCD', 'Single Cam 12MP', 'Aluminium', 'Face ID'], 
+      desc: 'Cek keaslian layar LCD, True Tone, fungsi Face ID, dan nomor model regional.',
+      knownFlaws: [
+        '<strong>Layar LCD Gantian Kualitas Buruk</strong>: Cek kerataan lampu backlight di tepi layar.',
+        '<strong>Haptic Touch</strong>: Seri pertama tanpa 3D Touch fisik, uji respon getaran saat menekan ikon.'
+      ]
+    },
+    { 
+      id: 'ipx', 
+      name: 'iPhone X', 
+      series: 'x-se', 
+      year: 2017, 
+      chip: 'A11 Bionic', 
+      screen: '5.8″ Super Retina HD OLED (60Hz)',
+      displayType: 'oled-60',
+      displayCutout: 'notch',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'face-id',
+      cameraSetup: 'dual',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'stainless-steel',
+      hasNativeCycleCount: false,
+      partsHistory: [],
+      officialCodes: 'A1865, A1901, A1902',
+      tags: ['OLED Pertama', 'Dual Cam', 'Stainless Steel', 'Face ID Generasi 1'], 
+      desc: 'Periksa ghost touch pada layar, fungsi Face ID, dan kelayakan kapasitas baterai.',
+      knownFlaws: [
+        '<strong>⚠️ ISU TOUCH SCREEN / GHOST TOUCH</strong>: iPhone X memiliki riwayat modul touch screen error/mengetik sendiri. Gerakkan ikon aplikasi ke seluruh sudut layar!',
+        '<strong>Face ID Mati Permanen</strong>: Sangat umum pada unit X bekas karena sensor TrueDepth generasi pertama sangat sensitif debu/air.'
+      ]
+    },
+    { 
+      id: 'ipse3', 
+      name: 'iPhone SE (Gen 3)', 
+      series: 'x-se', 
+      year: 2022, 
+      chip: 'A15 Bionic', 
+      screen: '4.7″ Retina HD (LCD IPS)',
+      displayType: 'lcd',
+      displayCutout: 'bezels',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'touch-id',
+      cameraSetup: 'single',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai'],
+      officialCodes: 'A2595, A2782, A2783, A2784, A2785',
+      tags: ['Touch ID Home', 'Single Cam 12MP', '5G Network', 'Compact 4.7"'], 
+      desc: 'Cek fungsi Touch ID pada tombol Home fisik, True Tone, koneksi 5G, dan kesehatan baterai.',
+      knownFlaws: [
+        '<strong>⚠️ TOMBOL HOME & TOUCH ID ASLI</strong>: Sensor sidik jari terikat ke motherboard. Jika tombol pernah diganti pihak ketiga, Touch ID mati selamanya!',
+        '<strong>Daya Tahan Baterai Mungil (2018 mAh)</strong>: Cek persentase Battery Health, jangan beli jika di bawah 78% tanpa potongan harga.'
+      ]
+    },
+    { 
+      id: 'ipse2', 
+      name: 'iPhone SE (Gen 2)', 
+      series: 'x-se', 
+      year: 2020, 
+      chip: 'A13 Bionic', 
+      screen: '4.7″ Retina HD (LCD IPS)',
+      displayType: 'lcd',
+      displayCutout: 'bezels',
+      portType: 'lightning',
+      buttonType: 'mute-switch',
+      hasCameraControl: false,
+      biometrics: 'touch-id',
+      cameraSetup: 'single',
+      hasLidar: false,
+      hasMacro: false,
+      has48MP: false,
+      materialFrame: 'aluminum',
+      hasNativeCycleCount: false,
+      partsHistory: ['Baterai'],
+      officialCodes: 'A2275, A2296, A2298',
+      tags: ['Touch ID Home', 'Single Cam 12MP', 'Lightning', 'Compact 4.7"'], 
+      desc: 'Cek sensor Touch ID, baut bawah, keaslian layar LCD, dan daya tahan baterai.',
+      knownFlaws: [
+        '<strong>Sensor Touch ID Asli</strong>: Uji pemindaian sidik jari dan respon getar klik tombol Home.',
+        '<strong>Baterai Kecil (1821 mAh)</strong>: Sangat cepat habis jika health sudah di bawah 80%.'
+      ]
+    }
+  ];
+
+  var currentSelectedModel = null;
+  var activeSeriesFilter = 'all';
+  var modelSearchQuery = '';
+
+  var SECTION_LABELS = {body:'Body & fisik', camera:'Kamera', model:'Nomor model', screen:'Layar'};
+
+  var CODES = [
+    {code:'LL', country:'Amerika Serikat', flag:'\uD83C\uDDFA\uD83C\uDDF8', note:'Beredar global. Pada iPhone 14 ke atas, unit US adalah varian eSIM Only tanpa lubang SIM fisik!'},
+    {code:'VC', country:'Kanada', flag:'\uD83C\uDDE8\uD83C\uDDE6'},
+    {code:'ZP', country:'Hong Kong & Macau', flag:'\uD83C\uDDED\uD83C\uDDF0', note:'Banyak beredar dual physical nano-SIM (dua kartu fisik bolak-balik).'},
+    {code:'ZA', country:'Singapura', flag:'\uD83C\uDDF8\uD83C\uDDEC', note:'Garansi regional Apple Store Orchard Road Singapura.'},
+    {code:'J', country:'Jepang', flag:'\uD83C\uDDEF\uD83C\uDDF5', note:'Suara shutter kamera otomatis senyap jika memakai SIM card operator Indonesia (iOS 15+).'},
+    {code:'KH', country:'Korea Selatan', flag:'\uD83C\uDDF0\uD83C\uDDF7', note:'Suara shutter kamera otomatis senyap jika memakai SIM card operator Indonesia (iOS 15+).'},
+    {code:'TA', country:'Taiwan', flag:'\uD83C\uDDF9\uD83C\uDDFC'},
+    {code:'CH', country:'Tiongkok', flag:'\uD83C\uDDE8\uD83C\uDDF3', note:'Dual nano-SIM fisik, tidak ada fitur FaceTime Audio bawaan pabrik.'},
+    {code:'X', country:'Australia & Selandia Baru', flag:'\uD83C\uDDE6\uD83C\uDDFA'},
+    {code:'B', country:'Inggris (UK)', flag:'\uD83C\uDDEC\uD83C\uDDE7'},
+    {code:'MY', country:'Malaysia', flag:'\uD83C\uDDF2\uD83C\uDDFE'},
+    {code:'PA', country:'Indonesia', flag:'\uD83C\uDDEE\uD83C\uDDE9', note:'Distribusi resmi TAM / iBox / Digimap / Erafone. Bergaransi resmi Indonesia & IMEI otomatis whitelisted.'},
+    {code:'ID', country:'Indonesia', flag:'\uD83C\uDDEE\uD83C\uDDE9', note:'Distribusi resmi Indonesia non-TAM (seperti GDN / Blibli). IMEI aman & resmi terdaftar.'},
+    {code:'SA', country:'Indonesia', flag:'\uD83C\uDDEE\uD83C\uDDE9', note:'Distribusi resmi Indonesia jalur distributor era lama.'}
+  ];
+
+  // ==========================================================
+  // DYNAMIC INSPECTION SECTION BUILDER (ADAPTIVE TO MODEL SPECS)
+  // ==========================================================
+  function buildModelInspectionSections(model) {
+    var frameName = model.materialFrame === 'titanium' ? 'Titanium Grade 5' : (model.materialFrame === 'stainless-steel' ? 'Stainless Steel Bedah' : 'Aluminium Anodized');
+    var frameDesc = '';
+    if (model.materialFrame === 'titanium') {
+      frameDesc = 'Cek frame Titanium Grade 5 dari dent benturan di sudut bodi dan perubahan warna sementara akibat minyak tangan (bisa dilap). Rangka titanium sangat kokoh namun jika pernah jatuh keras dapat meninggalkan lekukan di sambungan layar.';
+    } else if (model.materialFrame === 'stainless-steel') {
+      frameDesc = 'Cek rangka Stainless Steel bedah dari baret mikro (swirl marks) dan penyok di sudut. Pastikan celah bodi ke layar rapat dan presisi tanpa sisa lem atau renggang.';
+    } else {
+      frameDesc = 'Cek sasis aluminium anodized dari korosi bintik putih ("jamur casing") dan lekukan dent benturan. Aluminium lebih empuk terhadap benturan keras.';
+    }
+
+    var portItem = null;
+    if (model.portType === 'usb-c-3') {
+      portItem = {
+        id: 'b_port_usbc',
+        title: 'Port USB-C 3.0 (Kecepatan Transfer 10 Gbps)',
+        desc: 'Colokkan kabel Type-C bolak-balik. Uji kecepatan transfer data dan pengisian daya cepat. Pastikan lubang port bersih dari serat kain atau debu padat dan lidah pin konektor tengah tidak retak/goyang.',
+        tag: 'Hardware USB-C 3',
+        tagType: 'pro'
+      };
+    } else if (model.portType === 'usb-c-2') {
+      portItem = {
+        id: 'b_port_usbc',
+        title: 'Port USB-C Universal',
+        desc: 'Pastikan colokan kabel Type-C terpasang kencang dan tidak goyang saat digerakkan perlahan. Cek charging bolak-balik serta deteksi saat disambungkan ke laptop/komputer.',
+        tag: 'Hardware Type-C',
+        tagType: 'hardware'
+      };
+    } else {
+      portItem = {
+        id: 'b_port_lightning',
+        title: 'Port Lightning Apple 8-Pin',
+        desc: 'Periksa 8 pin tembaga di dalam port Lightning dari korosi kehijauan atau pin terbakar. Colokkan kabel bolak-balik, pastikan mengisi daya stabil tanpa terputus saat kabel digoyang pelan.',
+        tag: 'Hardware Lightning',
+        tagType: 'hardware'
+      };
+    }
+
+    var buttonItem = null;
+    if (model.buttonType === 'action-button') {
+      buttonItem = {
+        id: 'b_action_btn',
+        title: 'Action Button (Tombol Aksi Haptic)',
+        desc: 'Tekan dan tahan Action Button di atas tombol volume. Rasakan hentakan Taptic Engine dan pastikan pintasan (Senter, Hening, Voice Memo, Kamera) aktif instan. Tombol tidak boleh kendor atau macet.',
+        tag: 'Action Button',
+        tagType: 'pro'
+      };
+    } else if (model.biometrics === 'touch-id') {
+      buttonItem = {
+        id: 'b_home_btn',
+        title: 'Tombol Home Solid-State & Touch ID',
+        desc: 'Tekan tombol Home dengan daya menyala. Tombol ini tidak bergerak fisik melainkan menggunakan getaran Taptic Engine. Pastikan respon klik solid dan pemindaian sidik jari Touch ID terbaca instan.',
+        tag: 'Touch ID Kritis',
+        tagType: 'critical'
+      };
+    } else {
+      buttonItem = {
+        id: 'b_mute_switch',
+        title: 'Saklar Hening / Mute Switch Fisik',
+        desc: 'Geser saklar diam/dering ke atas dan bawah. Pastikan aksen warna oranye terlihat jelas saat mode hening aktif dan getaran Taptic Engine bergetar mantap satu kali tanpa delay.',
+        tag: 'Saklar Fisik',
+        tagType: 'hardware'
+      };
+    }
+
+    // Body items
+    var bodyItems = [
+      {
+        id: 'b_chassis',
+        title: 'Kerataan bodi & sasis (' + frameName + ')',
+        desc: frameDesc,
+        tag: frameName,
+        tagType: 'hardware'
+      },
+      {
+        id: 'b_pentalobe',
+        title: 'Dua baut pentalobe bawah',
+        desc: 'Periksa dua sekrup bintang pentalobe di samping port pengisian. Kepala baut yang slek, lecet mata obeng tajam, berkarat, atau warna sekrup tidak seragam menandakan unit pernah dibongkar teknisi.',
+        tag: 'Deteksi Bongkar',
+        tagType: 'critical'
+      },
+      portItem,
+      buttonItem
+    ];
+
+    if (model.hasCameraControl) {
+      bodyItems.push({
+        id: 'b_camera_ctrl',
+        title: 'Tombol Camera Control (Sensor Sapphire Kapasitif)',
+        desc: 'Tekan satu kali untuk buka kamera, tekan ringan dua kali (light-press) untuk memunculkan menu kontrol, dan geser jari di atas kristal safir untuk zoom/eksposur. Pastikan sensor sentuh geser mulus tanpa patah-patah!',
+        tag: 'Fitur Baru 16/17',
+        tagType: 'pro'
+      });
+    }
+
+    bodyItems.push({
+      id: 'b_sim_tray',
+      title: 'Baki SIM fisik & Indikator Cairan (LCI)',
+      desc: 'Keluarkan SIM tray. Teropong stiker LCI di dalam slot: warna putih/perak = aman belum kena cairan; warna merah/pink = pernah kemasukan cairan. (Catatan: Jika unit berkode US LL/A pada seri 14/15/16/17, unit adalah varian eSIM Only tanpa lubang SIM tray fisik).',
+      tag: 'Segel Air LCI',
+      tagType: 'critical'
+    });
+
+    bodyItems.push({
+      id: 'b_back_glass',
+      title: 'Kaca Belakang & Logo Apple',
+      desc: 'Periksa retak rambut di sekitar modul kamera dan keaslian tekstur kaca belakang (' + (model.year >= 2022 ? 'desain kaca modular lepas' : 'kaca bodi presisi') + '). Kaca belakang gantian KW sering memiliki logo Apple pudar, tidak rata dengan frame, atau tercium bau lem tajam.',
+      tag: 'Kaca Belakang',
+      tagType: 'hardware'
+    });
+
+    // Camera items
+    var cameraItems = [];
+    var camTitle = '';
+    var camDesc = '';
+    if (model.cameraSetup === 'single') {
+      camTitle = 'Lensa Kamera Utama 12MP Wide';
+      camDesc = 'Buka aplikasi Kamera bawaan, pastikan viewfinder tajam, warna akurat, dan tidak ada freeze saat mengambil foto atau merekam video 4K 60fps.';
+    } else if (model.cameraSetup === 'dual') {
+      camTitle = 'Dua Lensa (Wide 1x + Ultra Wide 0.5x)';
+      camDesc = 'Buka aplikasi Kamera, pindah antara mode 0.5x dan 1x. Pastikan gambar berpindah mulus tanpa jeda lag berlebih atau layar berkedip hitam.';
+    } else if (model.cameraSetup === 'triple-5x') {
+      camTitle = 'Tiga Lensa (0.5x Ultra Wide + 1x Wide + 5x Tetraprism Periskop)';
+      camDesc = 'Uji seluruh transisi zoom: 0.5x, 1x, 2x, dan 5x optik. Lensa 5x periskop menggunakan sistem prisma pemantul; pastikan gambar di 5x tajam dan stabil tanpa blur bergetar.';
+    } else if (model.cameraSetup === 'triple-3x') {
+      camTitle = 'Tiga Lensa (0.5x Ultra Wide + 1x Wide + 3x Telephoto)';
+      camDesc = 'Uji transisi zoom 0.5x, 1x, 2x, dan 3x optik. Pastikan lensa telephoto 3x mengunci gambar tajam dan tidak ada delay saat berganti lensa.';
+    } else {
+      camTitle = 'Tiga Lensa (0.5x Ultra Wide + 1x Wide + 2x Telephoto)';
+      camDesc = 'Uji transisi zoom 0.5x, 1x, dan 2x optik. Pastikan seluruh 3 sensor kamera aktif dan gambar bersih.';
+    }
+
+    cameraItems.push({
+      id: 'c_lensa_array',
+      title: camTitle,
+      desc: camDesc,
+      tag: 'Modul Kamera',
+      tagType: 'hardware'
+    });
+
+    var afDesc = 'Coba fokus ke objek dekat (jarak 10 cm) lalu ke objek jauh secara bergantian. Fokus harus mengunci instan. ';
+    if (model.id === 'ip14p' || model.id === 'ip14pm') {
+      afDesc += 'Waspadai isu OIS getar pada iPhone 14 Pro: buka kamera di aplikasi pihak ketiga (Instagram/TikTok), pastikan lensa kamera tidak bergetar mekanis atau bersuara berdengung!';
+    } else {
+      afDesc += 'Pastikan mekanisme penstabil sensor (Sensor-Shift OIS) bekerja senyap tanpa getaran abnormal.';
+    }
+
+    cameraItems.push({
+      id: 'c_autofocus',
+      title: 'Autofocus & Sensor Penstabil (OIS)',
+      desc: afDesc,
+      tag: (model.id === 'ip14p' || model.id === 'ip14pm') ? 'Uji Kritis OIS' : 'Autofocus',
+      tagType: (model.id === 'ip14p' || model.id === 'ip14pm') ? 'critical' : 'hardware'
+    });
+
+    if (model.hasLidar) {
+      cameraItems.push({
+        id: 'c_lidar',
+        title: 'Sensor LiDAR 3D Scanner (Khusus Seri Pro)',
+        desc: 'Buka aplikasi bawaan Apple "Pengukur" (Measure). Arahkan kamera ke meja atau lantai; garis pengukur LiDAR harus mengunci instan dalam hitungan detik. Coba juga foto Portrait malam hari di ruangan redup, LiDAR membantu mengunci fokus di tempat gelap.',
+        tag: 'Sensor LiDAR',
+        tagType: 'pro'
+      });
+    }
+
+    if (model.hasMacro) {
+      cameraItems.push({
+        id: 'c_macro',
+        title: 'Mode Macro Otomatis (Fokus Jarak 2 cm)',
+        desc: 'Dekatkan kamera ke tulisan kecil atau permukaan koin hingga jarak 2 cm. Perhatikan ikon bunga kuning (makro) aktif di pojok kiri bawah layar dan lensa otomatis beralih menampilkan detail makro yang sangat tajam.',
+        tag: 'Macro Mode',
+        tagType: 'pro'
+      });
+    }
+
+    if (model.has48MP) {
+      if (model.name.indexOf('Pro') !== -1) {
+        cameraItems.push({
+          id: 'c_48mp',
+          title: 'Sensor 48MP Pro, Apple ProRAW & HEIF Max',
+          desc: 'Buka Pengaturan > Kamera > Format > ProRAW & Kontrol Resolusi. Aktifkan Apple ProRAW (12MP/48MP) dan format HEIF Max 48MP (khusus seri Pro). Pada aplikasi Kamera, pastikan toggle RAW / HEIF MAX aktif di pojok kanan atas. Ambil foto 48MP lalu perbesar (zoom) detail maksimal untuk memastikan sensor quad-pixel asli membaca resolusi penuh tanpa noise rekondisi.',
+          tag: 'ProRAW & 48MP',
+          tagType: 'pro'
+        });
+      } else {
+        cameraItems.push({
+          id: 'c_48mp',
+          title: 'Sensor 48MP Utama & Kontrol Resolusi (HEIF Max 48MP)',
+          desc: 'Buka Pengaturan > Kamera > Format > Kontrol Resolusi, aktifkan HEIF Max atau JPEG Max (hingga 48 MP) — catatan: fitur Apple ProRAW eksklusif untuk seri Pro dan tidak tersedia di seri ' + (model.name.indexOf('Plus') !== -1 ? 'Plus' : 'reguler') + '. Pada aplikasi Kamera, ketuk tombol "HEIF MAX" di pojok kanan atas, ambil foto di mode 48MP dan perbesar detail gambar; pastikan tekstur sangat tajam & transisi in-sensor crop zoom optik 2x bekerja jernih.',
+          tag: 'HEIF Max 48MP',
+          tagType: 'hardware'
+        });
+      }
+    } else if (model.name.indexOf('Pro') !== -1 && (model.series === '12' || model.series === '13')) {
+      cameraItems.push({
+        id: 'c_proraw_12mp',
+        title: 'Format Apple ProRAW 12MP (Khusus Seri Pro)',
+        desc: 'Buka Pengaturan > Kamera > Format, aktifkan fitur Apple ProRAW (pertama hadir di seri 12 Pro & 13 Pro). Pada aplikasi Kamera, pastikan tombol "RAW" muncul di pojok kanan atas. Ambil foto format DNG ProRAW tanpa kompresi olahan; pastikan file tersimpan ~25-30 MB membuktikan pemrosesan ISP chip Apple murni.',
+        tag: 'Apple ProRAW',
+        tagType: 'pro'
+      });
+    }
+
+    cameraItems.push({
+      id: 'c_flash',
+      title: 'True Tone Flash Belakang & Senter',
+      desc: 'Aktifkan flash saat memotret di ruangan gelap dan nyalakan senter di Pusat Kontrol dengan 4 tingkatan kecerahan. Seluruh LED amber dan putih harus menyala stabil tanpa flicker.',
+      tag: 'Flash LED',
+      tagType: 'hardware'
+    });
+
+    if (model.biometrics === 'face-id') {
+      cameraItems.push({
+        id: 'c_truedepth',
+        title: 'Kamera Depan & Sensor Face ID TrueDepth',
+        desc: 'Buka Pengaturan > Face ID & Kode Sandi > Atur Face ID. Putar wajah mengikuti lingkaran sensor. Pastikan proyektor titik inframerah membaca kontur wajah tanpa muncul pesan "Face ID dinonaktifkan".',
+        tag: 'TrueDepth Face ID',
+        tagType: 'critical'
+      });
+    } else {
+      cameraItems.push({
+        id: 'c_front_cam',
+        title: 'Kamera Depan FaceTime HD',
+        desc: 'Buka kamera depan, periksa ketajaman gambar selfie, pastikan tidak ada debu di balik kaca layar depan dan mikrofon depan menangkap audio video secara jernih.',
+        tag: 'Kamera Depan',
+        tagType: 'hardware'
+      });
+    }
+
+    // Model items
+    var modelItems = [
+      {
+        id: 'm_model_num',
+        title: 'Nomor Model Resmi Apple (' + (model.officialCodes || 'Kode Resmi') + ')',
+        desc: 'Buka Pengaturan > Umum > Mengenai, ketuk nomor model sampai berubah dari kode A-xxxx menjadi kode part. Pastikan kode A-xxxx sesuai dengan seri resmi ' + model.name + '.',
+        tag: 'Model A-xxxx',
+        tagType: 'hardware'
+      },
+      {
+        id: 'm_region_code',
+        title: 'Kode Wilayah (PA/A vs Inter) & Status IMEI',
+        desc: 'Perhatikan 2 huruf sebelum garis miring "/A". PA/A atau ID/A adalah unit resmi Indonesia (garansi TAM/iBox/Digimap). Jika kode internasional (LL/A, ZP/A, J/A, dll.), pastikan IMEI terdaftar resmi di Bea Cukai / Kemenperin agar sinyal operator tidak terblokir!',
+        tag: 'Garansi & IMEI',
+        tagType: 'critical'
+      }
+    ];
+
+    // Screen items
+    var screenItems = [];
+    screenItems.push({
+      id: 's_parts_history',
+      title: 'Riwayat Servis Resmi (Parts and Service History)',
+      desc: 'Buka Pengaturan > Umum > Mengenai. Pada model ' + model.name + ', iOS melacak riwayat: ' + model.partsHistory.join(', ') + '. Status "Genuine Apple Part" = suku cadang asli Apple; status "Unknown Part" = suku cadang bukan orisinal pabrik.',
+      tag: 'Riwayat Servis',
+      tagType: 'critical'
+    });
+
+    screenItems.push({
+      id: 's_true_tone',
+      title: 'Fitur True Tone Layar',
+      desc: 'Tarik Pusat Kontrol, tekan dan tahan slider kecerahan layar. Pastikan ikon True Tone ada dan saat diaktifkan warna layar menyesuaikan kehangatan cahaya ruangan. Hilangnya True Tone adalah tanda kuat layar pernah diganti.',
+      tag: 'True Tone',
+      tagType: 'critical'
+    });
+
+    if (model.displayType === 'oled-120') {
+      if (model.id === 'ip13p' || model.id === 'ip13pm') {
+        screenItems.push({
+          id: 's_wsod_13p',
+          title: '⚠️ UJI KRITIS: Risiko White/Green Screen (WSOD 13 Pro)',
+          desc: 'Isu hardware paling banyak ditemui pada iPhone 13 Pro/Max akibat jalur fleksibel 120Hz rapuh. Buka layar putih penuh pada kecerahan 100%, rekam video 4K 60fps beberapa menit sampai bodi hangat, lalu restart ponsel. Pastikan layar TIDAK mendadak putih/hijau solid atau bergaris horizontal!',
+          tag: 'Kritis WSOD',
+          tagType: 'critical'
+        });
+      } else {
+        screenItems.push({
+          id: 's_promotion',
+          title: 'Refresh Rate ProMotion 120Hz',
+          desc: 'Gulir menu Pengaturan secara cepat. Panel 120Hz ProMotion terasa sangat licin tanpa stuttering. Aktifkan Mode Daya Rendah (Low Power Mode) di Pengaturan Baterai untuk memastikan sistem membatasi refresh rate ke 60Hz secara normal.',
+          tag: 'ProMotion 120Hz',
+          tagType: 'pro'
+        });
+      }
+    } else if (model.displayType === 'lcd') {
+      screenItems.push({
+        id: 's_lcd_lightbleed',
+        title: 'Panel Layar Liquid Retina LCD (Uniformitas Backlight)',
+        desc: 'Tampilkan layar hitam/abu-abu di tempat gelap. Layar LCD IPS original Apple memiliki distribusi cahaya rata. Waspadai bayangan hitam tebal di pojok ("vignette") atau warna pudar kusam yang menandakan layar LCD KW murah.',
+        tag: 'Layar LCD IPS',
+        tagType: 'hardware'
+      });
+    } else {
+      screenItems.push({
+        id: 's_oled_burnin',
+        title: 'Panel Layar Super Retina OLED 60Hz & Cek Burn-in',
+        desc: 'Buka gambar abu-abu solid dan putih bersih. Pixel OLED asli menghasilkan warna hitam pekat sempurna. Pastikan tidak ada bayangan keyboard, icon baterai, atau bar navigasi yang membekas permanen (burn-in).',
+        tag: 'Layar OLED 60Hz',
+        tagType: 'hardware'
+      });
+    }
+
+    if (model.displayCutout === 'dynamic-island') {
+      screenItems.push({
+        id: 's_dynamic_island',
+        title: 'Interaktivitas Dynamic Island',
+        desc: 'Putar lagu di Apple Music/Spotify atau nyalakan Timer di Jam, lalu kembali ke Home. Dynamic Island harus membesar memuat animasi mini. Ketuk & tahan untuk membuka widget. Pastikan tidak ada dead pixel di sekitar kamera depan.',
+        tag: 'Dynamic Island',
+        tagType: 'pro'
+      });
+    }
+
+    screenItems.push({
+      id: 's_kerataan_layar',
+      title: 'Kerataan Pemasangan Layar & Celah Frame',
+      desc: 'Lihat tepi kaca dari samping. Layar asli duduk rata presisi dengan frame. Layar yang sedikit menonjol, tidak simetris, atau ada sisa lem hitam di tepi membuktikan unit pernah diganti layarnya.',
+      tag: 'Kerataan Layar',
+      tagType: 'hardware'
+    });
+
+    screenItems.push({
+      id: 's_baret_kaca',
+      title: 'Baret Dalam & Noda di Bawah Kaca',
+      desc: 'Matikan layar, gunakan senter ponsel lain dengan sudut miring 45 derajat. Periksa baret dalam, gelembung debu, atau bercak jamur di bawah lapisan kaca pelindung.',
+      tag: 'Fisik Kaca',
+      tagType: 'hardware'
+    });
+
+    screenItems.push({
+      id: 's_touch_response',
+      title: 'Respons Sentuh & Multi-Touch Seluruh Sudut',
+      desc: 'Tahan salah satu ikon aplikasi di Home hingga bergetar (jiggle mode), seret ikon tersebut mengelilingi seluruh tepi layar, keempat sudut, hingga area keyboard. Ikon tidak boleh terlepas sendiri.',
+      tag: 'Multi-Touch',
+      tagType: 'critical'
+    });
+
+    if (model.hasNativeCycleCount) {
+      screenItems.push({
+        id: 's_battery_cycle',
+        title: 'Siklus Baterai Bawaan (Cycle Count) & Batas 80%',
+        desc: 'Buka Pengaturan > Baterai > Kesehatan & Pengisian Baterai. Cek Tanggal Pembuatan, Pertama Pakai, dan Jumlah Siklus (Cycle Count). HP bekas pemakaian 1 tahun normalnya memiliki 250-500 siklus. Jika unit bekas tapi siklus cuma 5-15, waspadai baterai suntikan/resetter!',
+        tag: 'Cycle Count Asli',
+        tagType: 'critical'
+      });
+    } else {
+      screenItems.push({
+        id: 's_battery_health',
+        title: 'Kesehatan Baterai (Kapasitas Maksimum)',
+        desc: 'Buka Pengaturan > Baterai > Kesehatan Baterai. Idealnya kapasitas maksimum masih di atas 80%. Waspadai jika kapasitas berupa tanda strip (-) atau muncul "Pesan Penting Mengenai Baterai" yang menandakan baterai diganti tanpa pindah BMS asli.',
+        tag: 'Battery Health',
+        tagType: 'hardware'
+      });
+    }
+
+    return {
+      body: bodyItems,
+      camera: cameraItems,
+      model: modelItems,
+      screen: screenItems
+    };
+  }
+
+  // ==========================================================
+  // SVG DIAGRAM GENERATOR FOR ALL CHECKPOINTS
+  // ==========================================================
+  function svg(viewBox, inner){
+    return '<svg viewBox="'+viewBox+'" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">'+inner+'</svg>';
+  }
+
+  function settingsNav(header, rows, hi){
+    var y0=46, rh=27;
+    var rowsSvg = rows.map(function(r,i){
+      var ry = y0 + i*rh;
+      var isHl = i===hi;
+      return '<g>'+
+        (isHl ? '<rect x="12" y="'+(ry-18)+'" width="196" height="24" rx="6" fill="#EFF6FF" stroke="#0066FF" stroke-width="1.2" class="hl-pulse"/>' : '')+
+        '<text x="26" y="'+ry+'" font-size="10" fill="'+(isHl?'#0066FF':'#475569')+'" font-family="Plus Jakarta Sans, sans-serif" font-weight="'+(isHl?'700':'500')+'">'+r+'</text>'+
+        '<text x="203" y="'+ry+'" font-size="11" fill="#94A3B8" text-anchor="end">\u203A</text>'+
+      '</g>';
+    }).join('');
+    return '<rect x="10" y="10" width="200" height="150" rx="14" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<text x="110" y="27" font-size="10" text-anchor="middle" fill="#0F172A" font-family="Plus Jakarta Sans, sans-serif" font-weight="700">'+header+'</text>'+
+      '<line x1="10" y1="36" x2="210" y2="36" stroke="#E2E8F0" stroke-width="1"/>'+
+      rowsSvg;
+  }
+
+  var APPLE_LOGO = 
+    '<g transform="translate(62, 136) scale(0.82)">'+
+      '<path d="M15.5 10.2c-.1-2.5 2-3.7 2.1-3.8-1.2-1.7-3-2-3.6-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.3.9 1.3 1.9 2.7 3.3 2.6 1.3-.1 1.9-.9 3.5-.9s2.1.9 3.5.8c1.4 0 2.4-1.3 3.2-2.6 1-1.5 1.4-3 1.5-3.1-.1-.1-2.8-1.1-2.8-4.2zM12.7 3c.7-.9 1.2-2.1 1.1-3.3-1 .1-2.3.7-3 1.6-.6.8-1.2 2-1 3.2 1.2.1 2.2-.6 2.9-1.5z" fill="#94A3B8"/>'+
+    '</g>';
+
+  var CAMERA_BUMP_PRO =
+    '<rect x="24" y="18" width="48" height="48" rx="14" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/>'+
+    // Lensa 1 (Ultra Wide - kiri atas)
+    '<circle cx="36" cy="30" r="9" fill="#CBD5E1" stroke="#64748B" stroke-width="1.2"/>'+
+    '<circle cx="36" cy="30" r="6.5" fill="#0F172A"/>'+
+    '<circle cx="36" cy="30" r="3.5" fill="#1E293B"/>'+
+    '<circle cx="34.8" cy="28.8" r="1.2" fill="#38BDF8" opacity="0.85"/>'+
+    // Lensa 2 (Main Wide - kiri bawah)
+    '<circle cx="36" cy="54" r="9" fill="#CBD5E1" stroke="#64748B" stroke-width="1.2"/>'+
+    '<circle cx="36" cy="54" r="6.5" fill="#0F172A"/>'+
+    '<circle cx="36" cy="54" r="3.5" fill="#1E293B"/>'+
+    '<circle cx="34.8" cy="52.8" r="1.2" fill="#38BDF8" opacity="0.85"/>'+
+    // Lensa 3 (Telephoto - kanan tengah)
+    '<circle cx="60" cy="42" r="9" fill="#CBD5E1" stroke="#64748B" stroke-width="1.2"/>'+
+    '<circle cx="60" cy="42" r="6.5" fill="#0F172A"/>'+
+    '<circle cx="60" cy="42" r="3.5" fill="#1E293B"/>'+
+    '<circle cx="58.8" cy="40.8" r="1.2" fill="#38BDF8" opacity="0.85"/>'+
+    // True Tone Flash (kanan atas)
+    '<circle cx="60" cy="24" r="4.5" fill="#FEF3C7" stroke="#CBD5E1" stroke-width="1"/>'+
+    '<circle cx="60" cy="24" r="2.2" fill="#F59E0B"/>'+
+    // LiDAR Scanner (kanan bawah)
+    '<circle cx="60" cy="58" r="4.5" fill="#0F172A" stroke="#475569" stroke-width="1"/>'+
+    '<circle cx="60" cy="58" r="2.8" fill="#020617"/>'+
+    // Mic hole
+    '<circle cx="48" cy="60" r="1" fill="#475569"/>';
+
+  var BACK =
+    '<rect x="14" y="8" width="112" height="244" rx="26" fill="#F8FAFC" stroke="#64748B" stroke-width="2"/>'+
+    CAMERA_BUMP_PRO +
+    APPLE_LOGO;
+
+  var FRONT =
+    '<rect x="14" y="8" width="112" height="244" rx="26" fill="#F8FAFC" stroke="#64748B" stroke-width="2"/>'+
+    '<rect x="22" y="16" width="96" height="228" rx="18" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>'+
+    '<rect x="52" y="22" width="36" height="8" rx="4" fill="#0F172A"/>'+
+    '<rect x="57" y="238" width="26" height="3" rx="1.5" fill="#CBD5E1"/>';
+
+  var DIAGRAMS = {
+    // Body Diagrams
+    b_chassis: svg('0 0 140 110',
+      '<path d="M20 60 V32 Q20 20 32 20 H60" fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>'+
+      '<path d="M30 56 V40 Q30 30 40 30 H56" fill="none" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round"/>'+
+      '<line x1="24" y1="24" x2="30" y2="30" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<circle cx="27" cy="27" r="3" fill="#0066FF" class="hl-pulse"/>'+
+      '<text x="70" y="90" font-size="9" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">kerataan sasis</text>'),
+    
+    b_pentalobe: svg('0 0 220 90',
+      '<rect x="10" y="20" width="200" height="50" rx="16" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="95" y="38" width="30" height="14" rx="4" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>'+
+      '<circle cx="34" cy="45" r="1.6" fill="#CBD5E1"/><circle cx="44" cy="45" r="1.6" fill="#CBD5E1"/><circle cx="54" cy="45" r="1.6" fill="#CBD5E1"/>'+
+      '<circle cx="166" cy="45" r="1.6" fill="#CBD5E1"/><circle cx="176" cy="45" r="1.6" fill="#CBD5E1"/><circle cx="186" cy="45" r="1.6" fill="#CBD5E1"/>'+
+      '<circle cx="78" cy="45" r="5" class="hl-ring hl-pulse"/><circle cx="78" cy="45" r="1.2" fill="#0066FF"/>'+
+      '<circle cx="142" cy="45" r="5" class="hl-ring hl-pulse"/><circle cx="142" cy="45" r="1.2" fill="#0066FF"/>'+
+      '<text x="110" y="14" font-size="9" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">baut pentalobe</text>'),
+
+    b_port_usbc: svg('0 0 200 90',
+      '<rect x="10" y="20" width="180" height="50" rx="16" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="75" y="36" width="50" height="18" rx="9" fill="#EFF6FF" stroke="#0066FF" stroke-width="2" class="hl-pulse"/>'+
+      '<rect x="87" y="43" width="26" height="4" rx="2" fill="#0066FF"/>'+
+      '<text x="100" y="14" font-size="9" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">port USB-C</text>'),
+
+    b_port_lightning: svg('0 0 200 90',
+      '<rect x="10" y="20" width="180" height="50" rx="16" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="78" y="38" width="44" height="14" rx="4" fill="#EFF6FF" stroke="#0066FF" stroke-width="2" class="hl-pulse"/>'+
+      '<line x1="88" y1="45" x2="112" y2="45" stroke="#0066FF" stroke-width="2"/>'+
+      '<text x="100" y="14" font-size="9" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">port Lightning 8-pin</text>'),
+
+    b_action_btn: svg('0 0 100 240',
+      '<rect x="35" y="10" width="30" height="220" rx="14" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="16" y="44" width="19" height="18" rx="4" fill="#EFF6FF" stroke="#0066FF" stroke-width="2" class="hl-pulse"/>'+
+      '<rect x="16" y="74" width="19" height="26" rx="4" fill="#CBD5E1"/>'+
+      '<rect x="16" y="106" width="19" height="26" rx="4" fill="#CBD5E1"/>'+
+      '<text x="50" y="170" font-size="8.5" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">Action Btn</text>'),
+
+    b_mute_switch: svg('0 0 100 240',
+      '<rect x="35" y="10" width="30" height="220" rx="14" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="16" y="46" width="19" height="12" rx="3" fill="#FFFBEB" stroke="#D97706" stroke-width="1.8" class="hl-pulse"/>'+
+      '<circle cx="22" cy="52" r="2" fill="#D97706"/>'+
+      '<rect x="16" y="72" width="19" height="26" rx="4" fill="#CBD5E1"/>'+
+      '<rect x="16" y="104" width="19" height="26" rx="4" fill="#CBD5E1"/>'+
+      '<text x="50" y="170" font-size="8.5" text-anchor="middle" fill="#D97706" font-family="JetBrains Mono, monospace" font-weight="600">Mute Switch</text>'),
+
+    b_home_btn: svg('0 0 140 240',
+      '<rect x="14" y="8" width="112" height="224" rx="22" fill="#FFFFFF" stroke="#64748B" stroke-width="2.2"/>'+
+      '<rect x="22" y="28" width="96" height="148" rx="4" fill="#0F172A"/>'+
+      // Touch ID Sensor Ring
+      '<circle cx="70" cy="202" r="16" fill="#F8FAFC" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<circle cx="70" cy="202" r="12" fill="none" stroke="#CBD5E1" stroke-width="1.2"/>'+
+      '<path d="M64 198 Q70 194 76 198 Q70 206 64 198" fill="none" stroke="#0066FF" stroke-width="1.2"/>'+
+      '<circle cx="70" cy="202" r="3" fill="#0066FF" opacity="0.4"/>'+
+      '<text x="70" y="105" font-size="9" text-anchor="middle" fill="#64748B" font-family="JetBrains Mono, monospace">Retina LCD</text>'+
+      '<text x="70" y="228" font-size="8" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="700">TOUCH ID HOME</text>'),
+
+    b_camera_ctrl: svg('0 0 120 240',
+      '<rect x="40" y="10" width="36" height="220" rx="16" fill="#F8FAFC" stroke="#64748B" stroke-width="2.2"/>'+
+      // Flush recessed plain sapphire crystal button (NO text printed on glass)
+      '<rect x="70" y="130" width="12" height="46" rx="6" fill="#F1F5F9" stroke="#334155" stroke-width="1.5"/>'+
+      '<rect x="72" y="133" width="8" height="40" rx="4" fill="#CBD5E1" stroke="#0066FF" stroke-width="1.8" class="hl-pulse"/>'+
+      // Side gesture arrows cue outside the phone body
+      '<path d="M102 135 L102 171" stroke="#0066FF" stroke-width="1.8" stroke-dasharray="2 2"/>'+
+      '<polygon points="102,130 98,137 106,137" fill="#0066FF"/>'+
+      '<polygon points="102,176 98,169 106,169" fill="#0066FF"/>'+
+      '<text x="58" y="60" font-size="9" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="700">Camera Control</text>'+
+      '<text x="58" y="74" font-size="7.5" text-anchor="middle" fill="#64748B" font-family="JetBrains Mono, monospace">kristal safir polos</text>'+
+      '<text x="58" y="86" font-size="7" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace">‹ geser sentuh zoom ›</text>'),
+
+    b_sim_tray: svg('0 0 200 100',
+      '<rect x="10" y="30" width="180" height="30" rx="10" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="140" y="20" width="50" height="16" rx="3" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>'+
+      '<circle cx="150" cy="28" r="2" fill="#94A3B8"/>'+
+      '<circle cx="175" cy="28" r="5" class="hl-ring hl-pulse"/><circle cx="175" cy="28" r="1.5" fill="#0066FF"/>'+
+      '<text x="165" y="55" font-size="9" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">slot SIM & LCI</text>'),
+
+    b_back_glass: svg('0 0 140 260',
+      BACK+
+      '<rect x="14" y="8" width="112" height="244" rx="26" fill="none" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<text x="70" y="215" font-size="8.5" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="700">KACA BELAKANG MATTE</text>'+
+      '<text x="70" y="228" font-size="7.5" text-anchor="middle" fill="#64748B" font-family="JetBrains Mono, monospace">cek retak & lem ganti</text>'),
+
+    // Camera Diagrams (100% Authentic Clean iPhone Pro Triangular Layout)
+    c_lensa_array: svg('0 0 160 160',
+      '<rect x="8" y="8" width="144" height="144" rx="32" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>'+
+      // Lensa 1: Ultra Wide (Top-Left)
+      '<circle cx="48" cy="48" r="23" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/>'+
+      '<circle cx="48" cy="48" r="17" fill="#0F172A"/>'+
+      '<circle cx="48" cy="48" r="11" fill="#020617"/>'+
+      '<path d="M42 42 A 10 10 0 0 1 52 38" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" opacity="0.9"/>'+
+      '<circle cx="43" cy="43" r="1.5" fill="#FFFFFF"/>'+
+      '<circle cx="48" cy="48" r="25" fill="none" stroke="#0066FF" stroke-width="1.8" class="hl-pulse"/>'+
+      // Lensa 2: Main Wide (Bottom-Left)
+      '<circle cx="48" cy="108" r="23" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/>'+
+      '<circle cx="48" cy="108" r="17" fill="#0F172A"/>'+
+      '<circle cx="48" cy="108" r="11" fill="#020617"/>'+
+      '<path d="M42 102 A 10 10 0 0 1 52 98" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" opacity="0.9"/>'+
+      '<circle cx="43" cy="103" r="1.5" fill="#FFFFFF"/>'+
+      '<circle cx="48" cy="108" r="25" fill="none" stroke="#0066FF" stroke-width="1.8" class="hl-pulse"/>'+
+      // Lensa 3: Telephoto (Middle-Right)
+      '<circle cx="112" cy="78" r="23" fill="#E2E8F0" stroke="#64748B" stroke-width="2"/>'+
+      '<circle cx="112" cy="78" r="17" fill="#0F172A"/>'+
+      '<circle cx="112" cy="78" r="11" fill="#020617"/>'+
+      '<path d="M106 72 A 10 10 0 0 1 116 68" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" opacity="0.9"/>'+
+      '<circle cx="107" cy="73" r="1.5" fill="#FFFFFF"/>'+
+      '<circle cx="112" cy="78" r="25" fill="none" stroke="#0066FF" stroke-width="1.8" class="hl-pulse"/>'+
+      // True Tone Flash (Top-Right)
+      '<circle cx="112" cy="34" r="10" fill="#FEF3C7" stroke="#CBD5E1" stroke-width="1.2"/>'+
+      '<circle cx="112" cy="34" r="5" fill="#F59E0B"/>'+
+      // LiDAR Scanner (Bottom-Right)
+      '<circle cx="112" cy="122" r="10" fill="#0F172A" stroke="#475569" stroke-width="1.2"/>'+
+      '<circle cx="112" cy="122" r="6" fill="#020617"/>'+
+      // Mic hole
+      '<circle cx="82" cy="122" r="2.2" fill="#475569"/>'+
+      // Bottom Label Banner (Clean, Outside Lenses)
+      '<rect x="14" y="137" width="132" height="15" rx="4" fill="#0F172A"/>'+
+      '<text x="80" y="148" font-size="7" text-anchor="middle" fill="#93C5FD" font-family="JetBrains Mono, monospace" font-weight="700">3 LENSA KAMERA PRO</text>'),
+
+    c_autofocus: svg('0 0 160 150',
+      '<rect x="10" y="10" width="140" height="100" rx="12" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<path d="M55 45 h-10 v10" fill="none" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<path d="M105 45 h10 v10" fill="none" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<path d="M55 75 h-10 v-10" fill="none" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<path d="M105 75 h10 v-10" fill="none" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<circle cx="80" cy="60" r="3" fill="#0066FF"/>'+
+      '<circle cx="80" cy="130" r="10" fill="none" stroke="#64748B" stroke-width="2"/>'),
+
+    c_lidar: svg('0 0 160 160',
+      '<rect x="8" y="8" width="144" height="144" rx="32" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>'+
+      // 3 Lenses background (Subtle, Clean)
+      '<circle cx="48" cy="48" r="23" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.8"/>'+
+      '<circle cx="48" cy="48" r="16" fill="#1E293B"/>'+
+      '<circle cx="48" cy="108" r="23" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.8"/>'+
+      '<circle cx="48" cy="108" r="16" fill="#1E293B"/>'+
+      '<circle cx="112" cy="78" r="23" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.8"/>'+
+      '<circle cx="112" cy="78" r="16" fill="#1E293B"/>'+
+      '<circle cx="112" cy="34" r="10" fill="#FEF3C7" stroke="#CBD5E1" stroke-width="1"/>'+
+      // Highlighted LiDAR Scanner (Bottom-Right)
+      '<circle cx="112" cy="122" r="22" fill="none" stroke="#0066FF" stroke-width="1.5" stroke-dasharray="3 3" class="hl-pulse"/>'+
+      '<circle cx="112" cy="122" r="15" fill="rgba(0, 102, 255, 0.18)"/>'+
+      '<circle cx="112" cy="122" r="10" fill="#0F172A" stroke="#0066FF" stroke-width="2.2" class="hl-pulse"/>'+
+      '<circle cx="112" cy="122" r="5" fill="#020617"/>'+
+      // Bottom Label Banner (Clean, Outside Lenses)
+      '<rect x="14" y="137" width="132" height="15" rx="4" fill="#0F172A"/>'+
+      '<text x="80" y="148" font-size="7" text-anchor="middle" fill="#60A5FA" font-family="JetBrains Mono, monospace" font-weight="700">LiDAR 3D SCANNER</text>'),
+
+    c_macro: svg('0 0 140 140',
+      '<rect x="10" y="10" width="120" height="120" rx="12" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<circle cx="70" cy="70" r="22" fill="none" stroke="#0066FF" stroke-width="2" class="hl-pulse"/>'+
+      '<circle cx="70" cy="70" r="8" fill="#F59E0B"/>'+
+      '<circle cx="70" cy="50" r="6" fill="#F59E0B" opacity="0.6"/>'+
+      '<circle cx="70" cy="90" r="6" fill="#F59E0B" opacity="0.6"/>'+
+      '<circle cx="50" cy="70" r="6" fill="#F59E0B" opacity="0.6"/>'+
+      '<circle cx="90" cy="70" r="6" fill="#F59E0B" opacity="0.6"/>'+
+      '<text x="70" y="118" font-size="8.5" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">makro 2 cm</text>'),
+
+    c_48mp: svg('0 0 150 120',
+      '<rect x="10" y="10" width="130" height="100" rx="10" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="35" y="28" width="80" height="50" rx="4" fill="#EFF6FF" stroke="#0066FF" stroke-width="1.8" class="hl-pulse"/>'+
+      '<text x="75" y="58" font-size="13" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="700">48 MP</text>'+
+      '<text x="75" y="98" font-size="8.5" text-anchor="middle" fill="#64748B" font-family="JetBrains Mono, monospace">sensor crop 2x</text>'),
+
+    c_proraw_12mp: svg('0 0 150 120',
+      '<rect x="10" y="10" width="130" height="100" rx="10" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="35" y="28" width="80" height="50" rx="4" fill="#EFF6FF" stroke="#0066FF" stroke-width="1.8" class="hl-pulse"/>'+
+      '<text x="75" y="58" font-size="12" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="700">ProRAW</text>'+
+      '<text x="75" y="98" font-size="8.5" text-anchor="middle" fill="#64748B" font-family="JetBrains Mono, monospace">12MP DNG</text>'),
+
+    c_flash: svg('0 0 160 160',
+      '<rect x="8" y="8" width="144" height="144" rx="32" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2"/>'+
+      // 3 Lenses background (Clean, Natural)
+      '<circle cx="48" cy="48" r="23" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.8"/>'+
+      '<circle cx="48" cy="48" r="16" fill="#1E293B"/>'+
+      '<circle cx="48" cy="108" r="23" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.8"/>'+
+      '<circle cx="48" cy="108" r="16" fill="#1E293B"/>'+
+      '<circle cx="112" cy="78" r="23" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1.8"/>'+
+      '<circle cx="112" cy="78" r="16" fill="#1E293B"/>'+
+      '<circle cx="112" cy="122" r="10" fill="#0F172A" stroke="#475569" stroke-width="1"/>'+
+      // Highlighted True Tone Flash (Top-Right)
+      '<circle cx="112" cy="34" r="24" fill="rgba(245, 158, 11, 0.22)"/>'+
+      '<circle cx="112" cy="34" r="14" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2.2" class="hl-pulse"/>'+
+      '<circle cx="112" cy="34" r="6" fill="#F59E0B"/>'+
+      '<line x1="112" y1="14" x2="112" y2="7" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>'+
+      '<line x1="132" y1="34" x2="139" y2="34" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>'+
+      '<line x1="126" y1="20" x2="132" y2="14" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>'+
+      '<line x1="98" y1="20" x2="92" y2="14" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/>'+
+      // Bottom Label Banner (Clean, Outside Lenses)
+      '<rect x="14" y="137" width="132" height="15" rx="4" fill="#0F172A"/>'+
+      '<text x="80" y="148" font-size="7" text-anchor="middle" fill="#FBBF24" font-family="JetBrains Mono, monospace" font-weight="700">TRUE TONE FLASH (DUAL-LED)</text>'),
+
+    c_truedepth: svg('0 0 140 260',
+      FRONT+
+      '<rect x="53" y="18" width="34" height="16" rx="8" fill="none" class="hl-ring hl-pulse"/>'+
+      '<text x="70" y="50" font-size="8" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">TrueDepth</text>'),
+
+    c_front_cam: svg('0 0 140 240',
+      FRONT+
+      '<circle cx="70" cy="26" r="5" fill="#0066FF" class="hl-pulse"/>'+
+      '<text x="70" y="48" font-size="8" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">FaceTime Cam</text>'),
+
+    // Model Diagrams (Clean, Authentic iOS UI - No AI Hallucinations)
+    m_model_num: svg('0 0 220 170',
+      '<rect x="8" y="8" width="204" height="154" rx="14" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>'+
+      '<text x="22" y="26" font-size="10" fill="#94A3B8" font-family="Inter, sans-serif">‹ Umum</text>'+
+      '<text x="110" y="26" font-size="11" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="700" text-anchor="middle">Mengenai</text>'+
+      '<line x1="8" y1="36" x2="212" y2="36" stroke="#1E293B" stroke-width="1"/>'+
+      '<text x="22" y="54" font-size="9.5" fill="#94A3B8" font-family="Inter, sans-serif">Nama Model</text>'+
+      '<text x="198" y="54" font-size="10" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="600" text-anchor="end">iPhone</text>'+
+      '<line x1="22" y1="62" x2="198" y2="62" stroke="#1E293B" stroke-width="0.8"/>'+
+      '<rect x="14" y="68" width="192" height="26" rx="6" fill="#1E3A8A" stroke="#3B82F6" stroke-width="1.2" class="hl-pulse"/>'+
+      '<text x="22" y="85" font-size="9.5" fill="#93C5FD" font-family="Inter, sans-serif" font-weight="600">Nomor Model</text>'+
+      '<text x="198" y="85" font-size="10.5" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-weight="700" text-anchor="end">MQ9C3<tspan fill="#60A5FA">PA/A</tspan></text>'+
+      '<line x1="22" y1="102" x2="198" y2="102" stroke="#1E293B" stroke-width="0.8"/>'+
+      '<text x="22" y="118" font-size="9.5" fill="#94A3B8" font-family="Inter, sans-serif">Nomor Seri</text>'+
+      '<text x="198" y="118" font-size="9.5" fill="#CBD5E1" font-family="JetBrains Mono, monospace" text-anchor="end">F2LYD982K7</text>'+
+      '<rect x="20" y="132" width="180" height="22" rx="5" fill="#064E3B" stroke="#10B981" stroke-width="1"/>'+
+      '<text x="110" y="147" font-size="8.5" fill="#6EE7B7" font-family="Inter, sans-serif" font-weight="700" text-anchor="middle">✓ Resmi Indonesia (PA/A, ID/A)</text>'),
+
+    m_region_code: svg('0 0 220 110',
+      '<rect x="8" y="8" width="204" height="94" rx="12" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>'+
+      '<text x="20" y="32" font-size="10" fill="#94A3B8" font-family="Inter, sans-serif">Nomor Model iOS</text>'+
+      '<rect x="18" y="44" width="184" height="34" rx="8" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5"/>'+
+      '<text x="32" y="67" font-size="16" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-weight="600">MQ9C3<tspan fill="#60A5FA" font-weight="700">PA</tspan>/A</text>'+
+      '<rect x="146" y="52" width="46" height="18" rx="4" fill="#1E3A8A" stroke="#60A5FA" stroke-width="1" class="hl-pulse"/>'+
+      '<text x="169" y="65" font-size="8.5" fill="#BFDBFE" font-family="JetBrains Mono, monospace" font-weight="700" text-anchor="middle">INDONESIA</text>'+
+      '<text x="110" y="94" font-size="8.5" fill="#10B981" font-family="Inter, sans-serif" font-weight="600" text-anchor="middle">PA/A atau ID/A = Garansi Resmi iBox / Digimap</text>'),
+
+    m_imei: svg('0 0 220 120',
+      '<rect x="8" y="8" width="204" height="104" rx="12" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>'+
+      '<text x="20" y="28" font-size="10" fill="#94A3B8" font-family="Inter, sans-serif">Status IMEI Kemenperin / Bea Cukai</text>'+
+      '<rect x="18" y="38" width="184" height="30" rx="6" fill="#1E293B" stroke="#475569" stroke-width="1"/>'+
+      '<text x="28" y="58" font-size="11" fill="#FFFFFF" font-family="JetBrains Mono, monospace" font-weight="600">35 889210 472918 3</text>'+
+      '<rect x="18" y="76" width="184" height="26" rx="6" fill="#064E3B" stroke="#10B981" stroke-width="1"/>'+
+      '<text x="110" y="93" font-size="9" fill="#6EE7B7" font-family="Inter, sans-serif" font-weight="700" text-anchor="middle">✓ IMEI Terdaftar di Database Kemenperin</text>'),
+
+    // Screen Diagrams
+    s_parts_history: svg('0 0 220 170',
+      '<rect x="8" y="8" width="204" height="154" rx="14" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>'+
+      '<text x="110" y="26" font-size="10.5" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="700" text-anchor="middle">Riwayat Komponen & Servis</text>'+
+      '<line x1="8" y1="36" x2="212" y2="36" stroke="#1E293B" stroke-width="1"/>'+
+      // Genuine Part Box
+      '<rect x="16" y="44" width="188" height="38" rx="8" fill="#14532D" stroke="#22C55E" stroke-width="1"/>'+
+      '<text x="28" y="60" font-size="10" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="600">Layar (Display)</text>'+
+      '<text x="28" y="73" font-size="8.5" fill="#86EFAC" font-family="Inter, sans-serif">✓ Komponen Asli Apple (Genuine)</text>'+
+      // Unknown Part Box
+      '<rect x="16" y="90" width="188" height="48" rx="8" fill="#7F1D1D" stroke="#EF4444" stroke-width="1.2" class="hl-pulse"/>'+
+      '<text x="28" y="107" font-size="9.5" fill="#FCA5A5" font-family="Inter, sans-serif" font-weight="700">⚠️ Pesan Penting Mengenai Layar</text>'+
+      '<text x="28" y="121" font-size="8.5" fill="#FECACA" font-family="Inter, sans-serif">Komponen Tidak Dikenal (Unknown Part)</text>'+
+      '<text x="28" y="132" font-size="7.5" fill="#F87171" font-family="Inter, sans-serif">Indikasi layar sudah pernah diganti non-resmi</text>'),
+
+    s_true_tone: svg('0 0 140 200',
+      '<rect x="10" y="10" width="120" height="180" rx="12" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="40" y="30" width="60" height="100" rx="30" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.5"/>'+
+      '<rect x="40" y="60" width="60" height="70" rx="30" fill="#0066FF" opacity="0.85"/>'+
+      '<circle cx="70" cy="155" r="12" fill="#EFF6FF" stroke="#0066FF" stroke-width="1.8" class="hl-pulse"/>'+
+      '<text x="70" y="185" font-size="8" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">True Tone</text>'),
+
+    s_promotion: svg('0 0 160 120',
+      '<rect x="10" y="10" width="140" height="100" rx="10" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<path d="M20 60 Q 40 20, 60 60 T 100 60 T 140 60" fill="none" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<text x="80" y="94" font-size="11" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="700">120 Hz ProMotion</text>'),
+
+    s_wsod_13p: svg('0 0 160 220',
+      '<defs><linearGradient id="wsodGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#ECFDF5"/></linearGradient></defs>'+
+      '<rect x="20" y="10" width="120" height="200" rx="18" fill="#1E293B" stroke="#0F172A" stroke-width="3"/>'+
+      '<rect x="26" y="16" width="108" height="188" rx="14" fill="url(#wsodGlow)" stroke="#22C55E" stroke-width="2"/>'+
+      '<rect x="35" y="70" width="90" height="70" rx="10" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.8"/>'+
+      '<path d="M80 82 L96 110 H64 Z" fill="#EF4444"/>'+
+      '<line x1="80" y1="91" x2="80" y2="99" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>'+
+      '<circle cx="80" cy="104" r="1.2" fill="#FFFFFF"/>'+
+      '<text x="80" y="124" font-size="8.5" text-anchor="middle" fill="#EF4444" font-family="JetBrains Mono, monospace" font-weight="700">BAHAYA WSOD</text>'+
+      '<text x="80" y="134" font-size="7" text-anchor="middle" fill="#64748B" font-family="JetBrains Mono, monospace">White/Green Screen</text>'),
+
+    s_dynamic_island: svg('0 0 140 240',
+      FRONT+
+      '<rect x="42" y="24" width="56" height="16" rx="8" fill="#0F172A" stroke="#0066FF" stroke-width="2" class="hl-pulse"/>'+
+      '<circle cx="52" cy="32" r="3" fill="#64748B"/>'+
+      '<circle cx="86" cy="32" r="2.5" fill="#10B981"/>'+
+      '<text x="70" y="60" font-size="7.5" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">Dynamic Island</text>'),
+
+    s_lcd_lightbleed: svg('0 0 140 240',
+      '<rect x="14" y="8" width="112" height="224" rx="20" fill="#0F172A" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="22" y="16" width="96" height="208" rx="14" fill="#1E293B" stroke="#CBD5E1" stroke-width="1"/>'+
+      '<rect x="24" y="18" width="92" height="204" rx="12" fill="none" stroke="#0066FF" stroke-width="2" opacity="0.8" class="hl-pulse"/>'+
+      '<text x="70" y="240" font-size="8" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">backlight LCD</text>'),
+
+    s_oled_burnin: svg('0 0 140 240',
+      '<rect x="14" y="8" width="112" height="224" rx="20" fill="#020617" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="22" y="16" width="96" height="208" rx="14" fill="#020617" stroke="#1E293B" stroke-width="1"/>'+
+      '<text x="70" y="120" font-size="8.5" text-anchor="middle" fill="#94A3B8" font-family="JetBrains Mono, monospace">OLED Deep Black</text>'+
+      '<text x="70" y="135" font-size="7.5" text-anchor="middle" fill="#64748B" font-family="JetBrains Mono, monospace">cek anti burn-in</text>'),
+
+    s_kerataan_layar: svg('0 0 180 90',
+      '<rect x="10" y="55" width="160" height="20" rx="6" fill="#FFFFFF" stroke="#64748B" stroke-width="2"/>'+
+      '<rect x="20" y="20" width="140" height="30" rx="4" fill="none" stroke="#CBD5E1" stroke-width="1.5"/>'+
+      '<line x1="150" y1="50" x2="150" y2="56" stroke="#0066FF" stroke-width="2.5" class="hl-pulse"/>'+
+      '<circle cx="150" cy="53" r="3" fill="#0066FF" class="hl-pulse"/>'+
+      '<text x="150" y="15" font-size="9" text-anchor="middle" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">celah di tepi</text>'),
+
+    s_baret_kaca: svg('0 0 160 220',
+      '<rect x="25" y="15" width="110" height="190" rx="16" fill="#0F172A" stroke="#475569" stroke-width="2"/>'+
+      '<polygon points="0,30 65,85 45,140" fill="rgba(245, 158, 11, 0.25)"/>'+
+      '<line x1="5" y1="35" x2="55" y2="110" stroke="#F59E0B" stroke-width="2" stroke-dasharray="3 3"/>'+
+      '<circle cx="5" cy="35" r="5" fill="#F59E0B"/>'+
+      '<text x="18" y="24" font-size="8" fill="#F59E0B" font-family="JetBrains Mono, monospace" font-weight="700">senter 45°</text>'+
+      '<line x1="60" y1="95" x2="75" y2="105" stroke="#38BDF8" stroke-width="1.5"/>'+
+      '<line x1="65" y1="120" x2="85" y2="135" stroke="#38BDF8" stroke-width="1.5"/>'+
+      '<text x="80" y="185" font-size="8" text-anchor="middle" fill="#CBD5E1" font-family="JetBrains Mono, monospace">baret mikro terlihat</text>'),
+
+    s_touch_response: svg('0 0 140 260',
+      FRONT+
+      '<path d="M70 130 Q40 90 24 30" stroke="#0066FF" stroke-width="2" stroke-dasharray="4 3" fill="none" class="hl-pulse"/>'+
+      '<path d="M70 130 Q100 90 116 30" stroke="#0066FF" stroke-width="2" stroke-dasharray="4 3" fill="none" class="hl-pulse"/>'+
+      '<path d="M70 130 Q40 170 24 230" stroke="#0066FF" stroke-width="2" stroke-dasharray="4 3" fill="none" class="hl-pulse"/>'+
+      '<path d="M70 130 Q100 170 116 230" stroke="#0066FF" stroke-width="2" stroke-dasharray="4 3" fill="none" class="hl-pulse"/>'+
+      '<circle cx="70" cy="130" r="4" fill="#0066FF"/>'),
+
+    s_battery_cycle: svg('0 0 220 160', 
+      '<rect x="8" y="8" width="204" height="144" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>'+
+      '<rect x="8" y="8" width="204" height="36" rx="12" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>'+
+      '<text x="20" y="30" font-size="12" fill="#0F172A" font-family="Inter, sans-serif" font-weight="700">Kesehatan Baterai</text>'+
+      '<circle cx="190" cy="26" r="5" fill="#10B981"/>'+
+      '<text x="20" y="68" font-size="10" fill="#64748B" font-family="Inter, sans-serif">Jumlah Siklus (Cycle)</text>'+
+      '<text x="194" y="68" font-size="11" text-anchor="end" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="700">342</text>'+
+      '<line x1="20" y1="80" x2="200" y2="80" stroke="#F1F5F9" stroke-width="1"/>'+
+      '<text x="20" y="102" font-size="10" fill="#64748B" font-family="Inter, sans-serif">Kapasitas Maksimum</text>'+
+      '<text x="194" y="102" font-size="11" text-anchor="end" fill="#10B981" font-family="JetBrains Mono, monospace" font-weight="700">92%</text>'+
+      '<line x1="20" y1="114" x2="200" y2="114" stroke="#F1F5F9" stroke-width="1"/>'+
+      '<text x="20" y="136" font-size="9" fill="#0066FF" font-family="JetBrains Mono, monospace" font-weight="600">✓ Data Asli Bawaan iOS 17+</text>'),
+
+    s_battery_health: svg('0 0 220 150', settingsNav('Kesehatan Baterai', ['Kapasitas Maksimum 88%','Kemampuan Puncak','Pengisian Optimal'], 0))
+  };
+
+  // ==========================================================
+  // DYNAMIC MODEL-SPECIFIC INSPECTION VISUAL ENGINE
+  // ==========================================================
+
+  function getIPhone17ProMaxVisual(model, itemId) {
+    var name = (model.name || 'iPhone 17 Pro Max');
+
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') {
+      return {
+        html: '<img src="images/inspection/ip17_chassis.jpg?v=apple_official_v2" alt="' + name + ' Sasis Unibody Aluminium" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') {
+      return {
+        html: '<img src="images/inspection/b_pentalobe.jpg?v=apple_official_v2" alt="' + name + ' Port USB-C 3.0 & Baut Pentalobe" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'b_action_btn') {
+      return {
+        html: '<img src="images/inspection/b_action_btn.jpg?v=apple_official_v2" alt="' + name + ' Action Button" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'b_camera_ctrl') {
+      return {
+        html: '<img src="images/inspection/b_camera_ctrl.jpg?v=apple_official_v2" alt="' + name + ' Camera Control Safir" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'b_back_glass') {
+      return {
+        html: '<img src="images/inspection/ip17_back.jpg?v=apple_official_v2" alt="' + name + ' Bodi Belakang Unibody Aluminium & Kaca Inlay" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') {
+      return {
+        html: '<img src="images/inspection/ip17_camera.jpg?v=apple_official_v2" alt="' + name + ' Triple Kamera 48MP Pro Plateau" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'c_flash') {
+      return {
+        html: '<img src="images/inspection/ip17_flash.jpg?v=apple_official_v2" alt="' + name + ' Adaptive True Tone Flash" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'c_lidar') {
+      return {
+        html: '<img src="images/inspection/ip17_lidar.jpg?v=apple_official_v2" alt="' + name + ' LiDAR 3D Scanner" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'c_truedepth') {
+      return {
+        html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island & TrueDepth Face ID" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 's_kerataan_layar') {
+      return {
+        html: '<img src="images/inspection/ip17_chassis.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Layar ke Sasis Unibody Aluminium" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'b_sim_tray') {
+      return {
+        html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray & Indikator LCI Air" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'c_macro') {
+      return {
+        html: '<img src="images/inspection/c_macro.jpg?v=apple_official_v2" alt="Pemeriksaan Makro Lensa" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 's_true_tone') {
+      return {
+        html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="Layar True Tone & Dynamic Island" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 's_parts_history') {
+      return {
+        html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') {
+      return {
+        html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />',
+        isRealPhoto: true
+      };
+    }
+
+    return {
+      isRealPhoto: false,
+      html: DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''
+    };
+  }
+
+  function getIPhone17Visual(model, itemId) {
+    var name = (model.name || 'iPhone 17');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip17_dual_back.jpg?v=apple_official_v2" alt="' + name + ' Bodi Belakang Aluminium Ice Blue & Dual Kamera" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') return { html: '<img src="images/inspection/models/ip17_dual_camera.jpg?v=apple_official_v2" alt="' + name + ' Dual Kamera Vertikal Pill 48MP Fusion" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip17_dual_camera.jpg?v=apple_official_v2" alt="' + name + ' True Tone Flash Dual Kamera" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip17_dual_back.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium Modern & Tombol Samping" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_camera_ctrl') return { html: '<img src="images/inspection/b_camera_ctrl.jpg?v=apple_official_v2" alt="' + name + ' Camera Control Safir" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_action_btn') return { html: '<img src="images/inspection/b_action_btn.jpg?v=apple_official_v2" alt="' + name + ' Action Button" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') return { html: '<img src="images/inspection/b_pentalobe.jpg?v=apple_official_v2" alt="' + name + ' Port USB-C & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_macro') return { html: '<img src="images/inspection/c_macro.jpg?v=apple_official_v2" alt="Makro" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip17_dual_back.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Layar ke Sasis Aluminium" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone17AirVisual(model, itemId) {
+    var name = (model.name || 'iPhone 17 Air');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip17_air_back.jpg?v=apple_official_v2" alt="' + name + ' Bodi Belakang 5.6mm Ultra-Slim Titanium" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') return { html: '<img src="images/inspection/models/ip17_air_camera.jpg?v=apple_official_v2" alt="' + name + ' Kamera Tunggal 48MP Fusion Bar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip17_air_camera.jpg?v=apple_official_v2" alt="' + name + ' True Tone Flash Kamera Tunggal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip17_air_back.jpg?v=apple_official_v2" alt="' + name + ' Rangka Titanium 5.6mm Ultra-Slim" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_camera_ctrl') return { html: '<img src="images/inspection/b_camera_ctrl.jpg?v=apple_official_v2" alt="' + name + ' Camera Control Safir" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_action_btn') return { html: '<img src="images/inspection/b_action_btn.jpg?v=apple_official_v2" alt="' + name + ' Action Button" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') return { html: '<img src="images/inspection/b_pentalobe.jpg?v=apple_official_v2" alt="' + name + ' Port USB-C & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip17_air_back.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Layar ke Rangka Titanium 5.6mm" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone16ProVisual(model, itemId) {
+    var name = (model.name || 'iPhone 16 Pro');
+    if (itemId === 'b_camera_ctrl') return { html: '<img src="images/inspection/b_camera_ctrl.jpg?v=apple_official_v2" alt="' + name + ' Camera Control Safir" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/b_back_glass.jpg?v=apple_official_v2" alt="' + name + ' Back Glass Titanium Desert" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') return { html: '<img src="images/inspection/c_lensa_array.jpg?v=apple_official_v2" alt="' + name + ' Triple Kamera Pro 48MP" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/c_flash.jpg?v=apple_official_v2" alt="' + name + ' Flash" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lidar') return { html: '<img src="images/inspection/c_lidar.jpg?v=apple_official_v2" alt="' + name + ' LiDAR 3D Scanner" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/b_chassis.jpg?v=apple_official_v2" alt="' + name + ' Sasis Titanium Grade 5" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_action_btn') return { html: '<img src="images/inspection/b_action_btn.jpg?v=apple_official_v2" alt="' + name + ' Action Button" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') return { html: '<img src="images/inspection/b_pentalobe.jpg?v=apple_official_v2" alt="' + name + ' Port USB-C 3.0 & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_macro') return { html: '<img src="images/inspection/c_macro.jpg?v=apple_official_v2" alt="Makro" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/b_chassis.jpg?v=apple_official_v2" alt="' + name + ' Pembesaran 25x Kerataan Layar Ceramic Shield ke Rangka Titanium" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone16Visual(model, itemId) {
+    var name = (model.name || 'iPhone 16');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip16_back.jpg?v=apple_official_v2" alt="' + name + ' Bodi Kaca Infused 5 Warna" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') return { html: '<img src="images/inspection/models/ip16_camera.jpg?v=apple_official_v2" alt="' + name + ' Dual Kamera Vertikal Pill 48MP" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip16_camera.jpg?v=apple_official_v2" alt="' + name + ' True Tone Flash Vertikal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip16_camera.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium & Tombol Samping" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_camera_ctrl') return { html: '<img src="images/inspection/b_camera_ctrl.jpg?v=apple_official_v2" alt="' + name + ' Camera Control Safir" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_action_btn') return { html: '<img src="images/inspection/b_action_btn.jpg?v=apple_official_v2" alt="' + name + ' Action Button" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') return { html: '<img src="images/inspection/b_pentalobe.jpg?v=apple_official_v2" alt="' + name + ' Port USB-C & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_macro') return { html: '<img src="images/inspection/c_macro.jpg?v=apple_official_v2" alt="Makro" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip16_camera.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Layar Ceramic Shield ke Sasis Aluminium" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone15ProVisual(model, itemId) {
+    var name = (model.name || 'iPhone 15 Pro');
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/b_chassis.jpg?v=apple_official_v2" alt="' + name + ' Sasis Titanium Natural Grade 5" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_action_btn') return { html: '<img src="images/inspection/b_action_btn.jpg?v=apple_official_v2" alt="' + name + ' Action Button" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') return { html: '<img src="images/inspection/b_pentalobe.jpg?v=apple_official_v2" alt="' + name + ' Port USB-C 3.0 & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/b_back_glass.jpg?v=apple_official_v2" alt="' + name + ' Back Glass Titanium Natural" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') return { html: '<img src="images/inspection/c_lensa_array.jpg?v=apple_official_v2" alt="' + name + ' Triple Kamera Pro 48MP" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/c_flash.jpg?v=apple_official_v2" alt="' + name + ' Flash" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lidar') return { html: '<img src="images/inspection/c_lidar.jpg?v=apple_official_v2" alt="' + name + ' LiDAR 3D Scanner" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_macro') return { html: '<img src="images/inspection/c_macro.jpg?v=apple_official_v2" alt="Makro" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/b_chassis.jpg?v=apple_official_v2" alt="' + name + ' Pembesaran 25x Kerataan Layar ke Rangka Titanium Grade 5" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone15Visual(model, itemId) {
+    var name = (model.name || 'iPhone 15');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip15_back.jpg?v=apple_official_v3" alt="' + name + ' Kaca Belakang Color-Infused Matte 5 Warna" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') return { html: '<img src="images/inspection/models/ip15_camera.jpg?v=apple_official_v3" alt="' + name + ' Dual Kamera Diagonal 48MP Fusion Asli" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip15_camera.jpg?v=apple_official_v3" alt="' + name + ' True Tone Flash Belakang" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/mute_switch_ip15.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium Contoured Edge Lengkung Lembut" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_ip15.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Contoured Edge" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') return { html: '<img src="images/inspection/b_pentalobe.jpg?v=apple_official_v2" alt="' + name + ' Port USB-C & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/mute_switch_ip15.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Layar ke Tepi Lengkung Contoured Edge" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone14ProVisual(model, itemId) {
+    var name = (model.name || 'iPhone 14 Pro');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip14p_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang Deep Purple Matte" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') return { html: '<img src="images/inspection/models/ip14p_camera.jpg?v=apple_official_v2" alt="' + name + ' Triple Kamera 48MP Deep Purple" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip14p_camera.jpg?v=apple_official_v2" alt="' + name + ' Adaptive True Tone Flash" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lidar') return { html: '<img src="images/inspection/models/ip14p_camera.jpg?v=apple_official_v2" alt="' + name + ' LiDAR Scanner Sensor" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/ip14_chassis.jpg?v=apple_official_v2" alt="' + name + ' Rangka Stainless Steel Kilap Cermin" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_pro.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Stainless Steel Kilap" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_macro') return { html: '<img src="images/inspection/c_macro.jpg?v=apple_official_v2" alt="Makro" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island Pertama & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/ip14_chassis.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Layar ke Rangka Stainless Steel Kilap Cermin" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone14Visual(model, itemId) {
+    var name = (model.name || 'iPhone 14');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/dual_diag_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang & Modul Dual Kamera Diagonal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/ip14_camera.jpg?v=apple_official_v2" alt="' + name + ' Dual Kamera Diagonal Blue" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip14_camera.jpg?v=apple_official_v2" alt="' + name + ' Flash Dual Kamera" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/mute_switch_flat.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium Datar Tepi Tegas" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_flat.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Aluminium Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth (Notch)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/mute_switch_flat.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Layar ke Rangka Aluminium Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone13ProVisual(model, itemId) {
+    var name = (model.name || 'iPhone 13 Pro');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip13p_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang Sierra Blue Matte" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_proraw_12mp') return { html: '<img src="images/inspection/models/ip13p_camera.jpg?v=apple_official_v2" alt="' + name + ' Triple Kamera Pro Sierra Blue" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip13p_camera.jpg?v=apple_official_v2" alt="' + name + ' Flash Triple Kamera" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lidar') return { html: '<img src="images/inspection/models/ip13p_camera.jpg?v=apple_official_v2" alt="' + name + ' LiDAR Scanner Sensor" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip13p_camera.jpg?v=apple_official_v2" alt="' + name + ' Rangka Stainless Steel Sierra Blue Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_pro.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Stainless Steel Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_macro') return { html: '<img src="images/inspection/c_macro.jpg?v=apple_official_v2" alt="Makro" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth (Notch Reduksi 20%)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip13p_camera.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Layar ProMotion 120Hz ke Rangka Stainless Steel" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone13Visual(model, itemId) {
+    var name = (model.name || 'iPhone 13');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/dual_diag_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang & Modul Dual Kamera Diagonal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/dual_diag_camera.jpg?v=apple_official_v2" alt="' + name + ' Dual Kamera Diagonal 12MP Wide & Ultra Wide" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/dual_diag_camera.jpg?v=apple_official_v2" alt="' + name + ' True Tone Flash Dual Kamera Diagonal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/mute_switch_flat.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium Anodized Datar Tepi Tegas" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_flat.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Aluminium Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth (Notch Reduksi 20%)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/mute_switch_flat.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Layar ke Rangka Aluminium Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone12ProVisual(model, itemId) {
+    var name = (model.name || 'iPhone 12 Pro');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip12p_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang Pacific Blue Matte" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array' || itemId === 'c_proraw_12mp') return { html: '<img src="images/inspection/models/ip12p_camera.jpg?v=apple_official_v2" alt="' + name + ' Triple Kamera Pacific Blue & LiDAR" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip12p_camera.jpg?v=apple_official_v2" alt="' + name + ' Flash Triple Kamera" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lidar') return { html: '<img src="images/inspection/models/ip12p_camera.jpg?v=apple_official_v2" alt="' + name + ' Sensor LiDAR Generasi 1" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip12p_camera.jpg?v=apple_official_v2" alt="' + name + ' Rangka Stainless Steel Datar Kilap" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_pro.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Stainless Steel Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth (Notch)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip12p_camera.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Ceramic Shield ke Rangka Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone12Visual(model, itemId) {
+    var name = (model.name || 'iPhone 12');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip12_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang & Dual Kamera Kotak" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/ip12_camera.jpg?v=apple_official_v2" alt="' + name + ' Dual Kamera Kotak Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip12_camera.jpg?v=apple_official_v2" alt="' + name + ' Flash Dual Kamera" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip12_camera.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium Datar Tegas" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_flat.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Aluminium Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth (Notch)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip12_camera.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Layar Ceramic Shield ke Sasis Datar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone11ProVisual(model, itemId) {
+    var name = (model.name || 'iPhone 11 Pro');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip11p_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang Midnight Green Matte" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/ip11p_camera.jpg?v=apple_official_v2" alt="' + name + ' Triple Kamera Melengkung Midnight Green" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip11p_camera.jpg?v=apple_official_v2" alt="' + name + ' True Tone Flash" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip11p_camera.jpg?v=apple_official_v2" alt="' + name + ' Rangka Stainless Steel Lengkung Kilap" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_curved.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Stainless Steel Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth (Notch)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip11p_camera.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Layar ke Rangka Stainless Steel Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhone11Visual(model, itemId) {
+    var name = (model.name || 'iPhone 11');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip11_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang Aneka Warna Rosette" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/ip11_camera.jpg?v=apple_official_v2" alt="' + name + ' Dual Kamera Kotak Melengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip11_camera.jpg?v=apple_official_v2" alt="' + name + ' True Tone Flash" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip11_camera.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium Lengkung Anodized" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_curved.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Aluminium Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth (Notch)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip11_camera.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Layar Liquid Retina ke Sasis Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhoneXVisual(model, itemId) {
+    var name = (model.name || 'iPhone X / XS');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ipx_back.jpg?v=apple_official_v2" alt="' + name + ' Bodi Kaca Belakang & Dual Kamera Pill Vertikal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/ipx_camera.jpg?v=apple_official_v2" alt="' + name + ' Dual Kamera Vertikal Pill Stainless Steel" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ipx_camera.jpg?v=apple_official_v2" alt="' + name + ' Quad-LED True Tone Flash di Antara Lensa" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ipx_camera.jpg?v=apple_official_v2" alt="' + name + ' Rangka Surgical Stainless Steel Lengkung Kilap Cermin" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_curved.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Stainless Steel Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth Pertama Apple (Notch)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ipx_camera.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Layar OLED ke Rangka Stainless Steel Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhoneXRVisual(model, itemId) {
+    var name = (model.name || 'iPhone XR');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/xr_back_upright.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang Coral & Kamera Tunggal 12MP" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/xr_camera.jpg?v=apple_official_v2" alt="' + name + ' Kamera Tunggal 12MP Safir" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/xr_camera.jpg?v=apple_official_v2" alt="' + name + ' Quad-LED True Tone Flash Bawah Lensa" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/xr_chassis.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium Lengkung Seri 7000" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_curved.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Aluminium Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Sensor Face ID TrueDepth (Notch)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/xr_chassis.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Layar Liquid Retina ke Sasis Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getIPhoneSEVisual(model, itemId) {
+    var name = (model.name || 'iPhone SE');
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ipse_back.jpg?v=apple_official_v2" alt="' + name + ' Kaca Belakang & Kamera Tunggal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/ipse_camera.jpg?v=apple_official_v2" alt="' + name + ' Lensa Kamera Tunggal 12MP Belakang" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ipse_camera.jpg?v=apple_official_v2" alt="' + name + ' True Tone Flash Belakang" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_home_btn') return { html: '<img src="images/inspection/models/touch_id_home.jpg?v=apple_official_v2" alt="' + name + ' Tombol Home Touch ID Fisik" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_front_cam') return { html: '<img src="images/inspection/models/ipse_chassis.jpg?v=apple_official_v2" alt="' + name + ' Kamera Depan FaceTime HD & Bezel Dahi Klasik" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ipse_chassis.jpg?v=apple_official_v2" alt="' + name + ' Sasis Aluminium Klasik Lengkung & Bezel Layar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_mute_switch') return { html: '<img src="images/inspection/models/mute_switch_curved.jpg?v=apple_official_v2" alt="' + name + ' Sakelar Dering / Hening Aluminium Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_lightning') return { html: '<img src="images/inspection/b_port_lightning.jpg?v=apple_official_v2" alt="' + name + ' Port Lightning & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ipse_chassis.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Layar 2.5D ke Rangka Aluminium Lengkung" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
+  }
+
+  function getAdaptiveModelVisual(model, itemId) {
+    var name = (model.name || 'iPhone');
+    var id = model.id || '';
+    return getIPhone14Visual(model, itemId);
+  }
+
+  function getModelInspectionVisual(model, itemId) {
+    if (!model) model = currentSelectedModel || defaultModel;
+    var modelId = model.id || '';
+
+    if (modelId === 'ip17pm' || modelId === 'ip17p') return getIPhone17ProMaxVisual(model, itemId);
+    if (modelId === 'ip17air') return getIPhone17AirVisual(model, itemId);
+    if (modelId === 'ip17') return getIPhone17Visual(model, itemId);
+    if (modelId === 'ip16pm' || modelId === 'ip16p') return getIPhone16ProVisual(model, itemId);
+    if (modelId === 'ip16' || modelId === 'ip16plus') return getIPhone16Visual(model, itemId);
+    if (modelId === 'ip15pm' || modelId === 'ip15p') return getIPhone15ProVisual(model, itemId);
+    if (modelId === 'ip15' || modelId === 'ip15plus') return getIPhone15Visual(model, itemId);
+    if (modelId === 'ip14pm' || modelId === 'ip14p') return getIPhone14ProVisual(model, itemId);
+    if (modelId === 'ip14' || modelId === 'ip14plus') return getIPhone14Visual(model, itemId);
+    if (modelId === 'ip13pm' || modelId === 'ip13p') return getIPhone13ProVisual(model, itemId);
+    if (modelId === 'ip13' || modelId === 'ip13mini') return getIPhone13Visual(model, itemId);
+    if (modelId === 'ip12pm' || modelId === 'ip12p') return getIPhone12ProVisual(model, itemId);
+    if (modelId === 'ip12' || modelId === 'ip12mini') return getIPhone12Visual(model, itemId);
+    if (modelId === 'ip11pm' || modelId === 'ip11p') return getIPhone11ProVisual(model, itemId);
+    if (modelId === 'ip11') return getIPhone11Visual(model, itemId);
+    if (modelId === 'ipxsmax' || modelId === 'ipxs' || modelId === 'ipx') return getIPhoneXVisual(model, itemId);
+    if (modelId === 'ipxr') return getIPhoneXRVisual(model, itemId);
+    if (modelId === 'ipse3' || modelId === 'ipse2') return getIPhoneSEVisual(model, itemId);
+
+    return getAdaptiveModelVisual(model, itemId);
+  }
+
+  // State and active sections container
+  var SECTIONS = {};
+  var state = {};
+  var totalItems = 0;
+
+  function itemSection(id){
+    for (var k in SECTIONS){
+      for (var i=0; i<SECTIONS[k].length; i++){ 
+        if (SECTIONS[k][i].id === id) return k; 
+      }
+    }
+    return null;
+  }
+
+  function itemTitle(id){
+    var k = itemSection(id);
+    if (!k) return id;
+    var found = SECTIONS[k].find(function(it){ return it.id === id; });
+    return found ? found.title : id;
+  }
+
+  function renderList(sectionKey){
+    var container = document.getElementById('list-'+sectionKey);
+    if (!container || !SECTIONS[sectionKey]) return;
+    container.innerHTML = SECTIONS[sectionKey].map(function(it){
+      var tagHtml = '';
+      if (it.tag) {
+        tagHtml = '<span class="check-tag-pill tag-' + (it.tagType || 'hardware') + '">' + it.tag + '</span>';
+      }
+
+      var visual = getModelInspectionVisual(currentSelectedModel, it.id);
+      var hasRealImgClass = visual.isRealPhoto ? ' has-real-img' : '';
+      var cueText = visual.isRealPhoto ? 'HD ZOOM 🔍' : 'DETAIL 🔍';
+      var diagramInner = visual.html + '<span class="img-zoom-cue">' + cueText + '</span>';
+
+      return '<div class="check-item status-'+state[it.id]+'" data-id="'+it.id+'">'+
+        '<div class="diagram' + hasRealImgClass + '" data-item-id="' + it.id + '" role="button" tabindex="0" title="Klik untuk memperbesar gambar inspeksi">' + diagramInner + '</div>'+
+        '<div class="check-item-main">'+
+          '<p class="check-item-title">'+it.title + tagHtml + '</p>'+
+          '<p class="check-item-desc">'+it.desc+'</p>'+
+        '</div>'+
+        '<div class="status-toggle" role="group" aria-label="Status '+it.title+'">'+
+          '<button class="status-btn b-unset" data-status="unset" aria-pressed="'+(state[it.id]==='unset')+'">Belum</button>'+
+          '<button class="status-btn b-ok" data-status="ok" aria-pressed="'+(state[it.id]==='ok')+'">Aman</button>'+
+          '<button class="status-btn b-issue" data-status="issue" aria-pressed="'+(state[it.id]==='issue')+'">Masalah</button>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+  }
+
+  function renderModelProfile(model) {
+    var profileWrap = document.getElementById('modelProfileWrap');
+    if (!profileWrap) return;
+
+    var flawsListHtml = (model.knownFlaws || []).map(function(flaw) {
+      return '<li>' + flaw + '</li>';
+    }).join('');
+
+    var cameraSpecLabel = '';
+    if (model.cameraSetup === 'single') cameraSpecLabel = '12MP Wide Single Camera';
+    else if (model.cameraSetup === 'dual') cameraSpecLabel = 'Dual Cam (0.5x Ultra Wide + 1x Wide)';
+    else if (model.cameraSetup === 'triple-2x') cameraSpecLabel = 'Triple Cam (0.5x, 1x, 2x Tele)';
+    else if (model.cameraSetup === 'triple-2.5x') cameraSpecLabel = 'Triple Cam (0.5x, 1x, 2.5x Tele)';
+    else if (model.cameraSetup === 'triple-3x') cameraSpecLabel = 'Triple Cam (0.5x, 1x, 3x Tele)';
+    else if (model.cameraSetup === 'triple-5x') cameraSpecLabel = 'Triple Cam (0.5x, 1x, 5x Tetraprism Periskop)';
+
+    var portLabel = model.portType === 'usb-c-3' ? 'USB-C 3.0 (10 Gbps)' : (model.portType === 'usb-c-2' ? 'USB-C 2.0' : 'Lightning 8-Pin');
+    var frameLabel = model.materialFrame === 'titanium' ? 'Titanium Grade 5' : (model.materialFrame === 'stainless-steel' ? 'Stainless Steel Bedah' : 'Aluminium Anodized');
+    var buttonsLabel = (model.buttonType === 'action-button' ? 'Action Button' : 'Mute Switch') + (model.hasCameraControl ? ' + Camera Control' : '');
+    var biometricsLabel = model.biometrics === 'face-id' ? 'TrueDepth Face ID' : 'Touch ID Home';
+
+    profileWrap.innerHTML = 
+      '<div class="model-specs-card">' +
+        '<div class="specs-card-header">' +
+          '<div class="specs-header-left">' +
+            '<h3 class="specs-model-title">' + model.name + '</h3>' +
+            '<span class="specs-year-pill">Rilis ' + model.year + '</span>' +
+            '<span class="specs-chip-pill">' + model.chip + '</span>' +
+          '</div>' +
+          '<div class="specs-header-right">' +
+            '<span class="spec-badge spec-highlight">A-Code: ' + (model.officialCodes ? model.officialCodes.split(',')[0] : 'Apple') + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="specs-grid">' +
+          '<div class="spec-box">' +
+            '<span class="spec-box-lbl">Layar & Display</span>' +
+            '<div class="spec-box-val">' + model.screen + '</div>' +
+          '</div>' +
+          '<div class="spec-box">' +
+            '<span class="spec-box-lbl">Modul Kamera</span>' +
+            '<div class="spec-box-val">' + cameraSpecLabel + (model.hasLidar ? ' + LiDAR' : '') + '</div>' +
+          '</div>' +
+          '<div class="spec-box">' +
+            '<span class="spec-box-lbl">Port & Pengisian</span>' +
+            '<div class="spec-box-val">' + portLabel + '</div>' +
+          '</div>' +
+          '<div class="spec-box">' +
+            '<span class="spec-box-lbl">Material Rangka</span>' +
+            '<div class="spec-box-val">' + frameLabel + '</div>' +
+          '</div>' +
+          '<div class="spec-box">' +
+            '<span class="spec-box-lbl">Tombol & Biometrik</span>' +
+            '<div class="spec-box-val">' + buttonsLabel + ' &bull; ' + biometricsLabel + '</div>' +
+          '</div>' +
+          '<div class="spec-box">' +
+            '<span class="spec-box-lbl">Riwayat Servis iOS</span>' +
+            '<div class="spec-box-val">' + (model.partsHistory && model.partsHistory.length ? model.partsHistory.join(', ') : 'Belum didukung iOS') + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="model-flaws-card">' +
+        '<div class="flaws-card-header">' +
+          '<h4 class="flaws-card-title">' +
+            '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+              '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>' +
+              '<line x1="12" y1="9" x2="12" y2="13"></line>' +
+              '<line x1="12" y1="17" x2="12.01" y2="17"></line>' +
+            '</svg>' +
+            '<span>PANDUAN TEKNISI: TITIK RAWAN & CATATAN KRITIS ' + model.name.toUpperCase() + '</span>' +
+          '</h4>' +
+          '<span class="flaws-badge">Fokus Inspeksi</span>' +
+        '</div>' +
+        '<p class="flaws-card-desc">Berdasarkan data servis lapangan, perhatikan poin-poin berikut saat mengecek unit bekas tipe ini:</p>' +
+        '<ul class="flaws-list">' +
+          flawsListHtml +
+        '</ul>' +
+      '</div>';
+  }
+
+  function updatePartsHistoryCallout(model) {
+    var txtEl = document.getElementById('partsHistorySupportTxt');
+    var noteEl = document.getElementById('partsHistoryModelNote');
+    if (!txtEl || !noteEl) return;
+
+    if (model.partsHistory && model.partsHistory.length) {
+      var partsList = model.partsHistory.join(', ');
+      txtEl.innerHTML = 'Khusus <strong>' + model.name + '</strong> (iOS 15.2+), riwayat servis resmi mencakup: <strong>' + partsList + '</strong>.';
+      noteEl.innerHTML = 'Buka <em>Pengaturan &rsaquo; Umum &rsaquo; Mengenai</em>. Jika ada komponen yang pernah diservis/diganti, statusnya akan tampil di sini. <strong>Genuine Apple Part</strong> = orisinal pabrik Apple. <strong>Unknown Part</strong> = terindikasi suku cadang non-resmi atau bekas bongkar tanpa otorisasi.';
+    } else {
+      txtEl.innerHTML = 'Pada <strong>' + model.name + '</strong>, sistem Parts and Service History belum mendalam seperti seri baru.';
+      noteEl.innerHTML = 'Gunakan indikator visual True Tone, kerataan sasis bodi, baut pentalobe, dan segel LCI untuk membaca jejak pergantian komponen.';
+    }
+  }
+
+  function rebuildInspection(model) {
+    SECTIONS = buildModelInspectionSections(model);
+    state = {};
+    totalItems = 0;
+    Object.keys(SECTIONS).forEach(function(k){
+      SECTIONS[k].forEach(function(it){
+        state[it.id] = 'unset';
+        totalItems++;
+      });
+    });
+
+    Object.keys(SECTIONS).forEach(renderList);
+    updatePartsHistoryCallout(model);
+    updateAll();
+  }
+
+  // Setup default model on initial load (iPhone 15 Pro as default)
+  var defaultModel = IPHONE_MODELS.find(function(m) { return m.id === 'ip15p'; }) || IPHONE_MODELS[0];
+  currentSelectedModel = defaultModel;
+  renderModelProfile(defaultModel);
+  SECTIONS = buildModelInspectionSections(defaultModel);
+  Object.keys(SECTIONS).forEach(function(k){
+    SECTIONS[k].forEach(function(it){
+      state[it.id] = 'unset';
+      totalItems++;
+    });
+  });
+  Object.keys(SECTIONS).forEach(renderList);
+  updatePartsHistoryCallout(defaultModel);
+
+  document.querySelectorAll('[id^="list-"]').forEach(function(container){
+    container.addEventListener('click', function(e){
+      var btn = e.target.closest('.status-btn');
+      if (!btn) return;
+      var item = e.target.closest('.check-item');
+      var id = item.getAttribute('data-id');
+      state[id] = btn.getAttribute('data-status');
+      updateItemDom(item, id);
+      updateAll();
+    });
+  });
+
+  function updateItemDom(item, id){
+    item.className = 'check-item status-'+state[id];
+    item.querySelectorAll('.status-btn').forEach(function(b){
+      b.setAttribute('aria-pressed', b.getAttribute('data-status')===state[id]);
+    });
+  }
+
+  function updateAll(){
+    var okCount=0, issueCount=0, checked=0;
+    var sectionCounts = {};
+    Object.keys(SECTIONS).forEach(function(k){
+      sectionCounts[k] = {ok:0, issue:0, unset:0, total:SECTIONS[k].length};
+      SECTIONS[k].forEach(function(it){
+        var s = state[it.id];
+        sectionCounts[k][s]++;
+        if (s==='ok'){okCount++; checked++;}
+        else if (s==='issue'){issueCount++; checked++;}
+      });
+    });
+
+    Object.keys(SECTIONS).forEach(function(k){
+      var c = sectionCounts[k];
+      var cntEl = document.getElementById('cnt-'+k);
+      if (cntEl) cntEl.textContent = (c.ok+c.issue)+'/'+c.total;
+    });
+
+    // Update Top Diagnostic Progress Text
+    var diagnosticProgressTxt = document.getElementById('diagnosticProgressTxt');
+    if (diagnosticProgressTxt) {
+      diagnosticProgressTxt.textContent = checked + ' dari ' + totalItems + ' poin diperiksa';
+    }
+
+    renderSummary(sectionCounts, okCount, issueCount, checked);
+  }
+
+  function renderSummary(sectionCounts, okCount, issueCount, checked){
+    var grid = document.getElementById('sumGrid');
+    if (!grid) return;
+    var cards = '<div class="sum-card"><div class="lbl">Total diperiksa</div><div class="val">'+checked+'/'+totalItems+'</div></div>'+
+      '<div class="sum-card"><div class="lbl">Aman</div><div class="val ok">'+okCount+'</div></div>'+
+      '<div class="sum-card"><div class="lbl">Masalah</div><div class="val issue">'+issueCount+'</div></div>';
+    Object.keys(sectionCounts).forEach(function(k){
+      var c = sectionCounts[k];
+      cards += '<div class="sum-card"><div class="lbl">'+SECTION_LABELS[k]+'</div><div class="val">'+(c.ok+c.issue)+'/'+c.total+'</div></div>';
+    });
+    grid.innerHTML = cards;
+
+    var verdict = document.getElementById('verdict');
+    if (verdict) {
+      if (checked===0){
+        verdict.style.borderColor = 'var(--border)';
+        verdict.style.background = 'var(--surface)';
+        verdict.innerHTML = '<span class="title" style="color:var(--text-muted)">Belum dimulai</span><p>Jalankan keempat tahap terlebih dulu, lalu kembali ke sini untuk melihat rekap lengkap.</p>';
+      } else if (issueCount>0){
+        verdict.style.borderColor = 'var(--fail-border)';
+        verdict.style.background = 'var(--fail-soft)';
+        verdict.innerHTML = '<span class="title" style="color:var(--fail)">Ditemukan masalah ('+issueCount+' poin)</span><p>'+issueCount+' poin ditandai bermasalah. Pertimbangkan untuk negosiasi harga, minta penjelasan penjual, atau bawa ke teknisi sebelum memutuskan membeli.</p>';
+      } else if (checked<totalItems){
+        verdict.style.borderColor = 'var(--accent-border)';
+        verdict.style.background = 'var(--accent-soft)';
+        verdict.innerHTML = '<span class="title" style="color:var(--accent)">Belum lengkap</span><p>Sejauh ini semua poin yang dicek aman, tapi masih ada '+(totalItems-checked)+' poin yang belum diperiksa. Selesaikan dulu sebelum mengambil keputusan.</p>';
+      } else {
+        verdict.style.borderColor = 'var(--ok-border)';
+        verdict.style.background = 'var(--ok-soft)';
+        verdict.innerHTML = '<span class="title" style="color:var(--ok)">Semua poin aman</span><p>Seluruh '+totalItems+' poin sudah diperiksa tanpa masalah. Tetap cek status iCloud, IMEI, dan kesehatan baterai di bagian "Tips tambahan" sebelum transaksi selesai.</p>';
+      }
+    }
+
+    var flagArea = document.getElementById('flagArea');
+    if (flagArea) {
+      var issues = Object.keys(state).filter(function(id){ return state[id]==='issue'; });
+      if (issues.length===0){
+        flagArea.innerHTML = '<div class="empty-note">Belum ada poin yang ditandai bermasalah.</div>';
+      } else {
+        flagArea.innerHTML = '<div class="flag-list">'+issues.map(function(id){
+          return '<div class="flag-item"><span class="t">'+itemTitle(id)+'</span><span class="s">'+SECTION_LABELS[itemSection(id)]+'</span></div>';
+        }).join('')+'</div>';
+      }
+    }
+  }
+
+  // Reset Button
+  var resetBtn = document.getElementById('resetBtn');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function(){
+      if (confirm('Reset seluruh status pemeriksaan kembali ke awal?')) {
+        Object.keys(state).forEach(function(id){ state[id]='unset'; });
+        Object.keys(SECTIONS).forEach(renderList);
+        updateAll();
+      }
+    });
+  }
+
+  updateAll();
+
+  // Code Table Population
+  var codeTable = document.getElementById('codeTable');
+  if (codeTable) {
+    codeTable.innerHTML = CODES.map(function(c){
+      return '<div class="code-row"><span class="code">'+c.code+'/A</span><span class="cn">'+c.flag+' '+c.country+(c.note ? '<small>'+c.note+'</small>' : '')+'</span></div>';
+    }).join('');
+  }
+
+  // Lookup Tool
+  var codeInput = document.getElementById('codeInput');
+  var lookupResult = document.getElementById('lookupResult');
+  if (codeInput && lookupResult) {
+    codeInput.addEventListener('input', function(){
+      var raw = codeInput.value.trim().toUpperCase();
+      if (!raw){ lookupResult.innerHTML=''; return; }
+      var m = raw.match(/([A-Z]{1,3})\/A$/);
+      var codePart = m ? m[1] : raw.replace(/\/A$/,'');
+      var hit = CODES.filter(function(c){ return c.code===codePart; })[0];
+      if (hit){
+        lookupResult.innerHTML = '<div class="hit"><span class="flag">'+hit.flag+'</span><div><div class="country">'+hit.country+'</div>'+(hit.note ? '<div class="note">'+hit.note+'</div>' : '')+'</div></div>';
+      } else {
+        lookupResult.innerHTML = '<div class="miss">Kode "'+codePart+'" tidak ada di daftar referensi ini. Coba cocokkan manual lewat pencarian atau tanyakan langsung ke penjual.</div>';
+      }
+    });
+  }
+
+  // Step Navigation Functionality
+  var stepnav = document.getElementById('stepnav');
+  var panels = document.querySelectorAll('.panel');
+  function goto(step, scroll){
+    if (stepnav) {
+      stepnav.querySelectorAll('.step-btn').forEach(function(b){
+        b.classList.toggle('active', b.getAttribute('data-step')===step);
+      });
+    }
+    panels.forEach(function(p){
+      p.classList.toggle('active', p.getAttribute('data-panel')===step);
+    });
+    if (scroll !== false && stepnav) {
+      var offsetTop = stepnav.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({top: offsetTop, behavior:'smooth'});
+    }
+  }
+
+  if (stepnav) {
+    stepnav.addEventListener('click', function(e){
+      var b = e.target.closest('.step-btn');
+      if (!b) return;
+      goto(b.getAttribute('data-step'), true);
+    });
+  }
+
+  document.querySelectorAll('[data-goto]').forEach(function(b){
+    b.addEventListener('click', function(){ goto(b.getAttribute('data-goto'), true); });
+  });
+
+  // ==========================================================
+  // MODEL SELECTION (PILIH TIPE IPHONE) ENGINE
+  // ==========================================================
+  var modelCardsGrid = document.getElementById('modelCardsGrid');
+  var modelSearchInput = document.getElementById('modelSearchInput');
+  var clearModelSearch = document.getElementById('clearModelSearch');
+  var seriesPillsBar = document.getElementById('seriesPillsBar');
+
+  function renderModelCards() {
+    if (!modelCardsGrid) return;
+    
+    var filtered = IPHONE_MODELS.filter(function(item) {
+      var matchesSeries = (activeSeriesFilter === 'all') || (item.series === activeSeriesFilter);
+      var query = modelSearchQuery.trim().toLowerCase();
+      var matchesSearch = !query || 
+        item.name.toLowerCase().indexOf(query) !== -1 ||
+        item.chip.toLowerCase().indexOf(query) !== -1 ||
+        item.tags.some(function(t) { return t.toLowerCase().indexOf(query) !== -1; }) ||
+        String(item.year).indexOf(query) !== -1;
+      
+      return matchesSeries && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+      modelCardsGrid.innerHTML = '<div class="no-model-found"><p style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px;">Model iPhone tidak ditemukan</p><p style="font-size:13.5px;color:var(--text-muted);margin:0;">Coba kata kunci pencarian lain atau pilih tab seri di atas.</p></div>';
+      return;
+    }
+
+    modelCardsGrid.innerHTML = filtered.map(function(item) {
+      var tagsHtml = item.tags.map(function(t) {
+        return '<span class="model-tag">' + t + '</span>';
+      }).join('');
+
+      return '<div class="apple-model-card" data-model-id="' + item.id + '" role="button" tabindex="0">' +
+        '<div class="card-head">' +
+          '<div class="card-meta">' +
+            '<span class="card-year">' + item.year + '</span>' +
+            '<span class="card-meta-sep">&bull;</span>' +
+            '<span class="card-chip">' + item.chip + '</span>' +
+          '</div>' +
+          '<h3 class="card-model-title">' + item.name + '</h3>' +
+        '</div>' +
+        '<div class="card-tags-row">' +
+          tagsHtml +
+        '</div>' +
+        '<p class="card-desc">' + item.desc + '</p>' +
+        '<div class="card-action-row">' +
+          '<span class="card-action-label">Pilih model ini</span>' +
+          '<span class="card-chevron">&rsaquo;</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  // Model Cards Click Handler
+  if (modelCardsGrid) {
+    modelCardsGrid.addEventListener('click', function(e) {
+      var card = e.target.closest('.apple-model-card') || e.target.closest('.model-card');
+      if (!card) return;
+      var modelId = card.getAttribute('data-model-id');
+      var selected = IPHONE_MODELS.find(function(m) { return m.id === modelId; });
+      if (selected) {
+        selectIPhoneModel(selected);
+      }
+    });
+
+    modelCardsGrid.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        var card = e.target.closest('.apple-model-card') || e.target.closest('.model-card');
+        if (card) {
+          e.preventDefault();
+          var modelId = card.getAttribute('data-model-id');
+          var selected = IPHONE_MODELS.find(function(m) { return m.id === modelId; });
+          if (selected) selectIPhoneModel(selected);
+        }
+      }
+    });
+  }
+
+  function selectIPhoneModel(model) {
+    currentSelectedModel = model;
+
+    // Update Selected Unit Badge in Diagnostic Header
+    var selectedUnitNameTxt = document.getElementById('selectedUnitNameTxt');
+    if (selectedUnitNameTxt) {
+      selectedUnitNameTxt.textContent = model.name;
+    }
+
+    // Render Dynamic Hardware Specs Profile & Technician Flaws Advisory
+    renderModelProfile(model);
+
+    // Rebuild and Render Customized Inspection Sections for this model
+    rebuildInspection(model);
+
+    // Transition smoothly to Diagnostic View
+    setView('diagnostic', 'body');
+  }
+
+  // Search Input Handler
+  if (modelSearchInput) {
+    modelSearchInput.addEventListener('input', function() {
+      modelSearchQuery = modelSearchInput.value;
+      if (clearModelSearch) {
+        clearModelSearch.style.display = modelSearchQuery ? 'flex' : 'none';
+      }
+      renderModelCards();
+    });
+  }
+
+  if (clearModelSearch) {
+    clearModelSearch.addEventListener('click', function() {
+      modelSearchQuery = '';
+      if (modelSearchInput) modelSearchInput.value = '';
+      clearModelSearch.style.display = 'none';
+      renderModelCards();
+      if (modelSearchInput) modelSearchInput.focus();
+    });
+  }
+
+  // Series Filter Tabs Handler
+  if (seriesPillsBar) {
+    seriesPillsBar.addEventListener('click', function(e) {
+      var pill = e.target.closest('.series-pill');
+      if (!pill) return;
+      seriesPillsBar.querySelectorAll('.series-pill').forEach(function(p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+      activeSeriesFilter = pill.getAttribute('data-series');
+      renderModelCards();
+    });
+  }
+
+  renderModelCards();
+
+  // ==========================================================
+  // DESKTOP FRAME-BY-FRAME CANVAS AUTO-PLAY LOOP (240 FRAMES)
+  // ==========================================================
+  var TOTAL_FRAMES = 240;
+  var FRAME_PREFIX = 'image-background/ezgif-frame-';
+  var frames = new Array(TOTAL_FRAMES);
+  var currentFrameIdx = 0;
+  var isLoopPlaying = false;
+  var animReqId = null;
+  var lastTimestamp = 0;
+  var TARGET_FPS = 30;
+  var frameInterval = 1000 / TARGET_FPS;
+
+  var canvas = document.getElementById('heroFrameCanvas');
+  var ctx = canvas ? canvas.getContext('2d') : null;
+
+  function getFrameUrl(num) {
+    return FRAME_PREFIX + String(num).padStart(3, '0') + '.png';
+  }
+
+  function resizeCanvas() {
+    if (!canvas) return;
+    var rect = canvas.parentElement ? canvas.parentElement.getBoundingClientRect() : canvas.getBoundingClientRect();
+    if (rect.width > 0 && rect.height > 0) {
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(rect.width * dpr);
+      canvas.height = Math.floor(rect.height * dpr);
+      renderCanvasFrame(currentFrameIdx);
+    }
+  }
+
+  function preloadFrameSequence() {
+    for (var i = 1; i <= Math.min(15, TOTAL_FRAMES); i++) {
+      loadSingleFrame(i);
+    }
+
+    var nextIdx = 16;
+    function loadRemainingBatch() {
+      if (nextIdx > TOTAL_FRAMES) return;
+      var end = Math.min(nextIdx + 12, TOTAL_FRAMES);
+      for (var k = nextIdx; k <= end; k++) {
+        loadSingleFrame(k);
+      }
+      nextIdx = end + 1;
+      setTimeout(loadRemainingBatch, 40);
+    }
+    setTimeout(loadRemainingBatch, 60);
+  }
+
+  function loadSingleFrame(idx) {
+    if (frames[idx - 1]) return;
+    var img = new Image();
+    img.src = getFrameUrl(idx);
+    img.onload = function() {
+      if (idx === 1 && !isLoopPlaying) {
+        resizeCanvas();
+        renderCanvasFrame(0);
+      }
+    };
+    frames[idx - 1] = img;
+  }
+
+  function renderCanvasFrame(idx) {
+    if (!ctx || !canvas) return;
+    var img = frames[idx];
+    if (!img || !img.complete || img.naturalWidth === 0) {
+      for (var b = idx - 1; b >= 0; b--) {
+        if (frames[b] && frames[b].complete && frames[b].naturalWidth > 0) {
+          img = frames[b];
+          break;
+        }
+      }
+    }
+    if (img && img.complete && img.naturalWidth > 0) {
+      var cw = canvas.width;
+      var ch = canvas.height;
+      if (cw === 0 || ch === 0) return;
+
+      ctx.clearRect(0, 0, cw, ch);
+
+      var imgRatio = img.naturalWidth / img.naturalHeight;
+      var canvasRatio = cw / ch;
+      var drawWidth, drawHeight, offsetX, offsetY;
+
+      // On mobile screens (<= 768px), use contain mode so the entire exploded iPhone is visible
+      if (window.innerWidth <= 768) {
+        if (canvasRatio > imgRatio) {
+          drawHeight = ch;
+          drawWidth = ch * imgRatio;
+          offsetX = (cw - drawWidth) / 2;
+          offsetY = 0;
+        } else {
+          drawWidth = cw;
+          drawHeight = cw / imgRatio;
+          offsetX = 0;
+          offsetY = (ch - drawHeight) / 2;
+        }
+      } else {
+        // Desktop cover mode
+        if (canvasRatio > imgRatio) {
+          drawWidth = cw;
+          drawHeight = cw / imgRatio;
+          offsetX = 0;
+          offsetY = (ch - drawHeight) / 2;
+        } else {
+          drawWidth = ch * imgRatio;
+          drawHeight = ch;
+          offsetX = (cw - drawWidth) / 2;
+          offsetY = 0;
+        }
+      }
+
+      ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+    }
+  }
+
+  function canvasAnimationLoop(timestamp) {
+    if (!isLoopPlaying) return;
+    animReqId = requestAnimationFrame(canvasAnimationLoop);
+
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    var delta = timestamp - lastTimestamp;
+
+    if (delta >= frameInterval) {
+      lastTimestamp = timestamp - (delta % frameInterval);
+      renderCanvasFrame(currentFrameIdx);
+      currentFrameIdx = (currentFrameIdx + 1) % TOTAL_FRAMES;
+    }
+  }
+
+  function startFrameAnimation() {
+    if (document.body.classList.contains('view-home')) {
+      resizeCanvas();
+      if (!isLoopPlaying) {
+        isLoopPlaying = true;
+        lastTimestamp = 0;
+        animReqId = requestAnimationFrame(canvasAnimationLoop);
+      }
+    } else {
+      stopFrameAnimation();
+    }
+  }
+
+  function stopFrameAnimation() {
+    isLoopPlaying = false;
+    if (animReqId) {
+      cancelAnimationFrame(animReqId);
+      animReqId = null;
+    }
+  }
+
+  // Preload frames and start loop for all viewports (desktop & mobile)
+  preloadFrameSequence();
+  startFrameAnimation();
+
+  window.addEventListener('resize', function() {
+    if (!frames[0]) {
+      preloadFrameSequence();
+    }
+    resizeCanvas();
+    if (document.body.classList.contains('view-home') && !isLoopPlaying) {
+      startFrameAnimation();
+    }
+  });
+
+  // ==========================================================
+  // MONOCHROME FLUID WAVE ANIMATION ENGINE (SELECT-MODEL SCREEN)
+  // ==========================================================
+  var waveCanvas = document.getElementById('modelWaveCanvas');
+  var waveCtx = waveCanvas ? waveCanvas.getContext('2d') : null;
+  var waveAnimId = null;
+  var isWavePlaying = false;
+  var lastFrameTimestamp = 0;
+  var waveElapsedTime = 0;
+  var lastCanvasWidth = 0;
+  var lastCanvasHeight = 0;
+
+  // Gentle global parallax tilt (No localized ripples or sawtooth interference)
+  var waveTilt = { targetX: 0, targetY: 0, currentX: 0, currentY: 0 };
+
+  function resizeWaveCanvas(force) {
+    if (!waveCanvas) return;
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    // On mobile, avoid reallocating canvas if only address bar collapses (< 90px height change)
+    if (!force && lastCanvasWidth === w && Math.abs(lastCanvasHeight - h) < 90) {
+      return;
+    }
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    lastCanvasWidth = w;
+    lastCanvasHeight = h;
+    waveCanvas.width = Math.floor(w * dpr);
+    waveCanvas.height = Math.floor(h * dpr);
+    waveCanvas.style.width = w + 'px';
+    waveCanvas.style.height = h + 'px';
+  }
+
+  // Smooth, broad-wavelength harmonic ribbons (Strictly low frequency: wavelengths > 1200px)
+  // Guaranteed mathematically: max slope < 5 degrees, zero sharp peaks or inflection glitches
+  var waveLayers = [
+    // 1. Deep space velvet graphite swell (far background)
+    {
+      baseY: 0.24,
+      amp: 38,
+      freq: 0.00075,
+      subAmp: 14,
+      subFreq: 0.00042,
+      speed: 0.22,
+      phase: 0.0,
+      fillTop: 'rgba(28, 28, 36, 0.40)',
+      fillBottom: 'rgba(3, 3, 5, 0.98)',
+      stroke: 'rgba(255, 255, 255, 0.14)',
+      lineWidth: 1.0
+    },
+    // 2. Translucent smoky titanium ribbon
+    {
+      baseY: 0.44,
+      amp: 48,
+      freq: 0.00095,
+      subAmp: 16,
+      subFreq: 0.00050,
+      speed: -0.28,
+      phase: 2.1,
+      fillTop: 'rgba(50, 50, 62, 0.30)',
+      fillBottom: 'rgba(2, 2, 4, 0.98)',
+      stroke: 'rgba(255, 255, 255, 0.26)',
+      lineWidth: 1.4
+    },
+    // 3. Central luminous flowing silver ribbon
+    {
+      baseY: 0.62,
+      amp: 54,
+      freq: 0.00080,
+      subAmp: 18,
+      subFreq: 0.00045,
+      speed: 0.32,
+      phase: 4.3,
+      fillTop: 'rgba(215, 215, 230, 0.16)',
+      fillBottom: 'rgba(0, 0, 0, 0.98)',
+      stroke: 'rgba(255, 255, 255, 0.55)',
+      lineWidth: 1.6
+    },
+    // 4. Contrast obsidian wave with crisp white highlight
+    {
+      baseY: 0.78,
+      amp: 44,
+      freq: 0.00105,
+      subAmp: 15,
+      subFreq: 0.00055,
+      speed: -0.25,
+      phase: 1.5,
+      fillTop: 'rgba(32, 32, 40, 0.55)',
+      fillBottom: '#000000',
+      stroke: 'rgba(255, 255, 255, 0.40)',
+      lineWidth: 1.4
+    },
+    // 5. Deep foundation anchor wave
+    {
+      baseY: 0.92,
+      amp: 32,
+      freq: 0.00070,
+      subAmp: 10,
+      subFreq: 0.00038,
+      speed: 0.20,
+      phase: 3.2,
+      fillTop: 'rgba(12, 12, 16, 0.85)',
+      fillBottom: '#000000',
+      stroke: 'rgba(255, 255, 255, 0.18)',
+      lineWidth: 1.0
+    }
+  ];
+
+  // Ethereal luminous white silk filament floating smoothly
+  var silkFilament = {
+    baseY: 0.52,
+    amp: 30,
+    freq: 0.00072,
+    subAmp: 12,
+    subFreq: 0.00040,
+    speed: -0.36,
+    phase: 0.8,
+    stroke: 'rgba(255, 255, 255, 0.38)',
+    lineWidth: 1.2
+  };
+
+  // ==========================================================
+  // APPLE LOGO MORPHING ENGINE (COALESCES EVERY 5 SECONDS)
+  // ==========================================================
+  var APPLE_SVG_PATH = 'M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.9-3.37-7.85-8.23-11.87-14.59-6.06-9.56-10.9-20.2-14.52-31.9-3.62-11.71-5.43-23.01-5.43-33.89 0-14.34 3.57-26.24 10.7-35.68 7.14-9.45 16.29-14.33 27.46-14.65 4.35 0 9.29 1.13 14.82 3.39 5.53 2.27 9.4 3.44 11.61 3.52 1.64-.13 5.72-1.39 12.24-3.79 6.52-2.4 12.01-3.4 16.48-3.01 12.59 1.05 22.39 5.86 29.41 14.43-10.9 6.64-16.23 15.69-16 27.16.27 9.17 3.84 16.92 10.71 23.23 6.87 6.31 15.08 10.01 24.62 11.09-2.2 6.67-4.91 13.5-8.13 20.48zM119.22 33.64c0-7.39 2.65-14.28 7.94-20.69 5.3-6.41 11.83-10.45 19.6-12.12.8 3.54 1.21 6.94 1.21 10.21 0 7.39-2.73 14.39-8.19 21.01-5.47 6.61-12.14 10.47-20.02 11.58-.36-3.32-.54-6.65-.54-9.99z';
+  var applePath = null;
+  try {
+    if (typeof Path2D !== 'undefined') {
+      applePath = new Path2D(APPLE_SVG_PATH);
+    }
+  } catch (e) {
+    applePath = null;
+  }
+
+  // Layer convergence target offsets relative to Apple logo center & radius
+  var layerAppleOffsets = [-0.65, -0.30, 0.05, 0.38, 0.70];
+
+  function renderWaveFrame(timestamp) {
+    if (!waveCanvas || !waveCtx) return;
+    var w = waveCanvas.width;
+    var h = waveCanvas.height;
+    if (w === 0 || h === 0) return;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    // Frame-rate independent delta time (smooth on 60Hz and 120Hz)
+    if (!lastFrameTimestamp) lastFrameTimestamp = timestamp;
+    var dt = Math.min((timestamp - lastFrameTimestamp) / 1000, 0.1);
+    lastFrameTimestamp = timestamp;
+    waveElapsedTime += dt;
+
+    // Smoothly lerp mouse parallax tilt (subtle and majestic, no local pinch)
+    waveTilt.currentX += (waveTilt.targetX - waveTilt.currentX) * 0.04;
+    waveTilt.currentY += (waveTilt.targetY - waveTilt.currentY) * 0.04;
+
+    // 1. Calculate Apple Logo Morph Progress (Cycles every ~7.0 seconds)
+    // - 0.0s to 3.2s: Pure free ocean waves (calm continuous flow)
+    // - 3.2s to 4.4s: Waves bend & converge into Apple logo (reaching peak at ~4.5s - 5.0s)
+    // - 4.4s to 6.0s: Apple logo fully formed, glowing, liquid waves flowing inside
+    // - 6.0s to 7.0s: Waves release and dissolve back into open fluid
+    var APPLE_CYCLE = 7.0;
+    var cycleT = waveElapsedTime % APPLE_CYCLE;
+    var morphProgress = 0;
+
+    if (cycleT >= 3.2 && cycleT < 4.4) {
+      var u = (cycleT - 3.2) / 1.2;
+      morphProgress = u * u * (3 - 2 * u); // smoothstep 0 -> 1
+    } else if (cycleT >= 4.4 && cycleT < 6.0) {
+      morphProgress = 1.0;
+    } else if (cycleT >= 6.0 && cycleT < 7.0) {
+      var u = (cycleT - 6.0) / 1.0;
+      morphProgress = 1.0 - (u * u * (3 - 2 * u)); // smoothstep 1 -> 0
+    } else {
+      morphProgress = 0;
+    }
+
+    // Apple Logo dimensions and viewport center (optimized for visibility on mobile & desktop)
+    var isMobile = w < 600 * dpr;
+    var appleCX = w * 0.5;
+    var appleCY = h * (isMobile ? 0.42 : 0.46);
+    var applePixelSize = Math.min(w, h) * (isMobile ? 0.44 : 0.32);
+    var appleScale = applePixelSize / 170;
+    var appleRadius = applePixelSize * 0.82;
+    var warpRadius = appleRadius * 1.6;
+
+    // 2. Velvet pure dark monochrome background
+    var bgGrad = waveCtx.createLinearGradient(0, 0, 0, h);
+    bgGrad.addColorStop(0, '#040406');
+    bgGrad.addColorStop(0.45, '#09090d');
+    bgGrad.addColorStop(1, '#000000');
+    waveCtx.fillStyle = bgGrad;
+    waveCtx.fillRect(0, 0, w, h);
+
+    // Step size: 3px in screen coords gives silky smooth analog curves without polygon facets
+    var step = Math.max(2, Math.floor(3 * dpr));
+
+    // 3. Render each wave layer with gravitational convergence toward Apple logo
+    for (var i = 0; i < waveLayers.length; i++) {
+      var layer = waveLayers[i];
+      var baseYPx = h * layer.baseY + (waveTilt.currentY * dpr * (i + 1) * 3);
+      var ampPx = layer.amp * dpr;
+      var subAmpPx = layer.subAmp * dpr;
+      var freq = layer.freq / dpr;
+      var subFreq = layer.subFreq / dpr;
+      var t = waveElapsedTime * layer.speed + layer.phase + (waveTilt.currentX * 0.02 * (i + 1));
+      var layerTargetY = appleCY + layerAppleOffsets[i] * appleRadius;
+
+      // Calculate path points once for both fill and stroke (prevents raster mismatch)
+      var points = [];
+      for (var x = 0; x <= w + step; x += step) {
+        var y = baseYPx 
+          + Math.sin(x * freq + t) * ampPx 
+          + Math.cos(x * subFreq - t * 0.65) * subAmpPx;
+
+        // Smooth wave convergence toward the Apple silhouette
+        if (morphProgress > 0) {
+          var dx = x - appleCX;
+          var warpDist = Math.abs(dx);
+          if (warpDist < warpRadius) {
+            var env = Math.cos((dx / warpRadius) * (Math.PI * 0.5));
+            var warpFactor = env * env * morphProgress * 0.82;
+            y = y * (1 - warpFactor) + layerTargetY * warpFactor;
+          }
+        }
+
+        points.push({ x: x, y: y });
+      }
+
+      // Draw fluid fill with gradient
+      waveCtx.beginPath();
+      waveCtx.moveTo(0, h);
+      waveCtx.lineTo(points[0].x, points[0].y);
+      for (var p = 1; p < points.length; p++) {
+        waveCtx.lineTo(points[p].x, points[p].y);
+      }
+      waveCtx.lineTo(w, h);
+      waveCtx.closePath();
+
+      var fillGrad = waveCtx.createLinearGradient(0, Math.max(0, baseYPx - ampPx * 1.5), 0, h);
+      fillGrad.addColorStop(0, layer.fillTop);
+      fillGrad.addColorStop(1, layer.fillBottom);
+      waveCtx.fillStyle = fillGrad;
+      waveCtx.fill();
+
+      // Draw luminous crest line
+      waveCtx.beginPath();
+      waveCtx.moveTo(points[0].x, points[0].y);
+      for (var p = 1; p < points.length; p++) {
+        waveCtx.lineTo(points[p].x, points[p].y);
+      }
+      waveCtx.strokeStyle = layer.stroke;
+      waveCtx.lineWidth = layer.lineWidth * dpr;
+      waveCtx.lineCap = 'round';
+      waveCtx.lineJoin = 'round';
+      waveCtx.stroke();
+    }
+
+    // 4. Render luminous white silk filament (also smoothly wraps over the Apple leaf)
+    var fBaseY = h * silkFilament.baseY + (waveTilt.currentY * dpr * 6);
+    var fAmp = silkFilament.amp * dpr;
+    var fSubAmp = silkFilament.subAmp * dpr;
+    var fFreq = silkFilament.freq / dpr;
+    var fSubFreq = silkFilament.subFreq / dpr;
+    var ft = waveElapsedTime * silkFilament.speed + silkFilament.phase;
+
+    waveCtx.beginPath();
+    for (var fx = 0; fx <= w + step; fx += step) {
+      var fy = fBaseY 
+        + Math.sin(fx * fFreq + ft) * fAmp 
+        + Math.cos(fx * fSubFreq - ft * 0.5) * fSubAmp;
+
+      if (morphProgress > 0) {
+        var fdx = fx - appleCX;
+        if (Math.abs(fdx) < warpRadius) {
+          var fEnv = Math.cos((fdx / warpRadius) * (Math.PI * 0.5));
+          var fWarp = fEnv * fEnv * morphProgress * 0.85;
+          fy = fy * (1 - fWarp) + (appleCY - appleRadius * 0.45) * fWarp;
+        }
+      }
+
+      if (fx === 0) waveCtx.moveTo(fx, fy);
+      else waveCtx.lineTo(fx, fy);
+    }
+    waveCtx.strokeStyle = silkFilament.stroke;
+    waveCtx.lineWidth = silkFilament.lineWidth * dpr;
+    waveCtx.lineCap = 'round';
+    waveCtx.stroke();
+
+    // 5. Render Luminous Liquid Apple Logo when formed (morphProgress > 0)
+    if (morphProgress > 0.01 && applePath) {
+      waveCtx.save();
+
+      // Ambient soft radial halo behind the Apple logo
+      var haloRadius = appleRadius * 1.8;
+      var haloGrad = waveCtx.createRadialGradient(appleCX, appleCY, 10 * dpr, appleCX, appleCY, haloRadius);
+      haloGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (0.22 * morphProgress) + ')');
+      haloGrad.addColorStop(0.35, 'rgba(200, 210, 240, ' + (0.10 * morphProgress) + ')');
+      haloGrad.addColorStop(0.7, 'rgba(80, 90, 120, ' + (0.04 * morphProgress) + ')');
+      haloGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      waveCtx.fillStyle = haloGrad;
+      waveCtx.beginPath();
+      waveCtx.arc(appleCX, appleCY, haloRadius, 0, Math.PI * 2);
+      waveCtx.fill();
+
+      // Transform context to Apple logo position & scale
+      waveCtx.translate(appleCX, appleCY);
+      waveCtx.scale(appleScale, appleScale);
+      waveCtx.translate(-85, -85);
+
+      var lineScaleInv = 1.0 / appleScale;
+
+      // Frosted titanium liquid glass body fill (rich contrast)
+      var appleFillGrad = waveCtx.createLinearGradient(0, 0, 0, 170);
+      appleFillGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (0.60 * morphProgress) + ')');
+      appleFillGrad.addColorStop(0.28, 'rgba(210, 215, 230, ' + (0.42 * morphProgress) + ')');
+      appleFillGrad.addColorStop(0.65, 'rgba(60, 65, 80, ' + (0.50 * morphProgress) + ')');
+      appleFillGrad.addColorStop(1, 'rgba(10, 12, 20, ' + (0.75 * morphProgress) + ')');
+      waveCtx.fillStyle = appleFillGrad;
+      waveCtx.fill(applePath);
+
+      // Internal liquid wave currents (flowing strictly inside Apple logo)
+      waveCtx.save();
+      waveCtx.clip(applePath);
+
+      for (var li = 0; li < 5; li++) {
+        var lineBaseY = 25 + li * 26;
+        var lineT = waveElapsedTime * (1.1 + li * 0.35);
+        waveCtx.beginPath();
+        for (var lx = 0; lx <= 170; lx += 3) {
+          var ly = lineBaseY 
+            + Math.sin(lx * 0.05 + lineT) * 7 
+            + Math.cos(lx * 0.025 - lineT * 0.7) * 4;
+          if (lx === 0) waveCtx.moveTo(lx, ly);
+          else waveCtx.lineTo(lx, ly);
+        }
+        waveCtx.strokeStyle = 'rgba(255, 255, 255, ' + ((0.40 + li * 0.12) * morphProgress) + ')';
+        waveCtx.lineWidth = 2.0 * lineScaleInv * dpr;
+        waveCtx.stroke();
+      }
+
+      // Specular sheen sweep across the leaf and bite
+      var sheenPos = ((waveElapsedTime * 0.8) % 2.5) / 2.5 * 260 - 45;
+      var sheenGrad = waveCtx.createLinearGradient(sheenPos - 35, 0, sheenPos + 35, 170);
+      sheenGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      sheenGrad.addColorStop(0.5, 'rgba(255, 255, 255, ' + (0.45 * morphProgress) + ')');
+      sheenGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      waveCtx.fillStyle = sheenGrad;
+      waveCtx.fillRect(0, 0, 170, 170);
+
+      waveCtx.restore(); // end internal wave clip
+
+      // Outer soft glow contour
+      waveCtx.shadowColor = 'rgba(255, 255, 255, ' + (0.95 * morphProgress) + ')';
+      waveCtx.shadowBlur = 22 * dpr * lineScaleInv;
+      waveCtx.strokeStyle = 'rgba(255, 255, 255, ' + (0.40 * morphProgress) + ')';
+      waveCtx.lineWidth = 4.5 * lineScaleInv * dpr;
+      waveCtx.lineCap = 'round';
+      waveCtx.lineJoin = 'round';
+      waveCtx.stroke(applePath);
+
+      // Inner razor-sharp luminous white silk contour
+      waveCtx.shadowBlur = 0;
+      waveCtx.strokeStyle = 'rgba(255, 255, 255, ' + (0.98 * morphProgress) + ')';
+      waveCtx.lineWidth = 2.2 * lineScaleInv * dpr;
+      waveCtx.stroke(applePath);
+
+      waveCtx.restore();
+    }
+  }
+
+  function waveAnimationLoop(timestamp) {
+    if (!isWavePlaying) return;
+    renderWaveFrame(timestamp);
+    waveAnimId = requestAnimationFrame(waveAnimationLoop);
+  }
+
+  function startWaveAnimation() {
+    if (!waveCanvas) return;
+    resizeWaveCanvas(true);
+    if (!isWavePlaying) {
+      isWavePlaying = true;
+      lastFrameTimestamp = 0;
+      waveAnimId = requestAnimationFrame(waveAnimationLoop);
+    }
+  }
+
+  function stopWaveAnimation() {
+    isWavePlaying = false;
+    if (waveAnimId) {
+      cancelAnimationFrame(waveAnimId);
+      waveAnimId = null;
+    }
+    lastFrameTimestamp = 0;
+  }
+
+  // Smooth global parallax on mouse move (completely smooth, non-localized)
+  window.addEventListener('pointermove', function(e){
+    var w = window.innerWidth || 1;
+    var h = window.innerHeight || 1;
+    waveTilt.targetX = ((e.clientX / w) - 0.5) * 8;
+    waveTilt.targetY = ((e.clientY / h) - 0.5) * 6;
+  }, { passive: true });
+
+  window.addEventListener('pointerleave', function(){
+    waveTilt.targetX = 0;
+    waveTilt.targetY = 0;
+  }, { passive: true });
+
+  window.addEventListener('resize', function(){
+    if (document.body.classList.contains('view-select-model')) {
+      resizeWaveCanvas(false);
+    }
+  });
+
+  // ==========================================================
+  // VIEW MODE SWITCHING (HOME -> SELECT-MODEL -> DIAGNOSTIC)
+  // ==========================================================
+  function setView(viewMode, step){
+    document.body.classList.remove('view-home', 'view-select-model', 'view-diagnostic');
+
+    var navBackBtnSpan = navBackBtn ? navBackBtn.querySelector('span') : null;
+
+    if (viewMode === 'select-model'){
+      stopFrameAnimation();
+      document.body.classList.add('view-select-model');
+      if (navBackBtnSpan) navBackBtnSpan.textContent = 'Beranda';
+      startWaveAnimation();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    } else if (viewMode === 'diagnostic'){
+      stopFrameAnimation();
+      stopWaveAnimation();
+      document.body.classList.add('view-diagnostic');
+      if (navBackBtnSpan) navBackBtnSpan.textContent = 'Ganti Model';
+      if (step){
+        goto(step, false);
+      }
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    } else {
+      // Default: 'home'
+      stopWaveAnimation();
+      document.body.classList.add('view-home');
+      if (navBackBtnSpan) navBackBtnSpan.textContent = 'Beranda';
+      resizeCanvas();
+      startFrameAnimation();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  }
+
+  // Hero CTA Button -> Goes to Model Selection Page!
+  var startCheckBtn = document.getElementById('startCheckBtn');
+  if (startCheckBtn) {
+    startCheckBtn.addEventListener('click', function(){
+      setView('select-model');
+    });
+  }
+
+  // Hero "Pelajari Cara Kerja Website" Button -> Smooth scroll to Guide Section
+  var heroLearnMoreBtn = document.getElementById('heroLearnMoreBtn');
+  if (heroLearnMoreBtn) {
+    heroLearnMoreBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      var guideSec = document.getElementById('homeGuideSection');
+      if (guideSec) {
+        guideSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Guide Section Bottom Primary CTA -> Goes to Model Selection Page!
+  var guideStartCheckBtn = document.getElementById('guideStartCheckBtn');
+  if (guideStartCheckBtn) {
+    guideStartCheckBtn.addEventListener('click', function(){
+      setView('select-model');
+    });
+  }
+
+  // Guide Section Scroll Top Button -> Smooth scroll to top
+  var guideScrollTopBtn = document.getElementById('guideScrollTopBtn');
+  if (guideScrollTopBtn) {
+    guideScrollTopBtn.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Model Selection Back Button -> Goes back to Home
+  var modelSelectBackBtn = document.getElementById('modelSelectBackBtn');
+  if (modelSelectBackBtn) {
+    modelSelectBackBtn.addEventListener('click', function(){
+      setView('home');
+    });
+  }
+
+  // Diagnostic Back Button -> Goes back to Model Selection
+  var diagnosticBackBtn = document.getElementById('diagnosticBackBtn');
+  if (diagnosticBackBtn) {
+    diagnosticBackBtn.addEventListener('click', function(){
+      setView('select-model');
+    });
+  }
+
+  // Brand Header Click -> Return to Home
+  var navBrand = document.getElementById('navBrand');
+  if (navBrand) {
+    navBrand.addEventListener('click', function(){
+      setView('home');
+    });
+    navBrand.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        setView('home');
+      }
+    });
+  }
+
+  // Nav Back Button -> Contextual return
+  var navBackBtn = document.getElementById('navBackBtn');
+  if (navBackBtn) {
+    navBackBtn.addEventListener('click', function(){
+      if (document.body.classList.contains('view-diagnostic')) {
+        setView('select-model');
+      } else {
+        setView('home');
+      }
+    });
+  }
+
+  // Lightbox Modal Logic
+  var lightboxModal = document.getElementById('lightboxModal');
+  var lightboxBackdrop = document.getElementById('lightboxBackdrop');
+  var lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+  var lightboxPreview = document.getElementById('lightboxPreview');
+  var lightboxTitle = document.getElementById('lightboxTitle');
+  var lightboxDesc = document.getElementById('lightboxDesc');
+  var lightboxBadge = document.getElementById('lightboxBadge');
+
+  function openLightbox(itemId) {
+    if (!lightboxModal) return;
+    var sectionKey = itemSection(itemId);
+    var item = (SECTIONS[sectionKey] || []).find(function(it) { return it.id === itemId; });
+    if (!item) return;
+
+    if (lightboxTitle) lightboxTitle.textContent = item.title;
+    if (lightboxDesc) lightboxDesc.textContent = item.desc;
+    if (lightboxBadge) {
+      lightboxBadge.textContent = 'PANDUAN VISUAL • ' + (currentSelectedModel ? currentSelectedModel.name : 'IPHONE');
+    }
+
+    if (lightboxPreview) {
+      var visual = getModelInspectionVisual(currentSelectedModel, itemId);
+      lightboxPreview.innerHTML = visual.html;
+    }
+
+    lightboxModal.classList.add('active');
+    lightboxModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeLightbox() {
+    if (!lightboxModal) return;
+    lightboxModal.classList.remove('active');
+    lightboxModal.setAttribute('aria-hidden', 'true');
+  }
+
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+  if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('active')) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    var diag = e.target.closest('.diagram');
+    if (diag && diag.hasAttribute('data-item-id')) {
+      openLightbox(diag.getAttribute('data-item-id'));
+    }
+  });
+
+  window.__IPHONE_CHECKER__ = {
+    IPHONE_MODELS: IPHONE_MODELS,
+    buildModelInspectionSections: buildModelInspectionSections,
+    getModelInspectionVisual: getModelInspectionVisual
+  };
+
+})();
+
