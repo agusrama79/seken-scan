@@ -629,88 +629,131 @@ body.view-diagnostic #navBackBtn {
 }
 
 .guide-problem-card {
-  background: rgba(20, 20, 24, 0.7);
+  background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 26px 22px;
-  position: relative;
+  border-radius: 16px;
+  padding: 24px 22px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .guide-problem-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(26, 26, 32, 0.85);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
 }
 
-.problem-card-num {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 26px;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.06);
-  font-family: monospace;
+.problem-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.problem-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #71717A;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
 }
 
 .problem-card-icon-wrap {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   color: #E4E4E7;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .problem-card-title {
-  font-size: 16.5px;
+  font-size: 16px;
   font-weight: 700;
   color: #FFFFFF;
   margin: 0;
   line-height: 1.35;
 }
 
-.problem-card-desc {
-  font-size: 13.5px;
-  line-height: 1.55;
-  color: #A1A1AA;
+/* Reusable Guide Point List */
+.guide-point-list {
+  list-style: none;
+  padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
   flex-grow: 1;
 }
 
-.problem-card-desc em {
-  font-style: normal;
-  color: #D4D4D8;
+.guide-point-list.compact {
+  gap: 6px;
 }
 
-.problem-card-tag {
+.guide-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #A1A1AA;
+}
+
+.guide-point-item strong {
+  color: #E4E4E7;
+  font-weight: 600;
+}
+
+.guide-point-bullet {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #71717A;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.guide-point-risk {
+  margin-top: 6px;
+  padding: 8px 12px;
+  border-radius: 8px;
   font-size: 11.5px;
   font-weight: 600;
-  color: #E4E4E7;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  padding: 6px 10px;
-  margin-top: 4px;
+  color: #D4D4D8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.risk-label {
+  color: #EF4444;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
 }
 
 /* Mission Box */
 .guide-mission-box {
-  background: linear-gradient(135deg, rgba(28, 28, 34, 0.85) 0%, rgba(16, 16, 20, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 22px;
-  padding: 38px 40px;
+  background: linear-gradient(135deg, rgba(24, 24, 28, 0.75) 0%, rgba(14, 14, 18, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 34px 36px;
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 36px;
   align-items: center;
 }
 
@@ -725,16 +768,16 @@ body.view-diagnostic #navBackBtn {
 }
 
 .mission-title {
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 800;
   line-height: 1.3;
   color: #FFFFFF;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
 }
 
 .mission-desc {
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13.5px;
+  line-height: 1.55;
   color: #A1A1AA;
   margin: 0;
 }
@@ -742,7 +785,7 @@ body.view-diagnostic #navBackBtn {
 .mission-features-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .mission-feat-item {
@@ -752,18 +795,18 @@ body.view-diagnostic #navBackBtn {
 }
 
 .feat-check-icon {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+  color: #A1A1AA;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .mission-feat-item strong {
@@ -787,20 +830,19 @@ body.view-diagnostic #navBackBtn {
 }
 
 .guide-step-card {
-  background: rgba(20, 20, 24, 0.6);
+  background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 24px 18px;
+  border-radius: 16px;
+  padding: 22px 18px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .guide-step-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(26, 26, 32, 0.85);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 .step-card-header {
@@ -820,37 +862,18 @@ body.view-diagnostic #navBackBtn {
 .step-badge {
   font-size: 10px;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 2px 7px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.05);
   color: #D4D4D8;
 }
 
-.step-icon-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FFFFFF;
-}
-
 .step-title {
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 700;
   color: #FFFFFF;
   margin: 0;
   line-height: 1.35;
-}
-
-.step-desc {
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: #A1A1AA;
-  margin: 0;
 }
 
 /* Pillars Grid */
@@ -861,10 +884,10 @@ body.view-diagnostic #navBackBtn {
 }
 
 .guide-pillar-card {
-  background: rgba(18, 18, 22, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 22px 18px;
+  padding: 20px 18px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -882,8 +905,16 @@ body.view-diagnostic #navBackBtn {
   justify-content: space-between;
 }
 
-.pillar-icon {
-  font-size: 22px;
+.pillar-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #E4E4E7;
 }
 
 .pillar-tag {
@@ -895,32 +926,25 @@ body.view-diagnostic #navBackBtn {
 }
 
 .pillar-title {
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 700;
   color: #FFFFFF;
   margin: 0;
   line-height: 1.35;
 }
 
-.pillar-desc {
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: #A1A1AA;
-  margin: 0;
-}
-
 /* FAQ Grid */
 .guide-faq-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: 16px;
 }
 
 .guide-faq-item {
-  background: rgba(20, 20, 24, 0.6);
+  background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 22px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -928,7 +952,7 @@ body.view-diagnostic #navBackBtn {
 }
 
 .guide-faq-item:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.16);
 }
 
 .faq-q {
@@ -936,16 +960,7 @@ body.view-diagnostic #navBackBtn {
   font-weight: 700;
   color: #FFFFFF;
   line-height: 1.4;
-}
-
-.faq-a {
-  font-size: 13px;
-  line-height: 1.6;
-  color: #A1A1AA;
-}
-
-.faq-a strong {
-  color: #FFFFFF;
+  margin: 0;
 }
 
 /* CTA Banner */

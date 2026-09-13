@@ -971,7 +971,7 @@
   var activeSeriesFilter = 'all';
   var modelSearchQuery = '';
 
-  var SECTION_LABELS = {body:'Body & fisik', camera:'Kamera', model:'Nomor model', screen:'Layar'};
+  var SECTION_LABELS = {body:'Bodi Luar', camera:'Kamera', model:'Asal Negara', screen:'Layar & Baterai'};
 
   var CODES = [
     {code:'LL', country:'Amerika Serikat', flag:'\uD83C\uDDFA\uD83C\uDDF8', note:'Beredar global. Pada iPhone 14 ke atas, unit US adalah varian eSIM Only tanpa lubang SIM fisik!'},
@@ -985,7 +985,7 @@
     {code:'X', country:'Australia & Selandia Baru', flag:'\uD83C\uDDE6\uD83C\uDDFA'},
     {code:'B', country:'Inggris (UK)', flag:'\uD83C\uDDEC\uD83C\uDDE7'},
     {code:'MY', country:'Malaysia', flag:'\uD83C\uDDF2\uD83C\uDDFE'},
-    {code:'PA', country:'Indonesia', flag:'\uD83C\uDDEE\uD83C\uDDE9', note:'Distribusi resmi TAM / iBox / Digimap / Erafone. Bergaransi resmi Indonesia & IMEI otomatis whitelisted.'},
+    {code:'PA', country:'Indonesia', flag:'\uD83C\uDDEE\uD83C\uDDE9', note:'Distribusi resmi TAM / iBox / Digimap / Erafone. Bergaransi resmi Indonesia & IMEI otomatis aman seumur hidup.'},
     {code:'ID', country:'Indonesia', flag:'\uD83C\uDDEE\uD83C\uDDE9', note:'Distribusi resmi Indonesia non-TAM (seperti GDN / Blibli). IMEI aman & resmi terdaftar.'},
     {code:'SA', country:'Indonesia', flag:'\uD83C\uDDEE\uD83C\uDDE9', note:'Distribusi resmi Indonesia jalur distributor era lama.'}
   ];
@@ -994,39 +994,31 @@
   // DYNAMIC INSPECTION SECTION BUILDER (ADAPTIVE TO MODEL SPECS)
   // ==========================================================
   function buildModelInspectionSections(model) {
-    var frameName = model.materialFrame === 'titanium' ? 'Titanium Grade 5' : (model.materialFrame === 'stainless-steel' ? 'Stainless Steel Bedah' : 'Aluminium Anodized');
+    var frameName = model.materialFrame === 'titanium' ? 'Titanium' : (model.materialFrame === 'stainless-steel' ? 'Baja Mengkilap (Stainless)' : 'Aluminium');
     var frameDesc = '';
     if (model.materialFrame === 'titanium') {
-      frameDesc = 'Cek frame Titanium Grade 5 dari dent benturan di sudut bodi dan perubahan warna sementara akibat minyak tangan (bisa dilap). Rangka titanium sangat kokoh namun jika pernah jatuh keras dapat meninggalkan lekukan di sambungan layar.';
+      frameDesc = 'Raba keempat sudut dan pinggiran HP dengan jari. Pastikan bodi mulus tanpa ada bekas jatuh keras yang dalam atau bodi melengkung. Bekas minyak sidik jari pada pinggiran titanium wajar dan mudah dibersihkan dengan dilap kain.';
     } else if (model.materialFrame === 'stainless-steel') {
-      frameDesc = 'Cek rangka Stainless Steel bedah dari baret mikro (swirl marks) dan penyok di sudut. Pastikan celah bodi ke layar rapat dan presisi tanpa sisa lem atau renggang.';
+      frameDesc = 'Raba sekeliling bodi dengan jari. Goresan halus pemakaian sehari-hari adalah hal wajar, namun pastikan sudut-sudutnya tidak penyok keras dan kaca layar masih menempel rapat tanpa ada celah renggang.';
     } else {
-      frameDesc = 'Cek sasis aluminium anodized dari korosi bintik putih ("jamur casing") dan lekukan dent benturan. Aluminium lebih empuk terhadap benturan keras.';
+      frameDesc = 'Raba pinggiran dan sudut bodi HP. Pastikan tidak ada penyok akibat jatuh keras, bodi tidak melengkung, dan tidak ada bintik putih bekas jamur casing.';
     }
 
     var portItem = null;
-    if (model.portType === 'usb-c-3') {
+    if (model.portType === 'usb-c-3' || model.portType === 'usb-c-2') {
       portItem = {
         id: 'b_port_usbc',
-        title: 'Port USB-C 3.0 (Kecepatan Transfer 10 Gbps)',
-        desc: 'Colokkan kabel Type-C bolak-balik. Uji kecepatan transfer data dan pengisian daya cepat. Pastikan lubang port bersih dari serat kain atau debu padat dan lidah pin konektor tengah tidak retak/goyang.',
-        tag: 'Hardware USB-C 3',
-        tagType: 'pro'
-      };
-    } else if (model.portType === 'usb-c-2') {
-      portItem = {
-        id: 'b_port_usbc',
-        title: 'Port USB-C Universal',
-        desc: 'Pastikan colokan kabel Type-C terpasang kencang dan tidak goyang saat digerakkan perlahan. Cek charging bolak-balik serta deteksi saat disambungkan ke laptop/komputer.',
-        tag: 'Hardware Type-C',
+        title: 'Lubang Cas (Port USB-C)',
+        desc: 'Colokkan kabel cas secara bolak-balik (coba kedua sisi kabel). Pastikan cas langsung masuk dengan lancar, pas di colokan, dan pengisian baterai tidak putus saat kabel digerakkan pelan.',
+        tag: 'Lubang Cas',
         tagType: 'hardware'
       };
     } else {
       portItem = {
         id: 'b_port_lightning',
-        title: 'Port Lightning Apple 8-Pin',
-        desc: 'Periksa 8 pin tembaga di dalam port Lightning dari korosi kehijauan atau pin terbakar. Colokkan kabel bolak-balik, pastikan mengisi daya stabil tanpa terputus saat kabel digoyang pelan.',
-        tag: 'Hardware Lightning',
+        title: 'Lubang Cas (Port Lightning)',
+        desc: 'Colokkan kabel cas bolak-balik. Pastikan aliran listrik langsung masuk dan tidak putus-nyambung saat kabel digerakkan pelan. Intip lubang cas, pastikan bersih dari kotoran atau kuningan yang patah.',
+        tag: 'Lubang Cas',
         tagType: 'hardware'
       };
     }
@@ -1035,25 +1027,25 @@
     if (model.buttonType === 'action-button') {
       buttonItem = {
         id: 'b_action_btn',
-        title: 'Action Button (Tombol Aksi Haptic)',
-        desc: 'Tekan dan tahan Action Button di atas tombol volume. Rasakan hentakan Taptic Engine dan pastikan pintasan (Senter, Hening, Voice Memo, Kamera) aktif instan. Tombol tidak boleh kendor atau macet.',
-        tag: 'Action Button',
+        title: 'Tombol Aksi (Action Button)',
+        desc: 'Tekan dan tahan tombol kecil di atas tombol volume. HP harus bergetar sedikit dan fungsi pintasannya (misal senter atau kamera) langsung aktif seketika.',
+        tag: 'Tombol Aksi',
         tagType: 'pro'
       };
     } else if (model.biometrics === 'touch-id') {
       buttonItem = {
         id: 'b_home_btn',
-        title: 'Tombol Home Solid-State & Touch ID',
-        desc: 'Tekan tombol Home dengan daya menyala. Tombol ini tidak bergerak fisik melainkan menggunakan getaran Taptic Engine. Pastikan respon klik solid dan pemindaian sidik jari Touch ID terbaca instan.',
-        tag: 'Touch ID Kritis',
+        title: 'Tombol Home & Sidik Jari (Touch ID)',
+        desc: 'Tekan tombol bulat di bawah layar saat HP menyala. Tombol harus bergetar mantap saat diklik, dan sensor sidik jari harus bisa membaca jari Anda dengan cepat tanpa gagal.',
+        tag: 'Sidik Jari',
         tagType: 'critical'
       };
     } else {
       buttonItem = {
         id: 'b_mute_switch',
-        title: 'Saklar Hening / Mute Switch Fisik',
-        desc: 'Geser saklar diam/dering ke atas dan bawah. Pastikan aksen warna oranye terlihat jelas saat mode hening aktif dan getaran Taptic Engine bergetar mantap satu kali tanpa delay.',
-        tag: 'Saklar Fisik',
+        title: 'Saklar Geser Hening (Mute Switch)',
+        desc: 'Geser saklar di sisi kiri atas HP ke atas dan ke bawah. Saat digeser ke bawah hingga garis warna oranye terlihat, HP harus bergetar satu kali menandakan mode hening aktif.',
+        tag: 'Saklar Hening',
         tagType: 'hardware'
       };
     }
@@ -1062,16 +1054,16 @@
     var bodyItems = [
       {
         id: 'b_chassis',
-        title: 'Kerataan bodi & sasis (' + frameName + ')',
+        title: 'Kondisi Sudut & Pinggiran Bodi (' + frameName + ')',
         desc: frameDesc,
-        tag: frameName,
+        tag: 'Fisik Bodi',
         tagType: 'hardware'
       },
       {
         id: 'b_pentalobe',
-        title: 'Dua baut pentalobe bawah',
-        desc: 'Periksa dua sekrup bintang pentalobe di samping port pengisian. Kepala baut yang slek, lecet mata obeng tajam, berkarat, atau warna sekrup tidak seragam menandakan unit pernah dibongkar teknisi.',
-        tag: 'Deteksi Bongkar',
+        title: '2 Baut Kecil di Bawah (Dekat Lubang Cas)',
+        desc: 'Amati 2 baut kecil di samping lubang cas. Baut asli pabrik bentuk bintangnya rapi dan mulus. Jika kepala baut lecet, gompal, berkarat, atau ada bekas diputar obeng secara paksa, berarti HP sudah pernah dibongkar.',
+        tag: 'Tanda Bongkar',
         tagType: 'critical'
       },
       portItem,
@@ -1081,25 +1073,25 @@
     if (model.hasCameraControl) {
       bodyItems.push({
         id: 'b_camera_ctrl',
-        title: 'Tombol Camera Control (Sensor Sapphire Kapasitif)',
-        desc: 'Tekan satu kali untuk buka kamera, tekan ringan dua kali (light-press) untuk memunculkan menu kontrol, dan geser jari di atas kristal safir untuk zoom/eksposur. Pastikan sensor sentuh geser mulus tanpa patah-patah!',
-        tag: 'Fitur Baru 16/17',
+        title: 'Tombol Kamera Samping (Camera Control)',
+        desc: 'Tekan tombol kamera di sisi kanan bawah untuk membuka kamera. Usap jari Anda di atas tombol tersebut untuk mencoba zoom gambar. Gerakannya harus terasa mulus dan responsif.',
+        tag: 'Tombol Kamera',
         tagType: 'pro'
       });
     }
 
     bodyItems.push({
       id: 'b_sim_tray',
-      title: 'Baki SIM fisik & Indikator Cairan (LCI)',
-      desc: 'Keluarkan SIM tray. Teropong stiker LCI di dalam slot: warna putih/perak = aman belum kena cairan; warna merah/pink = pernah kemasukan cairan. (Catatan: Jika unit berkode US LL/A pada seri 14/15/16/17, unit adalah varian eSIM Only tanpa lubang SIM tray fisik).',
-      tag: 'Segel Air LCI',
+      title: 'Tempat Kartu SIM & Tanda Bekas Air',
+      desc: 'Tusuk dan keluarkan tempat kartu SIM. Terangi lubang slot SIM dengan senter HP lain: jika terlihat titik stiker berwarna putih/perak berarti aman; jika titiknya berwarna merah/pink berarti HP pernah kemasukan air atau tercebur. (Khusus iPhone versi Amerika/LL seri 14 ke atas tidak memiliki lubang SIM karena memakai eSIM).',
+      tag: 'Segel Air',
       tagType: 'critical'
     });
 
     bodyItems.push({
       id: 'b_back_glass',
-      title: 'Kaca Belakang & Logo Apple',
-      desc: 'Periksa retak rambut di sekitar modul kamera dan keaslian tekstur kaca belakang (' + (model.year >= 2022 ? 'desain kaca modular lepas' : 'kaca bodi presisi') + '). Kaca belakang gantian KW sering memiliki logo Apple pudar, tidak rata dengan frame, atau tercium bau lem tajam.',
+      title: 'Kaca Bodi Belakang & Logo Apple',
+      desc: 'Raba permukaan kaca bodi belakang, terutama di sekitar tonjolan kamera. Kaca belakang asli terasa sangat halus, menyatu rapat dengan bingkai samping, dan tidak ada bau lem menyengat bekas gantian kaca tiruan.',
       tag: 'Kaca Belakang',
       tagType: 'hardware'
     });
@@ -1109,51 +1101,51 @@
     var camTitle = '';
     var camDesc = '';
     if (model.cameraSetup === 'single') {
-      camTitle = 'Lensa Kamera Utama 12MP Wide';
-      camDesc = 'Buka aplikasi Kamera bawaan, pastikan viewfinder tajam, warna akurat, dan tidak ada freeze saat mengambil foto atau merekam video 4K 60fps.';
+      camTitle = 'Kamera Utama Belakang';
+      camDesc = 'Buka aplikasi Kamera bawaan. Pastikan tampilan gambar jernih, warna alami, dan tidak macet saat mengambil foto atau merekam video.';
     } else if (model.cameraSetup === 'dual') {
-      camTitle = 'Dua Lensa (Wide 1x + Ultra Wide 0.5x)';
-      camDesc = 'Buka aplikasi Kamera, pindah antara mode 0.5x dan 1x. Pastikan gambar berpindah mulus tanpa jeda lag berlebih atau layar berkedip hitam.';
+      camTitle = 'Kamera Sudut Lebar (0.5x) & Normal (1x)';
+      camDesc = 'Buka aplikasi Kamera bawaan. Ketuk angka 0.5x (kamera lebar) dan 1x secara bergantian. Gambar harus berpindah seketika tanpa layar berkedip hitam, buram, atau jeda macet.';
     } else if (model.cameraSetup === 'triple-5x') {
-      camTitle = 'Tiga Lensa (0.5x Ultra Wide + 1x Wide + 5x Tetraprism Periskop)';
-      camDesc = 'Uji seluruh transisi zoom: 0.5x, 1x, 2x, dan 5x optik. Lensa 5x periskop menggunakan sistem prisma pemantul; pastikan gambar di 5x tajam dan stabil tanpa blur bergetar.';
+      camTitle = 'Perpindahan Lensa Kamera (0.5x, 1x, 2x, hingga 5x Zoom)';
+      camDesc = 'Buka aplikasi Kamera bawaan. Ketuk angka 0.5x, 1x, 2x, dan 5x zoom optik. Gambar harus berpindah mulus antar lensa tanpa layar berkedip hitam atau gambar menjadi kabur/goyang.';
     } else if (model.cameraSetup === 'triple-3x') {
-      camTitle = 'Tiga Lensa (0.5x Ultra Wide + 1x Wide + 3x Telephoto)';
-      camDesc = 'Uji transisi zoom 0.5x, 1x, 2x, dan 3x optik. Pastikan lensa telephoto 3x mengunci gambar tajam dan tidak ada delay saat berganti lensa.';
+      camTitle = 'Perpindahan Lensa Kamera (0.5x, 1x, 2x, hingga 3x Zoom)';
+      camDesc = 'Buka aplikasi Kamera bawaan. Ketuk angka 0.5x, 1x, 2x, dan 3x zoom optik. Gambar harus berpindah mulus antar lensa tanpa layar berkedip hitam atau delay gambar.';
     } else {
-      camTitle = 'Tiga Lensa (0.5x Ultra Wide + 1x Wide + 2x Telephoto)';
-      camDesc = 'Uji transisi zoom 0.5x, 1x, dan 2x optik. Pastikan seluruh 3 sensor kamera aktif dan gambar bersih.';
+      camTitle = 'Perpindahan Lensa Kamera (0.5x, 1x, hingga 2x Zoom)';
+      camDesc = 'Buka aplikasi Kamera bawaan. Ketuk angka 0.5x, 1x, dan 2x zoom. Pastikan semua lensa kamera aktif dan gambarnya jernih.';
     }
 
     cameraItems.push({
       id: 'c_lensa_array',
       title: camTitle,
       desc: camDesc,
-      tag: 'Modul Kamera',
+      tag: 'Lensa Kamera',
       tagType: 'hardware'
     });
 
-    var afDesc = 'Coba fokus ke objek dekat (jarak 10 cm) lalu ke objek jauh secara bergantian. Fokus harus mengunci instan. ';
+    var afDesc = 'Arahkan kamera ke telapak tangan dari jarak 10 cm, lalu arahkan ke benda yang jauh. Kamera harus langsung mengunci fokus tajam seketika. ';
     if (model.id === 'ip14p' || model.id === 'ip14pm') {
-      afDesc += 'Waspadai isu OIS getar pada iPhone 14 Pro: buka kamera di aplikasi pihak ketiga (Instagram/TikTok), pastikan lensa kamera tidak bergetar mekanis atau bersuara berdengung!';
+      afDesc += 'Waspadai masalah getar pada iPhone 14 Pro: buka juga kamera lewat aplikasi Instagram atau TikTok, pastikan lensa kamera tidak bergetar sendiri atau berbunyi mendengung!';
     } else {
-      afDesc += 'Pastikan mekanisme penstabil sensor (Sensor-Shift OIS) bekerja senyap tanpa getaran abnormal.';
+      afDesc += 'Pastikan saat memotret atau merekam video, gambar stabil dan kamera tidak bergetar abnormal.';
     }
 
     cameraItems.push({
       id: 'c_autofocus',
-      title: 'Autofocus & Sensor Penstabil (OIS)',
+      title: 'Fokus Kamera & Gambar Stabil',
       desc: afDesc,
-      tag: (model.id === 'ip14p' || model.id === 'ip14pm') ? 'Uji Kritis OIS' : 'Autofocus',
+      tag: (model.id === 'ip14p' || model.id === 'ip14pm') ? 'Uji Getar OIS' : 'Fokus Kamera',
       tagType: (model.id === 'ip14p' || model.id === 'ip14pm') ? 'critical' : 'hardware'
     });
 
     if (model.hasLidar) {
       cameraItems.push({
         id: 'c_lidar',
-        title: 'Sensor LiDAR 3D Scanner (Khusus Seri Pro)',
-        desc: 'Buka aplikasi bawaan Apple "Pengukur" (Measure). Arahkan kamera ke meja atau lantai; garis pengukur LiDAR harus mengunci instan dalam hitungan detik. Coba juga foto Portrait malam hari di ruangan redup, LiDAR membantu mengunci fokus di tempat gelap.',
-        tag: 'Sensor LiDAR',
+        title: 'Sensor Pengukur Ruang (LiDAR Seri Pro)',
+        desc: 'Buka aplikasi bawaan Apple bernama "Pengukur" (Measure). Arahkan kamera ke lantai atau meja. Titik pengukur harus langsung muncul dalam hitungan detik untuk membaca jarak benda secara instan.',
+        tag: 'Sensor Pengukur',
         tagType: 'pro'
       });
     }
@@ -1161,36 +1153,26 @@
     if (model.hasMacro) {
       cameraItems.push({
         id: 'c_macro',
-        title: 'Mode Macro Otomatis (Fokus Jarak 2 cm)',
-        desc: 'Dekatkan kamera ke tulisan kecil atau permukaan koin hingga jarak 2 cm. Perhatikan ikon bunga kuning (makro) aktif di pojok kiri bawah layar dan lensa otomatis beralih menampilkan detail makro yang sangat tajam.',
-        tag: 'Macro Mode',
+        title: 'Foto Jarak Sangat Dekat (Mode Makro)',
+        desc: 'Dekatkan kamera ke tulisan kecil di kertas atau permukaan koin (jarak sekitar 2 cm). Ikon bunga kuning kecil akan otomatis menyala di pojok layar dan detail tulisan kecil langsung terlihat sangat tajam.',
+        tag: 'Foto Makro',
         tagType: 'pro'
       });
     }
 
     if (model.has48MP) {
-      if (model.name.indexOf('Pro') !== -1) {
-        cameraItems.push({
-          id: 'c_48mp',
-          title: 'Sensor 48MP Pro, Apple ProRAW & HEIF Max',
-          desc: 'Buka Pengaturan > Kamera > Format > ProRAW & Kontrol Resolusi. Aktifkan Apple ProRAW (12MP/48MP) dan format HEIF Max 48MP (khusus seri Pro). Pada aplikasi Kamera, pastikan toggle RAW / HEIF MAX aktif di pojok kanan atas. Ambil foto 48MP lalu perbesar (zoom) detail maksimal untuk memastikan sensor quad-pixel asli membaca resolusi penuh tanpa noise rekondisi.',
-          tag: 'ProRAW & 48MP',
-          tagType: 'pro'
-        });
-      } else {
-        cameraItems.push({
-          id: 'c_48mp',
-          title: 'Sensor 48MP Utama & Kontrol Resolusi (HEIF Max 48MP)',
-          desc: 'Buka Pengaturan > Kamera > Format > Kontrol Resolusi, aktifkan HEIF Max atau JPEG Max (hingga 48 MP) — catatan: fitur Apple ProRAW eksklusif untuk seri Pro dan tidak tersedia di seri ' + (model.name.indexOf('Plus') !== -1 ? 'Plus' : 'reguler') + '. Pada aplikasi Kamera, ketuk tombol "HEIF MAX" di pojok kanan atas, ambil foto di mode 48MP dan perbesar detail gambar; pastikan tekstur sangat tajam & transisi in-sensor crop zoom optik 2x bekerja jernih.',
-          tag: 'HEIF Max 48MP',
-          tagType: 'hardware'
-        });
-      }
+      cameraItems.push({
+        id: 'c_48mp',
+        title: 'Kualitas & Ketajaman Foto Resolusi Tinggi (48MP)',
+        desc: 'Ambil satu foto di ruangan yang cukup cahaya. Setelah foto tersimpan, buka fotonya lalu perbesar (zoom) sedekat mungkin. Gambar harus tetap jernih dan detail kecilnya terbaca jelas tanpa buram pecah-pecah.',
+        tag: 'Ketajaman Foto',
+        tagType: 'hardware'
+      });
     } else if (model.name.indexOf('Pro') !== -1 && (model.series === '12' || model.series === '13')) {
       cameraItems.push({
         id: 'c_proraw_12mp',
-        title: 'Format Apple ProRAW 12MP (Khusus Seri Pro)',
-        desc: 'Buka Pengaturan > Kamera > Format, aktifkan fitur Apple ProRAW (pertama hadir di seri 12 Pro & 13 Pro). Pada aplikasi Kamera, pastikan tombol "RAW" muncul di pojok kanan atas. Ambil foto format DNG ProRAW tanpa kompresi olahan; pastikan file tersimpan ~25-30 MB membuktikan pemrosesan ISP chip Apple murni.',
+        title: 'Ketajaman Foto Asli Tanpa Kompresi (Apple ProRAW)',
+        desc: 'Buka Pengaturan > Kamera > Format, aktifkan Apple ProRAW. Buka kamera, pastikan tombol "RAW" menyala di pojok kanan atas, lalu ambil foto. Hasil foto harus jernih dengan detail warna yang sangat alami.',
         tag: 'Apple ProRAW',
         tagType: 'pro'
       });
@@ -1198,25 +1180,25 @@
 
     cameraItems.push({
       id: 'c_flash',
-      title: 'True Tone Flash Belakang & Senter',
-      desc: 'Aktifkan flash saat memotret di ruangan gelap dan nyalakan senter di Pusat Kontrol dengan 4 tingkatan kecerahan. Seluruh LED amber dan putih harus menyala stabil tanpa flicker.',
-      tag: 'Flash LED',
+      title: 'Lampu Kilat (Flash) & Senter',
+      desc: 'Buka Pusat Kontrol (usap layar dari pojok kanan atas ke bawah) lalu nyalakan senter. Coba juga ambil foto dengan lampu kilat menyala. Lampu harus menyala terang stabil tanpa berkedip-kedip.',
+      tag: 'Lampu Flash',
       tagType: 'hardware'
     });
 
     if (model.biometrics === 'face-id') {
       cameraItems.push({
         id: 'c_truedepth',
-        title: 'Kamera Depan & Sensor Face ID TrueDepth',
-        desc: 'Buka Pengaturan > Face ID & Kode Sandi > Atur Face ID. Putar wajah mengikuti lingkaran sensor. Pastikan proyektor titik inframerah membaca kontur wajah tanpa muncul pesan "Face ID dinonaktifkan".',
-        tag: 'TrueDepth Face ID',
+        title: 'Kamera Depan & Sensor Wajah (Face ID)',
+        desc: 'Buka kamera depan untuk tes selfie jernih. Lalu buka menu Pengaturan > Face ID & Kode Sandi dan coba daftarkan wajah Anda. Sensor harus mengenali wajah Anda tanpa muncul tulisan peringatan "Face ID Dinonaktifkan".',
+        tag: 'Face ID Wajah',
         tagType: 'critical'
       });
     } else {
       cameraItems.push({
         id: 'c_front_cam',
-        title: 'Kamera Depan FaceTime HD',
-        desc: 'Buka kamera depan, periksa ketajaman gambar selfie, pastikan tidak ada debu di balik kaca layar depan dan mikrofon depan menangkap audio video secara jernih.',
+        title: 'Kamera Depan (Selfie)',
+        desc: 'Buka kamera depan, pastikan foto selfie jernih, tidak ada noda debu di balik kaca layar depan, dan mikrofon depan merekam suara dengan jelas.',
         tag: 'Kamera Depan',
         tagType: 'hardware'
       });
@@ -1226,16 +1208,16 @@
     var modelItems = [
       {
         id: 'm_model_num',
-        title: 'Nomor Model Resmi Apple (' + (model.officialCodes || 'Kode Resmi') + ')',
-        desc: 'Buka Pengaturan > Umum > Mengenai, ketuk nomor model sampai berubah dari kode A-xxxx menjadi kode part. Pastikan kode A-xxxx sesuai dengan seri resmi ' + model.name + '.',
-        tag: 'Model A-xxxx',
+        title: 'Kecocokan Tipe iPhone di Sistem',
+        desc: 'Buka menu Pengaturan > Umum > Mengenai. Pastikan nama model yang tertulis di layar memang benar sama persis dengan tipe fisik iPhone yang sedang Anda pegang.',
+        tag: 'Tipe Model',
         tagType: 'hardware'
       },
       {
         id: 'm_region_code',
-        title: 'Kode Wilayah (PA/A vs Inter) & Status IMEI',
-        desc: 'Perhatikan 2 huruf sebelum garis miring "/A". PA/A atau ID/A adalah unit resmi Indonesia (garansi TAM/iBox/Digimap). Jika kode internasional (LL/A, ZP/A, J/A, dll.), pastikan IMEI terdaftar resmi di Bea Cukai / Kemenperin agar sinyal operator tidak terblokir!',
-        tag: 'Garansi & IMEI',
+        title: 'Asal Negara HP & Keamanan Sinyal (PA/A vs Inter)',
+        desc: 'Lihat 2 huruf sebelum tanda garis miring pada Nomor Model (contoh: PA/A). Kode PA/A atau ID/A adalah garansi resmi Indonesia (paling aman). Jika kodenya dari luar negeri (seperti LL/A atau ZP/A), wajib masukkan kartu SIM Anda untuk membuktikan sinyal telepon dan internetnya tidak terblokir.',
+        tag: 'Garansi & Sinyal',
         tagType: 'critical'
       }
     ];
@@ -1244,17 +1226,17 @@
     var screenItems = [];
     screenItems.push({
       id: 's_parts_history',
-      title: 'Riwayat Servis Resmi (Parts and Service History)',
-      desc: 'Buka Pengaturan > Umum > Mengenai. Pada model ' + model.name + ', iOS melacak riwayat: ' + model.partsHistory.join(', ') + '. Status "Genuine Apple Part" = suku cadang asli Apple; status "Unknown Part" = suku cadang bukan orisinal pabrik.',
+      title: 'Laporan Riwayat Servis dari Apple',
+      desc: 'Buka menu Pengaturan > Umum > Mengenai. Lihat apakah ada bagian bertuliskan "Riwayat Komponen dan Servis". Jika muncul tulisan "Unknown Part (Komponen Tidak Dikenal)" dengan tanda seru, berarti komponen tersebut sudah pernah diganti suku cadang tiruan / bukan resmi Apple.',
       tag: 'Riwayat Servis',
       tagType: 'critical'
     });
 
     screenItems.push({
       id: 's_true_tone',
-      title: 'Fitur True Tone Layar',
-      desc: 'Tarik Pusat Kontrol, tekan dan tahan slider kecerahan layar. Pastikan ikon True Tone ada dan saat diaktifkan warna layar menyesuaikan kehangatan cahaya ruangan. Hilangnya True Tone adalah tanda kuat layar pernah diganti.',
-      tag: 'True Tone',
+      title: 'Penyetel Warna Layar Otomatis (True Tone)',
+      desc: 'Tarik layar dari pojok kanan atas ke bawah untuk membuka Pusat Kontrol. Tekan dan tahan tombol pengatur kecerahan layar (bar cahaya). Pastikan tombol bundar bertuliskan "True Tone" ada di pojok kanan bawah. Jika tombol True Tone hilang, hampir pasti layar sudah pernah diganti.',
+      tag: 'True Tone Layar',
       tagType: 'critical'
     });
 
@@ -1262,34 +1244,34 @@
       if (model.id === 'ip13p' || model.id === 'ip13pm') {
         screenItems.push({
           id: 's_wsod_13p',
-          title: '⚠️ UJI KRITIS: Risiko White/Green Screen (WSOD 13 Pro)',
-          desc: 'Isu hardware paling banyak ditemui pada iPhone 13 Pro/Max akibat jalur fleksibel 120Hz rapuh. Buka layar putih penuh pada kecerahan 100%, rekam video 4K 60fps beberapa menit sampai bodi hangat, lalu restart ponsel. Pastikan layar TIDAK mendadak putih/hijau solid atau bergaris horizontal!',
-          tag: 'Kritis WSOD',
+          title: '⚠️ Uji Layar Putih (Khusus Seri 13 Pro)',
+          desc: 'Buka gambar putih polos dengan layar paling terang selama 1–2 menit. Pastikan layar tetap jernih dan TIDAK mendadak berubah menjadi putih/hijau polos tanpa gambar sama sekali (masalah layar paling sering terjadi pada seri 13 Pro).',
+          tag: 'Uji Layar Putih',
           tagType: 'critical'
         });
       } else {
         screenItems.push({
           id: 's_promotion',
-          title: 'Refresh Rate ProMotion 120Hz',
-          desc: 'Gulir menu Pengaturan secara cepat. Panel 120Hz ProMotion terasa sangat licin tanpa stuttering. Aktifkan Mode Daya Rendah (Low Power Mode) di Pengaturan Baterai untuk memastikan sistem membatasi refresh rate ke 60Hz secara normal.',
-          tag: 'ProMotion 120Hz',
+          title: 'Kelancaran Gerakan Layar (120Hz)',
+          desc: 'Geser menu Pengaturan naik-turun dengan cepat. Layar harus terasa sangat licin, responsif, dan tidak ada gerakan yang patah-patah atau tersendat.',
+          tag: 'Layar 120Hz',
           tagType: 'pro'
         });
       }
     } else if (model.displayType === 'lcd') {
       screenItems.push({
         id: 's_lcd_lightbleed',
-        title: 'Panel Layar Liquid Retina LCD (Uniformitas Backlight)',
-        desc: 'Tampilkan layar hitam/abu-abu di tempat gelap. Layar LCD IPS original Apple memiliki distribusi cahaya rata. Waspadai bayangan hitam tebal di pojok ("vignette") atau warna pudar kusam yang menandakan layar LCD KW murah.',
-        tag: 'Layar LCD IPS',
+        title: 'Kecerahan & Warna Layar Bersih',
+        desc: 'Buka gambar putih dan hitam polos. Pastikan pencahayaan layar rata, tidak ada bintik putih terang (white spot), dan tidak ada warna kekuningan di sudut-sudut layar.',
+        tag: 'Layar Bersih',
         tagType: 'hardware'
       });
     } else {
       screenItems.push({
         id: 's_oled_burnin',
-        title: 'Panel Layar Super Retina OLED 60Hz & Cek Burn-in',
-        desc: 'Buka gambar abu-abu solid dan putih bersih. Pixel OLED asli menghasilkan warna hitam pekat sempurna. Pastikan tidak ada bayangan keyboard, icon baterai, atau bar navigasi yang membekas permanen (burn-in).',
-        tag: 'Layar OLED 60Hz',
+        title: 'Kejernihan Layar & Bebas Bayangan Bekas (Burn-in)',
+        desc: 'Buka gambar putih polos dan abu-abu polos. Amati seluruh permukaan layar: pastikan tidak ada bayangan samar keyboard atau logo aplikasi yang membekas permanen di layar.',
+        tag: 'Layar Jernih',
         tagType: 'hardware'
       });
     }
@@ -1297,8 +1279,8 @@
     if (model.displayCutout === 'dynamic-island') {
       screenItems.push({
         id: 's_dynamic_island',
-        title: 'Interaktivitas Dynamic Island',
-        desc: 'Putar lagu di Apple Music/Spotify atau nyalakan Timer di Jam, lalu kembali ke Home. Dynamic Island harus membesar memuat animasi mini. Ketuk & tahan untuk membuka widget. Pastikan tidak ada dead pixel di sekitar kamera depan.',
+        title: 'Pulau Notifikasi Layar (Dynamic Island)',
+        desc: 'Buka aplikasi Jam, pasang Timer 1 menit, lalu kembali ke layar utama. Lingkaran hitam di atas kamera harus membesar menampilkan hitungan mundur. Ketuk pulau tersebut untuk membuka aplikasinya.',
         tag: 'Dynamic Island',
         tagType: 'pro'
       });
@@ -1306,46 +1288,45 @@
 
     screenItems.push({
       id: 's_kerataan_layar',
-      title: 'Kerataan Pemasangan Layar & Celah Frame',
-      desc: 'Lihat tepi kaca dari samping. Layar asli duduk rata presisi dengan frame. Layar yang sedikit menonjol, tidak simetris, atau ada sisa lem hitam di tepi membuktikan unit pernah diganti layarnya.',
-      tag: 'Kerataan Layar',
+      title: 'Kerapatan Pasang Layar dengan Bingkai',
+      desc: 'Amati pinggiran layar dari samping setinggi mata. Layar asli pabrik posisinya rata dan presisi dengan bingkai bodi. Jika layar terasa sedikit menonjol ke atas atau terlihat ada bekas lem hitam di celahnya, berarti layar pernah dilepas/diganti.',
+      tag: 'Kerapatan Layar',
       tagType: 'hardware'
     });
 
     screenItems.push({
       id: 's_baret_kaca',
-      title: 'Baret Dalam & Noda di Bawah Kaca',
-      desc: 'Matikan layar, gunakan senter ponsel lain dengan sudut miring 45 derajat. Periksa baret dalam, gelembung debu, atau bercak jamur di bawah lapisan kaca pelindung.',
-      tag: 'Fisik Kaca',
+      title: 'Goresan Kaca & Debu di Bawah Layar',
+      desc: 'Matikan layar HP, lalu sinari permukaannya dengan senter HP lain dari arah miring. Pastikan tidak ada baret dalam yang terasa kasar di kuku, dan tidak ada butiran debu yang terperangkap di bawah kaca layar.',
+      tag: 'Kaca Layar',
       tagType: 'hardware'
     });
 
     screenItems.push({
       id: 's_touch_response',
-      title: 'Respons Sentuh & Multi-Touch Seluruh Sudut',
-      desc: 'Tahan salah satu ikon aplikasi di Home hingga bergetar (jiggle mode), seret ikon tersebut mengelilingi seluruh tepi layar, keempat sudut, hingga area keyboard. Ikon tidak boleh terlepas sendiri.',
-      tag: 'Multi-Touch',
+      title: 'Kelancaran Sentuhan Layar di Seluruh Sudut',
+      desc: 'Tekan dan tahan salah satu ikon aplikasi di layar utama sampai semua ikon bergoyang. Sambil tetap ditekan, seret ikon tersebut mengitari seluruh sudut layar dan bagian bawah dekat keyboard. Ikon tidak boleh lepas dari jari Anda di area mana pun.',
+      tag: 'Sentuhan Layar',
       tagType: 'critical'
     });
 
     if (model.hasNativeCycleCount) {
       screenItems.push({
         id: 's_battery_cycle',
-        title: 'Siklus Baterai Bawaan (Cycle Count) & Batas 80%',
-        desc: 'Buka Pengaturan > Baterai > Kesehatan & Pengisian Baterai. Cek Tanggal Pembuatan, Pertama Pakai, dan Jumlah Siklus (Cycle Count). HP bekas pemakaian 1 tahun normalnya memiliki 250-500 siklus. Jika unit bekas tapi siklus cuma 5-15, waspadai baterai suntikan/resetter!',
-        tag: 'Cycle Count Asli',
+        title: 'Jumlah Pemakaian Baterai (Siklus / Cycle Count)',
+        desc: 'Buka menu Pengaturan > Baterai > Kesehatan & Pengisian Baterai. Lihat angka "Jumlah Siklus". HP yang sudah dipakai 1 tahun normalnya memiliki 250–500 siklus. Jika penjual mengaku HP second pemakaian lama tapi siklusnya baru belasan kali, waspadai baterai sudah di-reset/diakali.',
+        tag: 'Siklus Baterai',
         tagType: 'critical'
       });
     } else {
       screenItems.push({
         id: 's_battery_health',
-        title: 'Kesehatan Baterai (Kapasitas Maksimum)',
-        desc: 'Buka Pengaturan > Baterai > Kesehatan Baterai. Idealnya kapasitas maksimum masih di atas 80%. Waspadai jika kapasitas berupa tanda strip (-) atau muncul "Pesan Penting Mengenai Baterai" yang menandakan baterai diganti tanpa pindah BMS asli.',
-        tag: 'Battery Health',
-        tagType: 'hardware'
+        title: 'Kesehatan Baterai (Battery Health)',
+        desc: 'Buka menu Pengaturan > Baterai > Kesehatan Baterai. Pastikan persentase kapasitas maksimum masih terbaca jelas (idealnya di atas 80%). Waspada jika angkanya hanya berupa tanda strip (-) atau muncul tulisan "Pesan Penting Mengenai Baterai", itu tanda baterai tiruan/diganti non-resmi.',
+        tag: 'Kesehatan Baterai',
+        tagType: 'critical'
       });
     }
-
     return {
       body: bodyItems,
       camera: cameraItems,
@@ -2267,17 +2248,17 @@
     }).join('');
 
     var cameraSpecLabel = '';
-    if (model.cameraSetup === 'single') cameraSpecLabel = '12MP Wide Single Camera';
-    else if (model.cameraSetup === 'dual') cameraSpecLabel = 'Dual Cam (0.5x Ultra Wide + 1x Wide)';
-    else if (model.cameraSetup === 'triple-2x') cameraSpecLabel = 'Triple Cam (0.5x, 1x, 2x Tele)';
-    else if (model.cameraSetup === 'triple-2.5x') cameraSpecLabel = 'Triple Cam (0.5x, 1x, 2.5x Tele)';
-    else if (model.cameraSetup === 'triple-3x') cameraSpecLabel = 'Triple Cam (0.5x, 1x, 3x Tele)';
-    else if (model.cameraSetup === 'triple-5x') cameraSpecLabel = 'Triple Cam (0.5x, 1x, 5x Tetraprism Periskop)';
+    if (model.cameraSetup === 'single') cameraSpecLabel = '1 Kamera Belakang';
+    else if (model.cameraSetup === 'dual') cameraSpecLabel = 'Kamera Ganda (0.5x & 1x)';
+    else if (model.cameraSetup === 'triple-2x') cameraSpecLabel = '3 Kamera (0.5x, 1x, Zoom 2x)';
+    else if (model.cameraSetup === 'triple-2.5x') cameraSpecLabel = '3 Kamera (0.5x, 1x, Zoom 2.5x)';
+    else if (model.cameraSetup === 'triple-3x') cameraSpecLabel = '3 Kamera (0.5x, 1x, Zoom 3x)';
+    else if (model.cameraSetup === 'triple-5x') cameraSpecLabel = '3 Kamera (0.5x, 1x, Zoom Jauh 5x)';
 
-    var portLabel = model.portType === 'usb-c-3' ? 'USB-C 3.0 (10 Gbps)' : (model.portType === 'usb-c-2' ? 'USB-C 2.0' : 'Lightning 8-Pin');
-    var frameLabel = model.materialFrame === 'titanium' ? 'Titanium Grade 5' : (model.materialFrame === 'stainless-steel' ? 'Stainless Steel Bedah' : 'Aluminium Anodized');
-    var buttonsLabel = (model.buttonType === 'action-button' ? 'Action Button' : 'Mute Switch') + (model.hasCameraControl ? ' + Camera Control' : '');
-    var biometricsLabel = model.biometrics === 'face-id' ? 'TrueDepth Face ID' : 'Touch ID Home';
+    var portLabel = model.portType === 'usb-c-3' ? 'USB-C Super Cepat' : (model.portType === 'usb-c-2' ? 'USB-C (Tipe Baru)' : 'Lightning (Colokan Pipih Khas Apple)');
+    var frameLabel = model.materialFrame === 'titanium' ? 'Titanium (Kuat & Ringan)' : (model.materialFrame === 'stainless-steel' ? 'Baja Stainless Mengkilap' : 'Aluminium Ringan');
+    var buttonsLabel = (model.buttonType === 'action-button' ? 'Tombol Aksi (Action Button)' : 'Saklar Geser Hening') + (model.hasCameraControl ? ' + Tombol Kamera Sentuh' : '');
+    var biometricsLabel = model.biometrics === 'face-id' ? 'Kunci Wajah (Face ID)' : 'Sidik Jari (Touch ID)';
 
     profileWrap.innerHTML = 
       '<div class="model-specs-card">' +
@@ -2288,33 +2269,33 @@
             '<span class="specs-chip-pill">' + model.chip + '</span>' +
           '</div>' +
           '<div class="specs-header-right">' +
-            '<span class="spec-badge spec-highlight">A-Code: ' + (model.officialCodes ? model.officialCodes.split(',')[0] : 'Apple') + '</span>' +
+            '<span class="spec-badge spec-highlight">Kode Model: ' + (model.officialCodes ? model.officialCodes.split(',')[0] : 'Apple') + '</span>' +
           '</div>' +
         '</div>' +
         '<div class="specs-grid">' +
           '<div class="spec-box">' +
-            '<span class="spec-box-lbl">Layar & Display</span>' +
+            '<span class="spec-box-lbl">Layar & Tampilan</span>' +
             '<div class="spec-box-val">' + model.screen + '</div>' +
           '</div>' +
           '<div class="spec-box">' +
-            '<span class="spec-box-lbl">Modul Kamera</span>' +
-            '<div class="spec-box-val">' + cameraSpecLabel + (model.hasLidar ? ' + LiDAR' : '') + '</div>' +
+            '<span class="spec-box-lbl">Kamera Belakang</span>' +
+            '<div class="spec-box-val">' + cameraSpecLabel + (model.hasLidar ? ' + Sensor Jarak LiDAR' : '') + '</div>' +
           '</div>' +
           '<div class="spec-box">' +
-            '<span class="spec-box-lbl">Port & Pengisian</span>' +
+            '<span class="spec-box-lbl">Lubang Cas</span>' +
             '<div class="spec-box-val">' + portLabel + '</div>' +
           '</div>' +
           '<div class="spec-box">' +
-            '<span class="spec-box-lbl">Material Rangka</span>' +
+            '<span class="spec-box-lbl">Bahan Pinggiran Bodi</span>' +
             '<div class="spec-box-val">' + frameLabel + '</div>' +
           '</div>' +
           '<div class="spec-box">' +
-            '<span class="spec-box-lbl">Tombol & Biometrik</span>' +
+            '<span class="spec-box-lbl">Tombol & Kunci Layar</span>' +
             '<div class="spec-box-val">' + buttonsLabel + ' &bull; ' + biometricsLabel + '</div>' +
           '</div>' +
           '<div class="spec-box">' +
-            '<span class="spec-box-lbl">Riwayat Servis iOS</span>' +
-            '<div class="spec-box-val">' + (model.partsHistory && model.partsHistory.length ? model.partsHistory.join(', ') : 'Belum didukung iOS') + '</div>' +
+            '<span class="spec-box-lbl">Deteksi Onderdil di HP</span>' +
+            '<div class="spec-box-val">' + (model.partsHistory && model.partsHistory.length ? 'Bisa cek: ' + model.partsHistory.join(', ') : 'Cek fisik manual') + '</div>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -2326,11 +2307,11 @@
               '<line x1="12" y1="9" x2="12" y2="13"></line>' +
               '<line x1="12" y1="17" x2="12.01" y2="17"></line>' +
             '</svg>' +
-            '<span>PANDUAN TEKNISI: TITIK RAWAN & CATATAN KRITIS ' + model.name.toUpperCase() + '</span>' +
+            '<span>HAL YANG PERLU DIWASPADAI PADA ' + model.name.toUpperCase() + '</span>' +
           '</h4>' +
-          '<span class="flaws-badge">Fokus Inspeksi</span>' +
+          '<span class="flaws-badge">Catatan Khusus</span>' +
         '</div>' +
-        '<p class="flaws-card-desc">Berdasarkan data servis lapangan, perhatikan poin-poin berikut saat mengecek unit bekas tipe ini:</p>' +
+        '<p class="flaws-card-desc">Setiap seri iPhone memiliki titik sensitif tertentu. Sebelum deal harga, pastikan Anda memeriksa poin-poin penting berikut:</p>' +
         '<ul class="flaws-list">' +
           flawsListHtml +
         '</ul>' +
@@ -2344,11 +2325,11 @@
 
     if (model.partsHistory && model.partsHistory.length) {
       var partsList = model.partsHistory.join(', ');
-      txtEl.innerHTML = 'Khusus <strong>' + model.name + '</strong> (iOS 15.2+), riwayat servis resmi mencakup: <strong>' + partsList + '</strong>.';
-      noteEl.innerHTML = 'Buka <em>Pengaturan &rsaquo; Umum &rsaquo; Mengenai</em>. Jika ada komponen yang pernah diservis/diganti, statusnya akan tampil di sini. <strong>Genuine Apple Part</strong> = orisinal pabrik Apple. <strong>Unknown Part</strong> = terindikasi suku cadang non-resmi atau bekas bongkar tanpa otorisasi.';
+      txtEl.innerHTML = 'Khusus <strong>' + model.name + '</strong>, Anda bisa mengecek langsung riwayat keaslian: <strong>' + partsList + '</strong>.';
+      noteEl.innerHTML = 'Caranya sangat mudah: Buka <em>Pengaturan &rsaquo; Umum &rsaquo; Mengenai</em>. Jika ada onderdil yang pernah diganti, Apple akan menampilkannya di sini secara jujur. Jika bertuliskan <strong>Genuine Apple Part</strong> artinya onderdil asli pabrik Apple. Jika bertuliskan <strong>Unknown Part</strong>, berarti onderdil tersebut pernah diganti dengan suku cadang tiruan / bukan resmi Apple.';
     } else {
-      txtEl.innerHTML = 'Pada <strong>' + model.name + '</strong>, sistem Parts and Service History belum mendalam seperti seri baru.';
-      noteEl.innerHTML = 'Gunakan indikator visual True Tone, kerataan sasis bodi, baut pentalobe, dan segel LCI untuk membaca jejak pergantian komponen.';
+      txtEl.innerHTML = 'Pada <strong>' + model.name + '</strong>, menu riwayat servis otomatis belum tersedia dari Apple.';
+      noteEl.innerHTML = 'Tidak perlu bingung! Anda tetap bisa mengetahuinya dengan mudah lewat panduan di bawah ini: periksa apakah fungsi penyesuai warna layar (True Tone) masih aktif, amati 2 baut kecil di bawah dekat lubang cas, dan cek stiker putih di dalam tempat kartu SIM.';
     }
   }
 
@@ -2432,9 +2413,9 @@
   function renderSummary(sectionCounts, okCount, issueCount, checked){
     var grid = document.getElementById('sumGrid');
     if (!grid) return;
-    var cards = '<div class="sum-card"><div class="lbl">Total diperiksa</div><div class="val">'+checked+'/'+totalItems+'</div></div>'+
-      '<div class="sum-card"><div class="lbl">Aman</div><div class="val ok">'+okCount+'</div></div>'+
-      '<div class="sum-card"><div class="lbl">Masalah</div><div class="val issue">'+issueCount+'</div></div>';
+    var cards = '<div class="sum-card"><div class="lbl">Poin Diperiksa</div><div class="val">'+checked+'/'+totalItems+'</div></div>'+
+      '<div class="sum-card"><div class="lbl">Kondisi Normal</div><div class="val ok">'+okCount+'</div></div>'+
+      '<div class="sum-card"><div class="lbl">Ada Masalah</div><div class="val issue">'+issueCount+'</div></div>';
     Object.keys(sectionCounts).forEach(function(k){
       var c = sectionCounts[k];
       cards += '<div class="sum-card"><div class="lbl">'+SECTION_LABELS[k]+'</div><div class="val">'+(c.ok+c.issue)+'/'+c.total+'</div></div>';
@@ -2446,19 +2427,19 @@
       if (checked===0){
         verdict.style.borderColor = 'var(--border)';
         verdict.style.background = 'var(--surface)';
-        verdict.innerHTML = '<span class="title" style="color:var(--text-muted)">Belum dimulai</span><p>Jalankan keempat tahap terlebih dulu, lalu kembali ke sini untuk melihat rekap lengkap.</p>';
+        verdict.innerHTML = '<span class="title" style="color:var(--text-muted)">Pemeriksaan Belum Dimulai</span><p>Silakan mulai periksa dari Tahap 01 (Bodi Luar). Tandai tombol "Aman" atau "Masalah" di setiap poin untuk melihat kesimpulan kelayakan HP ini.</p>';
       } else if (issueCount>0){
         verdict.style.borderColor = 'var(--fail-border)';
         verdict.style.background = 'var(--fail-soft)';
-        verdict.innerHTML = '<span class="title" style="color:var(--fail)">Ditemukan masalah ('+issueCount+' poin)</span><p>'+issueCount+' poin ditandai bermasalah. Pertimbangkan untuk negosiasi harga, minta penjelasan penjual, atau bawa ke teknisi sebelum memutuskan membeli.</p>';
+        verdict.innerHTML = '<span class="title" style="color:var(--fail)">Perhatian: Ditemukan '+issueCount+' Catatan Masalah</span><p>Ada '+issueCount+' bagian yang dicurigai bermasalah atau bukan bawaan asli. Jangan terburu-buru membayar. Diskusikan langsung ke penjual terkait minus ini, minta potongan harga yang wajar, atau batalkan pembelian jika menyangkut fungsi penting (seperti sinyal terblokir, kamera rusak, atau layar tiruan).</p>';
       } else if (checked<totalItems){
         verdict.style.borderColor = 'var(--accent-border)';
         verdict.style.background = 'var(--accent-soft)';
-        verdict.innerHTML = '<span class="title" style="color:var(--accent)">Belum lengkap</span><p>Sejauh ini semua poin yang dicek aman, tapi masih ada '+(totalItems-checked)+' poin yang belum diperiksa. Selesaikan dulu sebelum mengambil keputusan.</p>';
+        verdict.innerHTML = '<span class="title" style="color:var(--accent)">Pemeriksaan Belum Selesai (Masih Kurang '+(totalItems-checked)+' Poin)</span><p>Bagian yang sudah Anda cek sejauh ini dalam kondisi normal. Namun masih ada '+(totalItems-checked)+' poin yang belum ditandai. Selesaikan semua poin agar Anda tidak kecolongan kerusakan tersembunyi.</p>';
       } else {
         verdict.style.borderColor = 'var(--ok-border)';
         verdict.style.background = 'var(--ok-soft)';
-        verdict.innerHTML = '<span class="title" style="color:var(--ok)">Semua poin aman</span><p>Seluruh '+totalItems+' poin sudah diperiksa tanpa masalah. Tetap cek status iCloud, IMEI, dan kesehatan baterai di bagian "Tips tambahan" sebelum transaksi selesai.</p>';
+        verdict.innerHTML = '<span class="title" style="color:var(--ok)">Kondisi Bagus! Semua Poin Lulus Pemeriksaan</span><p>Luar biasa! Seluruh '+totalItems+' poin fisik dan fungsi dalam kondisi normal. Sebagai langkah terakhir sebelum Anda menyerahkan uang, pastikan akun iCloud penjual sudah di-logout total dan coba pasang kartu SIM Anda sendiri untuk memastikan sinyal lancar.</p>';
       }
     }
 
@@ -2466,7 +2447,7 @@
     if (flagArea) {
       var issues = Object.keys(state).filter(function(id){ return state[id]==='issue'; });
       if (issues.length===0){
-        flagArea.innerHTML = '<div class="empty-note">Belum ada poin yang ditandai bermasalah.</div>';
+        flagArea.innerHTML = '<div class="empty-note">Belum ada catatan masalah. Semua bagian yang Anda periksa sejauh ini dalam kondisi normal.</div>';
       } else {
         flagArea.innerHTML = '<div class="flag-list">'+issues.map(function(id){
           return '<div class="flag-item"><span class="t">'+itemTitle(id)+'</span><span class="s">'+SECTION_LABELS[itemSection(id)]+'</span></div>';
