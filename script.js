@@ -2825,7 +2825,9 @@
   });
 
   // ==========================================================
-  // MONOCHROME FLUID WAVE ANIMATION ENGINE (SELECT-MODEL SCREEN)
+  // ==========================================================
+  // DYNAMIC 3D SPATIAL VISUALIZATION ENGINE (SELECT-MODEL SCREEN)
+  // Apple Keynote-Grade 3D Perspective Wireframe & Spatial Mesh
   // ==========================================================
   var waveCanvas = document.getElementById('modelWaveCanvas');
   var waveCtx = waveCanvas ? waveCanvas.getContext('2d') : null;
@@ -2836,14 +2838,23 @@
   var lastCanvasWidth = 0;
   var lastCanvasHeight = 0;
 
-  // Gentle global parallax tilt (No localized ripples or sawtooth interference)
-  var waveTilt = { targetX: 0, targetY: 0, currentX: 0, currentY: 0 };
+  // 3D Perspective Camera & Parallax State
+  var camera3D = {
+    focalLength: 540,
+    targetYaw: 0,
+    targetPitch: 0,
+    yaw: 0,
+    pitch: 0,
+    roll: 0,
+    camX: 0,
+    camY: -30,
+    camZ: -480
+  };
 
   function resizeWaveCanvas(force) {
     if (!waveCanvas) return;
     var w = window.innerWidth;
     var h = window.innerHeight;
-    // On mobile, avoid reallocating canvas if only address bar collapses (< 90px height change)
     if (!force && lastCanvasWidth === w && Math.abs(lastCanvasHeight - h) < 90) {
       return;
     }
@@ -2856,109 +2867,171 @@
     waveCanvas.style.height = h + 'px';
   }
 
-  // Smooth, broad-wavelength harmonic ribbons (Strictly low frequency: wavelengths > 1200px)
-  // Guaranteed mathematically: max slope < 5 degrees, zero sharp peaks or inflection glitches
-  var waveLayers = [
-    // 1. Deep space velvet graphite swell (far background)
-    {
-      baseY: 0.24,
-      amp: 38,
-      freq: 0.00075,
-      subAmp: 14,
-      subFreq: 0.00042,
-      speed: 0.22,
-      phase: 0.0,
-      fillTop: 'rgba(28, 28, 36, 0.40)',
-      fillBottom: 'rgba(3, 3, 5, 0.98)',
-      stroke: 'rgba(255, 255, 255, 0.14)',
-      lineWidth: 1.0
-    },
-    // 2. Translucent smoky titanium ribbon
-    {
-      baseY: 0.44,
-      amp: 48,
-      freq: 0.00095,
-      subAmp: 16,
-      subFreq: 0.00050,
-      speed: -0.28,
-      phase: 2.1,
-      fillTop: 'rgba(50, 50, 62, 0.30)',
-      fillBottom: 'rgba(2, 2, 4, 0.98)',
-      stroke: 'rgba(255, 255, 255, 0.26)',
-      lineWidth: 1.4
-    },
-    // 3. Central luminous flowing silver ribbon
-    {
-      baseY: 0.62,
-      amp: 54,
-      freq: 0.00080,
-      subAmp: 18,
-      subFreq: 0.00045,
-      speed: 0.32,
-      phase: 4.3,
-      fillTop: 'rgba(215, 215, 230, 0.16)',
-      fillBottom: 'rgba(0, 0, 0, 0.98)',
-      stroke: 'rgba(255, 255, 255, 0.55)',
-      lineWidth: 1.6
-    },
-    // 4. Contrast obsidian wave with crisp white highlight
-    {
-      baseY: 0.78,
-      amp: 44,
-      freq: 0.00105,
-      subAmp: 15,
-      subFreq: 0.00055,
-      speed: -0.25,
-      phase: 1.5,
-      fillTop: 'rgba(32, 32, 40, 0.55)',
-      fillBottom: '#000000',
-      stroke: 'rgba(255, 255, 255, 0.40)',
-      lineWidth: 1.4
-    },
-    // 5. Deep foundation anchor wave
-    {
-      baseY: 0.92,
-      amp: 32,
-      freq: 0.00070,
-      subAmp: 10,
-      subFreq: 0.00038,
-      speed: 0.20,
-      phase: 3.2,
-      fillTop: 'rgba(12, 12, 16, 0.85)',
-      fillBottom: '#000000',
-      stroke: 'rgba(255, 255, 255, 0.18)',
-      lineWidth: 1.0
-    }
-  ];
+  // 3D Perspective Projection Function
+  function project3D(x, y, z, cx, cy, dpr) {
+    // 1. Rotate around Y axis (Yaw)
+    var cosY = Math.cos(camera3D.yaw);
+    var sinY = Math.sin(camera3D.yaw);
+    var x1 = x * cosY + z * sinY;
+    var z1 = -x * sinY + z * cosY;
 
-  // Ethereal luminous white silk filament floating smoothly
-  var silkFilament = {
-    baseY: 0.52,
-    amp: 30,
-    freq: 0.00072,
-    subAmp: 12,
-    subFreq: 0.00040,
-    speed: -0.36,
-    phase: 0.8,
-    stroke: 'rgba(255, 255, 255, 0.38)',
-    lineWidth: 1.2
-  };
+    // 2. Rotate around X axis (Pitch)
+    var cosP = Math.cos(camera3D.pitch);
+    var sinP = Math.sin(camera3D.pitch);
+    var y2 = y * cosP - z1 * sinP;
+    var z2 = y * sinP + z1 * cosP;
 
-  // ==========================================================
-  // APPLE LOGO MORPHING ENGINE (COALESCES EVERY 5 SECONDS)
-  // ==========================================================
-  var APPLE_SVG_PATH = 'M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.9-3.37-7.85-8.23-11.87-14.59-6.06-9.56-10.9-20.2-14.52-31.9-3.62-11.71-5.43-23.01-5.43-33.89 0-14.34 3.57-26.24 10.7-35.68 7.14-9.45 16.29-14.33 27.46-14.65 4.35 0 9.29 1.13 14.82 3.39 5.53 2.27 9.4 3.44 11.61 3.52 1.64-.13 5.72-1.39 12.24-3.79 6.52-2.4 12.01-3.4 16.48-3.01 12.59 1.05 22.39 5.86 29.41 14.43-10.9 6.64-16.23 15.69-16 27.16.27 9.17 3.84 16.92 10.71 23.23 6.87 6.31 15.08 10.01 24.62 11.09-2.2 6.67-4.91 13.5-8.13 20.48zM119.22 33.64c0-7.39 2.65-14.28 7.94-20.69 5.3-6.41 11.83-10.45 19.6-12.12.8 3.54 1.21 6.94 1.21 10.21 0 7.39-2.73 14.39-8.19 21.01-5.47 6.61-12.14 10.47-20.02 11.58-.36-3.32-.54-6.65-.54-9.99z';
-  var applePath = null;
-  try {
-    if (typeof Path2D !== 'undefined') {
-      applePath = new Path2D(APPLE_SVG_PATH);
-    }
-  } catch (e) {
-    applePath = null;
+    // 3. Rotate around Z axis (Roll)
+    var cosR = Math.cos(camera3D.roll);
+    var sinR = Math.sin(camera3D.roll);
+    var x3 = x1 * cosR - y2 * sinR;
+    var y3 = x1 * sinR + y2 * cosR;
+
+    // Camera offset
+    var fz = z2 - camera3D.camZ;
+    if (fz <= 30) return null; // Near-plane clipping
+
+    var scale = camera3D.focalLength / fz;
+    return {
+      sx: cx + (x3 - camera3D.camX) * scale * dpr,
+      sy: cy + (y3 - camera3D.camY) * scale * dpr,
+      scale: scale,
+      depth: fz
+    };
   }
 
-  // Layer convergence target offsets relative to Apple logo center & radius
-  var layerAppleOffsets = [-0.65, -0.30, 0.05, 0.38, 0.70];
+  // Generate 3D Spatial Particles (Stardust & Floating Energy Nodes)
+  var NUM_PARTICLES = 130;
+  var particles3D = [];
+  for (var pi = 0; pi < NUM_PARTICLES; pi++) {
+    particles3D.push({
+      x: (Math.random() - 0.5) * 1400,
+      y: (Math.random() - 0.5) * 1000,
+      z: Math.random() * 1000 + 40,
+      radius: Math.random() * 1.6 + 0.8,
+      speedZ: Math.random() * 24 + 14,
+      driftX: (Math.random() - 0.5) * 6,
+      driftY: (Math.random() - 0.5) * 6,
+      seed: Math.random() * Math.PI * 2,
+      baseAlpha: Math.random() * 0.35 + 0.35
+    });
+  }
+
+  // Model 1: 3D iPhone Titanium Frame Geometry
+  function createIPhoneWireframe() {
+    var fw = 115, fh = 230, fd = 16;
+    var r = 22;
+    var segs = 4;
+    var frontVerts = [];
+    var backVerts = [];
+
+    var corners = [
+      { cx: fw/2 - r, cy: -fh/2 + r, startAngle: -Math.PI/2 },
+      { cx: fw/2 - r, cy: fh/2 - r, startAngle: 0 },
+      { cx: -fw/2 + r, cy: fh/2 - r, startAngle: Math.PI/2 },
+      { cx: -fw/2 + r, cy: -fh/2 + r, startAngle: Math.PI }
+    ];
+
+    corners.forEach(function(c) {
+      for (var s = 0; s <= segs; s++) {
+        var a = c.startAngle + (s / segs) * (Math.PI / 2);
+        var vx = c.cx + Math.cos(a) * r;
+        var vy = c.cy + Math.sin(a) * r;
+        frontVerts.push({ x: vx, y: vy, z: -fd/2 });
+        backVerts.push({ x: vx, y: vy, z: fd/2 });
+      }
+    });
+
+    // Camera island plateau on back
+    var camPlateau = [
+      { x: -fw/2 + 8, y: -fh/2 + 8, z: fd/2 + 5 },
+      { x: -fw/2 + 62, y: -fh/2 + 8, z: fd/2 + 5 },
+      { x: -fw/2 + 62, y: -fh/2 + 62, z: fd/2 + 5 },
+      { x: -fw/2 + 8, y: -fh/2 + 62, z: fd/2 + 5 }
+    ];
+
+    // 3 Camera lens rings
+    var lens1 = [], lens2 = [], lens3 = [];
+    for (var a = 0; a < Math.PI * 2; a += Math.PI / 6) {
+      lens1.push({ x: -fw/2 + 24 + Math.cos(a) * 11, y: -fh/2 + 24 + Math.sin(a) * 11, z: fd/2 + 7 });
+      lens2.push({ x: -fw/2 + 24 + Math.cos(a) * 11, y: -fh/2 + 48 + Math.sin(a) * 11, z: fd/2 + 7 });
+      lens3.push({ x: -fw/2 + 46 + Math.cos(a) * 11, y: -fh/2 + 36 + Math.sin(a) * 11, z: fd/2 + 7 });
+    }
+
+    return {
+      frontVerts: frontVerts,
+      backVerts: backVerts,
+      camPlateau: camPlateau,
+      lensRings: [lens1, lens2, lens3]
+    };
+  }
+  var iphoneWireframe = createIPhoneWireframe();
+
+  // Model 2: 3D Precision Concentric Optical Rings
+  function createOpticalRings() {
+    var rings = [];
+    var radii = [64, 48, 34, 20];
+    radii.forEach(function(r, idx) {
+      var pts = [];
+      var segs = 24;
+      for (var i = 0; i <= segs; i++) {
+        var a = (i / segs) * Math.PI * 2;
+        pts.push({
+          x: Math.cos(a) * r,
+          y: Math.sin(a) * r,
+          z: idx * 9 - 14
+        });
+      }
+      rings.push(pts);
+    });
+    return rings;
+  }
+  var opticalRings = createOpticalRings();
+
+  // Model 3: 3D Faceted Octahedron (Bionic Core Crystal)
+  var chipOctahedron = {
+    verts: [
+      { x: 0, y: -42, z: 0 },
+      { x: 42, y: 0, z: 0 },
+      { x: 0, y: 0, z: 42 },
+      { x: -42, y: 0, z: 0 },
+      { x: 0, y: 0, z: -42 },
+      { x: 0, y: 42, z: 0 }
+    ],
+    edges: [
+      [0, 1], [0, 2], [0, 3], [0, 4],
+      [5, 1], [5, 2], [5, 3], [5, 4],
+      [1, 2], [2, 3], [3, 4], [4, 1]
+    ]
+  };
+
+  // 3D Object Transformation Helper
+  function transformVert(v, rotX, rotY, rotZ, transX, transY, transZ) {
+    // Roll
+    var cosR = Math.cos(rotZ);
+    var sinR = Math.sin(rotZ);
+    var x1 = v.x * cosR - v.y * sinR;
+    var y1 = v.x * sinR + v.y * cosR;
+    var z1 = v.z;
+
+    // Pitch
+    var cosP = Math.cos(rotX);
+    var sinP = Math.sin(rotX);
+    var y2 = y1 * cosP - z1 * sinP;
+    var z2 = y1 * sinP + z1 * cosP;
+
+    // Yaw
+    var cosY = Math.cos(rotY);
+    var sinY = Math.sin(rotY);
+    var x3 = x1 * cosY + z2 * sinY;
+    var z3 = -x1 * sinY + z2 * cosY;
+
+    return {
+      x: x3 + transX,
+      y: y2 + transY,
+      z: z3 + transZ
+    };
+  }
 
   function renderWaveFrame(timestamp) {
     if (!waveCanvas || !waveCtx) return;
@@ -2967,234 +3040,318 @@
     if (w === 0 || h === 0) return;
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    // Frame-rate independent delta time (smooth on 60Hz and 120Hz)
     if (!lastFrameTimestamp) lastFrameTimestamp = timestamp;
     var dt = Math.min((timestamp - lastFrameTimestamp) / 1000, 0.1);
     lastFrameTimestamp = timestamp;
     waveElapsedTime += dt;
 
-    // Smoothly lerp mouse parallax tilt (subtle and majestic, no local pinch)
-    waveTilt.currentX += (waveTilt.targetX - waveTilt.currentX) * 0.04;
-    waveTilt.currentY += (waveTilt.targetY - waveTilt.currentY) * 0.04;
+    var cx = w * 0.5;
+    var cy = h * 0.46;
+    var t = waveElapsedTime;
 
-    // 1. Calculate Apple Logo Morph Progress (Cycles every ~7.0 seconds)
-    // - 0.0s to 3.2s: Pure free ocean waves (calm continuous flow)
-    // - 3.2s to 4.4s: Waves bend & converge into Apple logo (reaching peak at ~4.5s - 5.0s)
-    // - 4.4s to 6.0s: Apple logo fully formed, glowing, liquid waves flowing inside
-    // - 6.0s to 7.0s: Waves release and dissolve back into open fluid
-    var APPLE_CYCLE = 7.0;
-    var cycleT = waveElapsedTime % APPLE_CYCLE;
-    var morphProgress = 0;
+    // Smooth inertia lerp for camera parallax
+    camera3D.yaw += (camera3D.targetYaw - camera3D.yaw) * 0.05;
+    camera3D.pitch += (camera3D.targetPitch - camera3D.pitch) * 0.05;
+    // Add subtle organic auto-breathing motion
+    camera3D.roll = Math.sin(t * 0.3) * 0.02;
+    camera3D.camY = -30 + Math.sin(t * 0.5) * 12;
 
-    if (cycleT >= 3.2 && cycleT < 4.4) {
-      var u = (cycleT - 3.2) / 1.2;
-      morphProgress = u * u * (3 - 2 * u); // smoothstep 0 -> 1
-    } else if (cycleT >= 4.4 && cycleT < 6.0) {
-      morphProgress = 1.0;
-    } else if (cycleT >= 6.0 && cycleT < 7.0) {
-      var u = (cycleT - 6.0) / 1.0;
-      morphProgress = 1.0 - (u * u * (3 - 2 * u)); // smoothstep 1 -> 0
-    } else {
-      morphProgress = 0;
-    }
-
-    // Apple Logo dimensions and viewport center (optimized for visibility on mobile & desktop)
-    var isMobile = w < 600 * dpr;
-    var appleCX = w * 0.5;
-    var appleCY = h * (isMobile ? 0.42 : 0.46);
-    var applePixelSize = Math.min(w, h) * (isMobile ? 0.44 : 0.32);
-    var appleScale = applePixelSize / 170;
-    var appleRadius = applePixelSize * 0.82;
-    var warpRadius = appleRadius * 1.6;
-
-    // 2. Velvet pure dark monochrome background
-    var bgGrad = waveCtx.createLinearGradient(0, 0, 0, h);
-    bgGrad.addColorStop(0, '#040406');
-    bgGrad.addColorStop(0.45, '#09090d');
-    bgGrad.addColorStop(1, '#000000');
-    waveCtx.fillStyle = bgGrad;
+    // 1. Clear Canvas with Deep Space Obsidian
+    waveCtx.fillStyle = '#020205';
     waveCtx.fillRect(0, 0, w, h);
 
-    // Step size: 3px in screen coords gives silky smooth analog curves without polygon facets
-    var step = Math.max(2, Math.floor(3 * dpr));
+    // 2. Ambient Volumetric Atmospheric Spotlights
+    var lightAX = cx + Math.sin(t * 0.4) * (w * 0.22);
+    var lightAY = cy + Math.cos(t * 0.35) * (h * 0.18);
+    var gradA = waveCtx.createRadialGradient(lightAX, lightAY, 10 * dpr, lightAX, lightAY, Math.max(w, h) * 0.65);
+    gradA.addColorStop(0, 'rgba(195, 215, 245, 0.07)');
+    gradA.addColorStop(0.4, 'rgba(140, 160, 200, 0.03)');
+    gradA.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    waveCtx.fillStyle = gradA;
+    waveCtx.fillRect(0, 0, w, h);
 
-    // 3. Render each wave layer with gravitational convergence toward Apple logo
-    for (var i = 0; i < waveLayers.length; i++) {
-      var layer = waveLayers[i];
-      var baseYPx = h * layer.baseY + (waveTilt.currentY * dpr * (i + 1) * 3);
-      var ampPx = layer.amp * dpr;
-      var subAmpPx = layer.subAmp * dpr;
-      var freq = layer.freq / dpr;
-      var subFreq = layer.subFreq / dpr;
-      var t = waveElapsedTime * layer.speed + layer.phase + (waveTilt.currentX * 0.02 * (i + 1));
-      var layerTargetY = appleCY + layerAppleOffsets[i] * appleRadius;
+    var lightBX = cx - Math.cos(t * 0.3) * (w * 0.25);
+    var lightBY = cy + Math.sin(t * 0.45) * (h * 0.22);
+    var gradB = waveCtx.createRadialGradient(lightBX, lightBY, 20 * dpr, lightBX, lightBY, Math.max(w, h) * 0.55);
+    gradB.addColorStop(0, 'rgba(160, 140, 210, 0.05)');
+    gradB.addColorStop(0.5, 'rgba(90, 80, 130, 0.02)');
+    gradB.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    waveCtx.fillStyle = gradB;
+    waveCtx.fillRect(0, 0, w, h);
 
-      // Calculate path points once for both fill and stroke (prevents raster mismatch)
-      var points = [];
-      for (var x = 0; x <= w + step; x += step) {
-        var y = baseYPx 
-          + Math.sin(x * freq + t) * ampPx 
-          + Math.cos(x * subFreq - t * 0.65) * subAmpPx;
+    // 3. Render 3D Spatial Waveform Mesh (Quantum Surface Topography)
+    var gridCols = 24;
+    var gridRows = 16;
+    var gridWidth = 1100;
+    var gridDepth = 850;
+    var gridOriginZ = 60;
+    var gridOriginY = 120;
 
-        // Smooth wave convergence toward the Apple silhouette
-        if (morphProgress > 0) {
-          var dx = x - appleCX;
-          var warpDist = Math.abs(dx);
-          if (warpDist < warpRadius) {
-            var env = Math.cos((dx / warpRadius) * (Math.PI * 0.5));
-            var warpFactor = env * env * morphProgress * 0.82;
-            y = y * (1 - warpFactor) + layerTargetY * warpFactor;
-          }
+    var meshPoints = [];
+    for (var r = 0; r <= gridRows; r++) {
+      var row = [];
+      var rz = gridOriginZ + (r / gridRows) * gridDepth;
+      for (var c = 0; c <= gridCols; c++) {
+        var rx = -gridWidth * 0.5 + (c / gridCols) * gridWidth;
+        var elevation = Math.sin(rx * 0.005 + t * 0.75) * Math.cos(rz * 0.0045 + t * 0.6) * 52
+                      + Math.sin((rx + rz) * 0.004 - t * 0.5) * 28;
+        var ry = gridOriginY + elevation;
+        var proj = project3D(rx, ry, rz, cx, cy, dpr);
+        row.push(proj);
+      }
+      meshPoints.push(row);
+    }
+
+    // Draw 3D Grid Longitudinal Curves (along depth Z)
+    for (var c = 0; c <= gridCols; c += 2) {
+      waveCtx.beginPath();
+      var started = false;
+      for (var r = 0; r <= gridRows; r++) {
+        var p = meshPoints[r][c];
+        if (!p) continue;
+        if (!started) {
+          waveCtx.moveTo(p.sx, p.sy);
+          started = true;
+        } else {
+          waveCtx.lineTo(p.sx, p.sy);
         }
-
-        points.push({ x: x, y: y });
       }
-
-      // Draw fluid fill with gradient
-      waveCtx.beginPath();
-      waveCtx.moveTo(0, h);
-      waveCtx.lineTo(points[0].x, points[0].y);
-      for (var p = 1; p < points.length; p++) {
-        waveCtx.lineTo(points[p].x, points[p].y);
-      }
-      waveCtx.lineTo(w, h);
-      waveCtx.closePath();
-
-      var fillGrad = waveCtx.createLinearGradient(0, Math.max(0, baseYPx - ampPx * 1.5), 0, h);
-      fillGrad.addColorStop(0, layer.fillTop);
-      fillGrad.addColorStop(1, layer.fillBottom);
-      waveCtx.fillStyle = fillGrad;
-      waveCtx.fill();
-
-      // Draw luminous crest line
-      waveCtx.beginPath();
-      waveCtx.moveTo(points[0].x, points[0].y);
-      for (var p = 1; p < points.length; p++) {
-        waveCtx.lineTo(points[p].x, points[p].y);
-      }
-      waveCtx.strokeStyle = layer.stroke;
-      waveCtx.lineWidth = layer.lineWidth * dpr;
-      waveCtx.lineCap = 'round';
-      waveCtx.lineJoin = 'round';
+      var colAlpha = (1 - Math.abs(c - gridCols / 2) / (gridCols / 2)) * 0.22 + 0.05;
+      waveCtx.strokeStyle = 'rgba(255, 255, 255, ' + colAlpha + ')';
+      waveCtx.lineWidth = 1.0 * dpr;
       waveCtx.stroke();
     }
 
-    // 4. Render luminous white silk filament (also smoothly wraps over the Apple leaf)
-    var fBaseY = h * silkFilament.baseY + (waveTilt.currentY * dpr * 6);
-    var fAmp = silkFilament.amp * dpr;
-    var fSubAmp = silkFilament.subAmp * dpr;
-    var fFreq = silkFilament.freq / dpr;
-    var fSubFreq = silkFilament.subFreq / dpr;
-    var ft = waveElapsedTime * silkFilament.speed + silkFilament.phase;
-
-    waveCtx.beginPath();
-    for (var fx = 0; fx <= w + step; fx += step) {
-      var fy = fBaseY 
-        + Math.sin(fx * fFreq + ft) * fAmp 
-        + Math.cos(fx * fSubFreq - ft * 0.5) * fSubAmp;
-
-      if (morphProgress > 0) {
-        var fdx = fx - appleCX;
-        if (Math.abs(fdx) < warpRadius) {
-          var fEnv = Math.cos((fdx / warpRadius) * (Math.PI * 0.5));
-          var fWarp = fEnv * fEnv * morphProgress * 0.85;
-          fy = fy * (1 - fWarp) + (appleCY - appleRadius * 0.45) * fWarp;
+    // Draw 3D Grid Latitudinal Lines (across X)
+    for (var r = 0; r <= gridRows; r += 2) {
+      waveCtx.beginPath();
+      var started = false;
+      for (var c = 0; c <= gridCols; c++) {
+        var p = meshPoints[r][c];
+        if (!p) continue;
+        if (!started) {
+          waveCtx.moveTo(p.sx, p.sy);
+          started = true;
+        } else {
+          waveCtx.lineTo(p.sx, p.sy);
         }
       }
-
-      if (fx === 0) waveCtx.moveTo(fx, fy);
-      else waveCtx.lineTo(fx, fy);
+      var depthAlpha = Math.max(0, (1 - r / gridRows) * 0.28);
+      waveCtx.strokeStyle = 'rgba(235, 240, 255, ' + depthAlpha + ')';
+      waveCtx.lineWidth = 1.0 * dpr;
+      waveCtx.stroke();
     }
-    waveCtx.strokeStyle = silkFilament.stroke;
-    waveCtx.lineWidth = silkFilament.lineWidth * dpr;
-    waveCtx.lineCap = 'round';
-    waveCtx.stroke();
 
-    // 5. Render Luminous Liquid Apple Logo when formed (morphProgress > 0)
-    if (morphProgress > 0.01 && applePath) {
-      waveCtx.save();
-
-      // Ambient soft radial halo behind the Apple logo
-      var haloRadius = appleRadius * 1.8;
-      var haloGrad = waveCtx.createRadialGradient(appleCX, appleCY, 10 * dpr, appleCX, appleCY, haloRadius);
-      haloGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (0.22 * morphProgress) + ')');
-      haloGrad.addColorStop(0.35, 'rgba(200, 210, 240, ' + (0.10 * morphProgress) + ')');
-      haloGrad.addColorStop(0.7, 'rgba(80, 90, 120, ' + (0.04 * morphProgress) + ')');
-      haloGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      waveCtx.fillStyle = haloGrad;
-      waveCtx.beginPath();
-      waveCtx.arc(appleCX, appleCY, haloRadius, 0, Math.PI * 2);
-      waveCtx.fill();
-
-      // Transform context to Apple logo position & scale
-      waveCtx.translate(appleCX, appleCY);
-      waveCtx.scale(appleScale, appleScale);
-      waveCtx.translate(-85, -85);
-
-      var lineScaleInv = 1.0 / appleScale;
-
-      // Frosted titanium liquid glass body fill (rich contrast)
-      var appleFillGrad = waveCtx.createLinearGradient(0, 0, 0, 170);
-      appleFillGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (0.60 * morphProgress) + ')');
-      appleFillGrad.addColorStop(0.28, 'rgba(210, 215, 230, ' + (0.42 * morphProgress) + ')');
-      appleFillGrad.addColorStop(0.65, 'rgba(60, 65, 80, ' + (0.50 * morphProgress) + ')');
-      appleFillGrad.addColorStop(1, 'rgba(10, 12, 20, ' + (0.75 * morphProgress) + ')');
-      waveCtx.fillStyle = appleFillGrad;
-      waveCtx.fill(applePath);
-
-      // Internal liquid wave currents (flowing strictly inside Apple logo)
-      waveCtx.save();
-      waveCtx.clip(applePath);
-
-      for (var li = 0; li < 5; li++) {
-        var lineBaseY = 25 + li * 26;
-        var lineT = waveElapsedTime * (1.1 + li * 0.35);
+    // Glowing Crest Nodes on the Waveform
+    for (var r = 0; r <= gridRows; r += 4) {
+      for (var c = 0; c <= gridCols; c += 4) {
+        var p = meshPoints[r][c];
+        if (!p) continue;
+        var nodeAlpha = Math.max(0, (1 - p.depth / 900) * 0.45);
+        waveCtx.fillStyle = 'rgba(255, 255, 255, ' + nodeAlpha + ')';
         waveCtx.beginPath();
-        for (var lx = 0; lx <= 170; lx += 3) {
-          var ly = lineBaseY 
-            + Math.sin(lx * 0.05 + lineT) * 7 
-            + Math.cos(lx * 0.025 - lineT * 0.7) * 4;
-          if (lx === 0) waveCtx.moveTo(lx, ly);
-          else waveCtx.lineTo(lx, ly);
-        }
-        waveCtx.strokeStyle = 'rgba(255, 255, 255, ' + ((0.40 + li * 0.12) * morphProgress) + ')';
-        waveCtx.lineWidth = 2.0 * lineScaleInv * dpr;
+        waveCtx.arc(p.sx, p.sy, 2.0 * p.scale * dpr, 0, Math.PI * 2);
+        waveCtx.fill();
+      }
+    }
+
+    // 4. Render 3D Floating Geometry Models
+    var isMobile = w < 680 * dpr;
+
+    // Object 1: 3D iPhone Titanium Chassis (Floats gracefully on left/mid-left)
+    var ipRotY = t * 0.22;
+    var ipRotX = 0.32 + Math.sin(t * 0.28) * 0.12;
+    var ipRotZ = -0.15 + Math.cos(t * 0.2) * 0.08;
+    var ipPosX = isMobile ? -60 : -360;
+    var ipPosY = isMobile ? -90 : -20;
+    var ipPosZ = isMobile ? 320 : 250;
+
+    var projFront = [];
+    var projBack = [];
+
+    iphoneWireframe.frontVerts.forEach(function(v) {
+      var tv = transformVert(v, ipRotX, ipRotY, ipRotZ, ipPosX, ipPosY, ipPosZ);
+      projFront.push(project3D(tv.x, tv.y, tv.z, cx, cy, dpr));
+    });
+
+    iphoneWireframe.backVerts.forEach(function(v) {
+      var tv = transformVert(v, ipRotX, ipRotY, ipRotZ, ipPosX, ipPosY, ipPosZ);
+      projBack.push(project3D(tv.x, tv.y, tv.z, cx, cy, dpr));
+    });
+
+    // Draw Front Frame
+    if (projFront.length && projFront[0]) {
+      waveCtx.beginPath();
+      waveCtx.moveTo(projFront[0].sx, projFront[0].sy);
+      for (var fi = 1; fi < projFront.length; fi++) {
+        if (projFront[fi]) waveCtx.lineTo(projFront[fi].sx, projFront[fi].sy);
+      }
+      waveCtx.closePath();
+      waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.42)';
+      waveCtx.lineWidth = 1.3 * dpr;
+      waveCtx.stroke();
+    }
+
+    // Draw Back Frame
+    if (projBack.length && projBack[0]) {
+      waveCtx.beginPath();
+      waveCtx.moveTo(projBack[0].sx, projBack[0].sy);
+      for (var bi = 1; bi < projBack.length; bi++) {
+        if (projBack[bi]) waveCtx.lineTo(projBack[bi].sx, projBack[bi].sy);
+      }
+      waveCtx.closePath();
+      waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
+      waveCtx.lineWidth = 1.0 * dpr;
+      waveCtx.stroke();
+    }
+
+    // Connect corner struts between front and back
+    for (var ci = 0; ci < projFront.length; ci += 5) {
+      if (projFront[ci] && projBack[ci]) {
+        waveCtx.beginPath();
+        waveCtx.moveTo(projFront[ci].sx, projFront[ci].sy);
+        waveCtx.lineTo(projBack[ci].sx, projBack[ci].sy);
+        waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+        waveCtx.lineWidth = 0.9 * dpr;
         waveCtx.stroke();
       }
-
-      // Specular sheen sweep across the leaf and bite
-      var sheenPos = ((waveElapsedTime * 0.8) % 2.5) / 2.5 * 260 - 45;
-      var sheenGrad = waveCtx.createLinearGradient(sheenPos - 35, 0, sheenPos + 35, 170);
-      sheenGrad.addColorStop(0, 'rgba(255, 255, 255, 0)');
-      sheenGrad.addColorStop(0.5, 'rgba(255, 255, 255, ' + (0.45 * morphProgress) + ')');
-      sheenGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-      waveCtx.fillStyle = sheenGrad;
-      waveCtx.fillRect(0, 0, 170, 170);
-
-      waveCtx.restore(); // end internal wave clip
-
-      // Outer soft glow contour
-      waveCtx.shadowColor = 'rgba(255, 255, 255, ' + (0.95 * morphProgress) + ')';
-      waveCtx.shadowBlur = 22 * dpr * lineScaleInv;
-      waveCtx.strokeStyle = 'rgba(255, 255, 255, ' + (0.40 * morphProgress) + ')';
-      waveCtx.lineWidth = 4.5 * lineScaleInv * dpr;
-      waveCtx.lineCap = 'round';
-      waveCtx.lineJoin = 'round';
-      waveCtx.stroke(applePath);
-
-      // Inner razor-sharp luminous white silk contour
-      waveCtx.shadowBlur = 0;
-      waveCtx.strokeStyle = 'rgba(255, 255, 255, ' + (0.98 * morphProgress) + ')';
-      waveCtx.lineWidth = 2.2 * lineScaleInv * dpr;
-      waveCtx.stroke(applePath);
-
-      waveCtx.restore();
     }
+
+    // Camera Plateau & Lens Rings
+    waveCtx.beginPath();
+    var plateauStarted = false;
+    iphoneWireframe.camPlateau.forEach(function(v) {
+      var tv = transformVert(v, ipRotX, ipRotY, ipRotZ, ipPosX, ipPosY, ipPosZ);
+      var p = project3D(tv.x, tv.y, tv.z, cx, cy, dpr);
+      if (p) {
+        if (!plateauStarted) { waveCtx.moveTo(p.sx, p.sy); plateauStarted = true; }
+        else waveCtx.lineTo(p.sx, p.sy);
+      }
+    });
+    waveCtx.closePath();
+    waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+    waveCtx.lineWidth = 1.0 * dpr;
+    waveCtx.stroke();
+
+    iphoneWireframe.lensRings.forEach(function(ring) {
+      waveCtx.beginPath();
+      var rStarted = false;
+      ring.forEach(function(v) {
+        var tv = transformVert(v, ipRotX, ipRotY, ipRotZ, ipPosX, ipPosY, ipPosZ);
+        var p = project3D(tv.x, tv.y, tv.z, cx, cy, dpr);
+        if (p) {
+          if (!rStarted) { waveCtx.moveTo(p.sx, p.sy); rStarted = true; }
+          else waveCtx.lineTo(p.sx, p.sy);
+        }
+      });
+      waveCtx.closePath();
+      waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.48)';
+      waveCtx.lineWidth = 1.1 * dpr;
+      waveCtx.stroke();
+    });
+
+    // Object 2: 3D Precision Concentric Optical Rings (Right side)
+    var optRotY = -t * 0.3;
+    var optRotX = 0.42 + Math.cos(t * 0.25) * 0.15;
+    var optPosX = isMobile ? 80 : 380;
+    var optPosY = isMobile ? -80 : -50;
+    var optPosZ = isMobile ? 360 : 310;
+
+    opticalRings.forEach(function(ring, idx) {
+      waveCtx.beginPath();
+      var started = false;
+      ring.forEach(function(v) {
+        var tv = transformVert(v, optRotX, optRotY, 0, optPosX, optPosY, optPosZ);
+        var p = project3D(tv.x, tv.y, tv.z, cx, cy, dpr);
+        if (p) {
+          if (!started) { waveCtx.moveTo(p.sx, p.sy); started = true; }
+          else waveCtx.lineTo(p.sx, p.sy);
+        }
+      });
+      waveCtx.closePath();
+      var ringAlpha = (1 - idx * 0.2) * 0.38;
+      waveCtx.strokeStyle = 'rgba(230, 240, 255, ' + ringAlpha + ')';
+      waveCtx.lineWidth = (1.4 - idx * 0.2) * dpr;
+      waveCtx.stroke();
+    });
+
+    // Object 3: 3D Faceted Octahedron (Bionic Chip Core Crystal)
+    var chipRotY = t * 0.45;
+    var chipRotX = t * 0.35;
+    var chipPosX = isMobile ? 0 : 250;
+    var chipPosY = isMobile ? 120 : 160;
+    var chipPosZ = 440;
+
+    var chipProj = [];
+    chipOctahedron.verts.forEach(function(v) {
+      var tv = transformVert(v, chipRotX, chipRotY, 0, chipPosX, chipPosY, chipPosZ);
+      chipProj.push(project3D(tv.x, tv.y, tv.z, cx, cy, dpr));
+    });
+
+    chipOctahedron.edges.forEach(function(edge) {
+      var p1 = chipProj[edge[0]];
+      var p2 = chipProj[edge[1]];
+      if (p1 && p2) {
+        waveCtx.beginPath();
+        waveCtx.moveTo(p1.sx, p1.sy);
+        waveCtx.lineTo(p2.sx, p2.sy);
+        waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+        waveCtx.lineWidth = 1.0 * dpr;
+        waveCtx.stroke();
+      }
+    });
+
+    // 5. Render 3D Spatial Stardust Particles
+    for (var i = 0; i < particles3D.length; i++) {
+      var part = particles3D[i];
+      part.z -= part.speedZ * dt;
+      part.x += part.driftX * dt;
+      part.y += part.driftY * dt;
+
+      if (part.z < 40) {
+        part.z = 1050;
+        part.x = (Math.random() - 0.5) * 1400;
+        part.y = (Math.random() - 0.5) * 1000;
+      }
+
+      var pp = project3D(part.x, part.y, part.z, cx, cy, dpr);
+      if (!pp) continue;
+
+      var pAlpha = part.baseAlpha * Math.sin(t * 2.2 + part.seed) * 0.25 + part.baseAlpha;
+      pAlpha *= Math.min(1, part.z / 150) * Math.max(0, 1 - part.z / 1000);
+
+      var pRad = part.radius * pp.scale * dpr;
+
+      // Near-field bokeh soft glow
+      if (part.z < 350) {
+        var pGrad = waveCtx.createRadialGradient(pp.sx, pp.sy, 0, pp.sx, pp.sy, pRad * 3.5);
+        pGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (pAlpha * 0.8) + ')');
+        pGrad.addColorStop(0.5, 'rgba(220, 230, 255, ' + (pAlpha * 0.25) + ')');
+        pGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        waveCtx.fillStyle = pGrad;
+        waveCtx.beginPath();
+        waveCtx.arc(pp.sx, pp.sy, pRad * 3.5, 0, Math.PI * 2);
+        waveCtx.fill();
+      }
+
+      waveCtx.fillStyle = 'rgba(255, 255, 255, ' + pAlpha + ')';
+      waveCtx.beginPath();
+      waveCtx.arc(pp.sx, pp.sy, Math.max(0.8 * dpr, pRad), 0, Math.PI * 2);
+      waveCtx.fill();
+    }
+
+    // 6. Vignette Outer Fade (Ensures pristine contrast for UI cards & text)
+    var vigGrad = waveCtx.createRadialGradient(cx, cy, Math.min(w, h) * 0.35, cx, cy, Math.max(w, h) * 0.72);
+    vigGrad.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    vigGrad.addColorStop(0.7, 'rgba(2, 2, 5, 0.35)');
+    vigGrad.addColorStop(1, 'rgba(0, 0, 0, 0.85)');
+    waveCtx.fillStyle = vigGrad;
+    waveCtx.fillRect(0, 0, w, h);
   }
 
   function waveAnimationLoop(timestamp) {
     if (!isWavePlaying) return;
-    renderWaveFrame(timestamp);
+    render3DFrame(timestamp);
     waveAnimId = requestAnimationFrame(waveAnimationLoop);
   }
 
@@ -3217,17 +3374,17 @@
     lastFrameTimestamp = 0;
   }
 
-  // Smooth global parallax on mouse move (completely smooth, non-localized)
+  // Smooth global 3D camera parallax on mouse move
   window.addEventListener('pointermove', function(e){
     var w = window.innerWidth || 1;
     var h = window.innerHeight || 1;
-    waveTilt.targetX = ((e.clientX / w) - 0.5) * 8;
-    waveTilt.targetY = ((e.clientY / h) - 0.5) * 6;
+    camera3D.targetYaw = ((e.clientX / w) - 0.5) * 0.45;
+    camera3D.targetPitch = ((e.clientY / h) - 0.5) * 0.32;
   }, { passive: true });
 
   window.addEventListener('pointerleave', function(){
-    waveTilt.targetX = 0;
-    waveTilt.targetY = 0;
+    camera3D.targetYaw = 0;
+    camera3D.targetPitch = 0;
   }, { passive: true });
 
   window.addEventListener('resize', function(){
