@@ -2711,6 +2711,7 @@ body.view-select-model .no-model-found {
 
   /* 3 Feature Pillars Strip in 3-Column Industrial Dock */
   .hero-feature-strip {
+    order: 1 !important;
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 6px !important;
@@ -2777,6 +2778,7 @@ body.view-select-model .no-model-found {
   }
 
   .hero-cta-group {
+    order: 2 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: stretch !important;
