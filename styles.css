@@ -615,9 +615,9 @@ body.view-diagnostic #navBackBtn {
 .guide-eyebrow-dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
-  background: #64D2FF;
-  box-shadow: 0 0 8px #64D2FF;
+  border-radius: 1.5px;
+  background: #71717A;
+  box-shadow: none;
 }
 
 .guide-main-title {
@@ -651,10 +651,10 @@ body.view-diagnostic #navBackBtn {
 
 .guide-subhead-badge {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #64D2FF;
+  color: #A1A1AA;
   text-transform: uppercase;
 }
 
@@ -748,64 +748,81 @@ body.view-diagnostic #navBackBtn {
   letter-spacing: -0.015em;
 }
 
-/* Reusable Guide Point List */
+/* Reusable Industrial Spec Point List */
 .guide-point-list {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   flex-grow: 1;
 }
 
 .guide-point-list.compact {
-  gap: 10px;
+  gap: 9px;
 }
 
 .guide-point-item {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 14px;
-  line-height: 1.65;
+  gap: 10px;
+  font-size: 13.5px;
+  line-height: 1.6;
   color: #A1A1AA;
+  transition: color 0.2s ease;
 }
 
 .guide-point-item strong {
-  color: #F5F5F7;
+  color: #F4F4F5;
   font-weight: 600;
 }
 
+/* Industrial Precision Hairline Spec Marker (Eliminates AI Cyan Bullet) */
 .guide-point-bullet {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #64D2FF;
-  margin-top: 8px;
+  width: 8px;
+  height: 1.5px;
+  border-radius: 1px;
+  background: #52525B;
+  margin-top: 10px;
   flex-shrink: 0;
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.guide-point-item:hover .guide-point-bullet {
+  background: #D4D4D8;
+  width: 12px;
+}
+
+.guide-point-item:hover {
+  color: #E4E4E7;
 }
 
 .guide-point-risk {
-  margin-top: 8px;
-  padding: 14px 0 0;
+  margin-top: 10px;
+  padding: 12px 0 0;
   border-top: 1px solid rgba(255, 255, 255, 0.07);
   background: transparent;
   border-radius: 0;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
-  color: #D1D1D6;
+  color: #A1A1AA;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .risk-label {
-  color: #FF453A;
+  color: #FF6961;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.06em;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgba(255, 69, 58, 0.1);
+  border: 1px solid rgba(255, 69, 58, 0.22);
 }
 
 /* ==========================================================================
@@ -832,7 +849,7 @@ body.view-diagnostic #navBackBtn {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #64D2FF;
+  color: #A1A1AA;
   margin-bottom: 12px;
   display: inline-block;
   text-transform: uppercase;
@@ -877,20 +894,27 @@ body.view-diagnostic #navBackBtn {
   border-bottom: none;
 }
 
+/* Industrial Precision Chamfered Micro-Plate */
 .feat-check-icon {
   width: 22px;
   height: 22px;
-  border-radius: 50%;
-  background: rgba(48, 209, 88, 0.12);
-  border: 1px solid rgba(48, 209, 88, 0.3);
-  color: #30D158;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #D4D4D8;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  font-weight: 800;
   flex-shrink: 0;
-  margin-top: 1px;
+  margin-top: 2px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.mission-feat-item:hover .feat-check-icon {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
 }
 
 .mission-feat-item strong {
@@ -920,11 +944,11 @@ body.view-diagnostic #navBackBtn {
 .guide-steps-flow::before {
   content: '';
   position: absolute;
-  top: 16px;
-  left: 24px;
-  right: 24px;
+  top: 15px;
+  left: 16px;
+  right: 16px;
   height: 1px;
-  background: linear-gradient(90deg, #64D2FF 0%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.05) 100%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.08) 100%);
   z-index: 1;
 }
 
@@ -935,7 +959,7 @@ body.view-diagnostic #navBackBtn {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   box-shadow: none;
@@ -958,32 +982,43 @@ body.view-diagnostic #navBackBtn {
 
 .step-num {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12.5px;
+  font-size: 11.5px;
   font-weight: 700;
-  color: #030307;
-  background: #64D2FF;
-  padding: 4px 10px;
-  border-radius: 980px;
-  box-shadow: 0 0 12px rgba(100, 210, 255, 0.4);
+  letter-spacing: 0.08em;
+  color: #F4F4F5;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 3px 8px;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.guide-step-card:hover .step-num {
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.09);
+  color: #FFFFFF;
 }
 
 .step-badge {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
   font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 980px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #D4D4D8;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #71717A;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .step-title {
-  font-size: 16.5px;
+  font-size: 16px;
   font-weight: 700;
   color: #FFFFFF;
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
 }
 
 /* ==========================================================================
@@ -1947,9 +1982,9 @@ body.view-select-model .no-model-found {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #64D2FF;
+  color: #A1A1AA;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1959,9 +1994,9 @@ body.view-select-model .no-model-found {
 .panel-eyebrow .dot {
   width: 6px;
   height: 6px;
-  border-radius: 50%;
-  background: #0A84FF;
-  box-shadow: 0 0 8px #0A84FF;
+  border-radius: 1.5px;
+  background: #71717A;
+  box-shadow: none;
 }
 
 .panel-head h2 {
@@ -3583,15 +3618,32 @@ body.view-select-model .no-model-found {
 }
 
 .flaws-list {
-  margin: 12px 0 0 0;
-  padding-left: 20px;
-  font-size: 13px;
-  color: #E5E5EA;
-  line-height: 1.55;
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .flaws-list li {
-  margin-bottom: 6px;
+  position: relative;
+  padding-left: 16px;
+  font-size: 13px;
+  color: #D4D4D8;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.flaws-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 1.5px;
+  background: #FF9F0A;
+  border-radius: 1px;
 }
 
 .flaws-list li strong {
