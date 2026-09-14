@@ -2498,19 +2498,31 @@
 
   // Step Navigation Functionality
   var stepnav = document.getElementById('stepnav');
-  var panels = document.querySelectorAll('.panel');
   function goto(step, scroll){
     if (stepnav) {
       stepnav.querySelectorAll('.step-btn').forEach(function(b){
-        b.classList.toggle('active', b.getAttribute('data-step')===step);
+        var isActive = b.getAttribute('data-step') === step;
+        b.classList.toggle('active', isActive);
+        if (isActive) {
+          try {
+            b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          } catch(e) {}
+        }
       });
     }
     panels.forEach(function(p){
       p.classList.toggle('active', p.getAttribute('data-panel')===step);
     });
-    if (scroll !== false && stepnav) {
-      var offsetTop = stepnav.getBoundingClientRect().top + window.pageYOffset - 80;
-      window.scrollTo({top: offsetTop, behavior:'smooth'});
+    if (scroll !== false) {
+      var targetPanel = document.querySelector('.panel[data-panel="'+step+'"]');
+      var topOffset = window.innerWidth <= 768 ? 120 : 80;
+      if (targetPanel) {
+        var panelPos = targetPanel.getBoundingClientRect().top + window.pageYOffset - topOffset;
+        window.scrollTo({top: Math.max(0, panelPos), behavior:'smooth'});
+      } else if (stepnav) {
+        var offsetTop = stepnav.getBoundingClientRect().top + window.pageYOffset - topOffset;
+        window.scrollTo({top: Math.max(0, offsetTop), behavior:'smooth'});
+      }
     }
   }
 
@@ -3533,12 +3545,14 @@
 
     lightboxModal.classList.add('active');
     lightboxModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeLightbox() {
     if (!lightboxModal) return;
     lightboxModal.classList.remove('active');
     lightboxModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   }
 
   if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);

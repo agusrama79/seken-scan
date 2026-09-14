@@ -67,8 +67,10 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
+  max-width: 100vw;
   background: var(--bg);
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -2752,8 +2754,8 @@ body.view-select-model .no-model-found {
 @media (max-width: 768px) {
   /* Top Nav Bar on Mobile */
   .top-nav {
-    padding: 10px 16px;
-    height: 56px;
+    padding: calc(env(safe-area-inset-top, 0px) + 8px) 16px 8px;
+    height: calc(56px + env(safe-area-inset-top, 0px));
   }
 
   body.view-home .top-nav {
@@ -2787,9 +2789,14 @@ body.view-select-model .no-model-found {
   }
 
   .nav-back-btn {
-    padding: 6px 12px;
-    font-size: 11.5px;
+    padding: 8px 14px;
+    font-size: 12px;
     font-weight: 600;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
   }
 
   /* Fix Blank White Space on Mobile Home View */
@@ -3228,7 +3235,7 @@ body.view-select-model .no-model-found {
 
   /* Diagnostic Checklist Section Mobile */
   .diagnostic-section {
-    padding: 16px 14px 100px !important;
+    padding: 16px 14px calc(120px + env(safe-area-inset-bottom, 0px)) !important;
   }
 
   .diagnostic-top-bar {
@@ -3236,8 +3243,8 @@ body.view-select-model .no-model-found {
     flex-direction: row !important;
     align-items: center !important;
     justify-content: space-between !important;
-    margin-bottom: 14px !important;
-    padding-bottom: 10px !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 8px !important;
     gap: 8px !important;
   }
 
@@ -3273,15 +3280,24 @@ body.view-select-model .no-model-found {
     border-radius: 980px !important;
   }
 
+  /* Liquid Sticky Step Navigator for Mobile */
   .stepnav {
+    position: sticky !important;
+    top: calc(56px + env(safe-area-inset-top, 0px)) !important;
+    z-index: 95 !important;
+    background: rgba(3, 3, 7, 0.94) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    padding-bottom: 6px !important;
-    margin: 12px -14px 18px !important;
-    padding-left: 14px !important;
-    padding-right: 14px !important;
+    padding: 10px 14px !important;
+    margin: 0 -14px 18px !important;
     scrollbar-width: none !important;
-    gap: 6px !important;
+    display: flex !important;
+    gap: 8px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
   }
 
   .stepnav::-webkit-scrollbar {
@@ -3289,11 +3305,18 @@ body.view-select-model .no-model-found {
   }
 
   .step-btn {
-    padding: 10px 14px !important;
+    padding: 10px 16px !important;
     font-size: 12.5px !important;
-    border-radius: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 980px !important;
     gap: 6px !important;
     flex: none !important;
+    min-height: 40px !important;
+    touch-action: manipulation !important;
+  }
+
+  .panel {
+    scroll-margin-top: calc(120px + env(safe-area-inset-top, 0px)) !important;
   }
 
   /* Specs & Flaws Cards */
@@ -3384,42 +3407,54 @@ body.view-select-model .no-model-found {
     object-position: center !important;
   }
 
+  /* Ergonomic 44x44px Touch Targets for Status Buttons */
   .status-toggle {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 6px !important;
+    gap: 8px !important;
     width: 100% !important;
   }
 
   .status-btn {
     width: 100% !important;
     min-width: 0 !important;
-    height: 38px !important;
-    padding: 6px 2px !important;
-    font-size: 12px !important;
+    min-height: 44px !important;
+    height: 44px !important;
+    padding: 8px 4px !important;
+    font-size: 12.5px !important;
     font-weight: 600 !important;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
+    touch-action: manipulation !important;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
+  .status-btn:active {
+    transform: scale(0.96) !important;
+  }
+
+  /* Full-width Stacked Bottom Navigation Buttons for Mobile */
   .step-nav-btns {
     display: flex !important;
-    justify-content: stretch !important;
+    flex-direction: column !important;
     gap: 10px !important;
-    margin-top: 20px !important;
+    margin-top: 24px !important;
     width: 100% !important;
   }
 
   .step-nav-btns .nav-btn {
-    flex: 1 !important;
+    width: 100% !important;
+    min-height: 48px !important;
     justify-content: center !important;
-    padding: 13px 16px !important;
-    font-size: 13.5px !important;
-    border-radius: 12px !important;
+    padding: 14px 18px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    border-radius: 14px !important;
     text-align: center !important;
+    touch-action: manipulation !important;
   }
 
   .step-nav-btns .nav-btn:disabled {
@@ -3427,16 +3462,83 @@ body.view-select-model .no-model-found {
   }
 
   .step-nav-btns .reset-btn {
-    flex: 1 !important;
+    width: 100% !important;
+    min-height: 48px !important;
     justify-content: center !important;
-    padding: 13px 16px !important;
-    font-size: 13.5px !important;
+    padding: 14px 18px !important;
+    font-size: 14px !important;
+    border-radius: 14px !important;
     text-align: center !important;
+    touch-action: manipulation !important;
   }
 
   .code-row {
     grid-template-columns: 55px 1fr !important;
     font-size: 12px !important;
+  }
+
+  /* Summary Tab & Verdict Mobile Polish */
+  .sum-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .sum-card {
+    padding: 14px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .sum-card .lbl {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .sum-card .val {
+    font-size: 20px !important;
+  }
+
+  .flag-list {
+    border-radius: 14px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .flag-item {
+    padding: 14px 16px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  .flag-item .s {
+    font-size: 11px !important;
+  }
+
+  .verdict {
+    padding: 18px 18px !important;
+    border-radius: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .verdict .title {
+    font-size: 11px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .verdict p {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+
+  .extra {
+    border-radius: 14px !important;
+    margin-top: 24px !important;
+  }
+
+  .extra summary {
+    padding: 16px 18px !important;
+    font-size: 14px !important;
+    min-height: 48px !important;
   }
 
   /* Safe-area in bottom bar */
@@ -3778,7 +3880,7 @@ body.view-select-model .no-model-found {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) 16px calc(16px + env(safe-area-inset-bottom, 0px));
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3792,21 +3894,24 @@ body.view-select-model .no-model-found {
 .lightbox-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(10, 12, 16, 0.78);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(2, 2, 5, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .lightbox-content {
   position: relative;
   z-index: 2;
-  background: #FFFFFF;
-  border: 1px solid var(--border);
+  background: rgba(18, 18, 26, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 20px;
   width: 100%;
   max-width: 580px;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
+  max-height: calc(100dvh - 40px);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7);
   overflow: hidden;
+  overflow-y: auto;
   transform: scale(0.95);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
@@ -3822,30 +3927,33 @@ body.view-select-model .no-model-found {
   top: 14px;
   right: 14px;
   z-index: 10;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(30, 30, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  touch-action: manipulation;
   transition: background 0.2s, transform 0.2s;
 }
 
 .lightbox-close-btn:hover {
-  background: #FFFFFF;
-  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.06);
 }
 
 .lightbox-preview {
   width: 100%;
   height: 380px;
-  background: #0F172A;
+  background: #09090E;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3865,7 +3973,7 @@ body.view-select-model .no-model-found {
   width: auto;
   height: auto;
   overflow: visible;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.65));
 }
 
 .lightbox-info {
@@ -3876,7 +3984,7 @@ body.view-select-model .no-model-found {
   display: inline-block;
   font-size: 10.5px;
   font-weight: 700;
-  color: var(--accent);
+  color: #64D2FF;
   letter-spacing: 0.05em;
   font-family: 'JetBrains Mono', monospace;
   margin-bottom: 6px;
@@ -3885,14 +3993,14 @@ body.view-select-model .no-model-found {
 .lightbox-title {
   font-size: 18px;
   font-weight: 700;
-  color: var(--text);
+  color: #FFFFFF;
   margin: 0 0 8px;
   letter-spacing: -0.02em;
 }
 
 .lightbox-desc {
   font-size: 13.5px;
-  color: var(--text-muted);
+  color: #A1A1A6;
   line-height: 1.6;
   margin: 0;
 }
@@ -3900,9 +4008,10 @@ body.view-select-model .no-model-found {
 @media (max-width: 640px) {
   .lightbox-content {
     max-width: 100%;
+    border-radius: 18px;
   }
   .lightbox-preview {
-    height: 280px;
+    height: 260px;
   }
   .diagram {
     width: 100%;
