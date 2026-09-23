@@ -2510,6 +2510,7 @@
         }
       });
     }
+    var panels = document.querySelectorAll('.panel');
     panels.forEach(function(p){
       p.classList.toggle('active', p.getAttribute('data-panel')===step);
     });

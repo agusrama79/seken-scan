@@ -1,4 +1,4 @@
-# iPhone Seken / Scan — Panduan Cek iPhone Second
+# iPhone Seken & Scan — Panduan Cek iPhone Second
 
 Aplikasi web panduan inspeksi iPhone second terarah untuk membaca jejak bongkar, kondisi kamera, asal nomor model, keaslian layar, dan baterai sebelum transaksi COD.
 

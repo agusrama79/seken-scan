@@ -282,7 +282,7 @@ body.view-diagnostic #navBackBtn {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding: 64px 60px 64px max(48px, calc((100vw - 1360px) / 2 + 48px));
+  padding: 40px 52px 40px max(40px, calc((100vw - 1360px) / 2 + 40px));
   background: transparent;
   z-index: 5;
 }
@@ -297,16 +297,16 @@ body.view-diagnostic #navBackBtn {
   align-items: center;
   gap: 8px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #E5E5EA;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 14px;
+  padding: 5px 14px;
   border-radius: 980px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   width: fit-content;
 }
 
@@ -314,14 +314,14 @@ body.view-diagnostic #navBackBtn {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #0A84FF;
-  box-shadow: 0 0 8px #0A84FF;
+  background: #30D158;
+  box-shadow: 0 0 8px rgba(48, 209, 88, 0.6);
 }
 
 /* Apple-Style H1 Headline with Titanium Metallic Gradient */
 .hero-headline {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Helvetica Neue", sans-serif;
-  font-size: clamp(38px, 4.2vw, 52px);
+  font-size: clamp(36px, 3.8vw, 48px);
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -0.035em;
@@ -329,7 +329,7 @@ body.view-diagnostic #navBackBtn {
   background: linear-gradient(180deg, #FFFFFF 25%, #C2C2CB 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 0 0 24px;
+  margin: 0 0 16px;
 }
 
 .headline-sub {
@@ -342,10 +342,10 @@ body.view-diagnostic #navBackBtn {
 
 /* Apple-Style Clean Body Description */
 .hero-desc {
-  font-size: 16.5px;
-  line-height: 1.7;
+  font-size: 15.5px;
+  line-height: 1.65;
   color: var(--text-muted);
-  margin: 0 0 36px;
+  margin: 0 0 26px;
   max-width: 490px;
 }
 
@@ -358,8 +358,8 @@ body.view-diagnostic #navBackBtn {
 .hero-cta-group {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 40px;
+  gap: 14px;
+  margin-bottom: 26px;
   flex-wrap: wrap;
 }
 
@@ -2759,17 +2759,23 @@ body.view-select-model .no-model-found {
   }
 
   body.view-home .top-nav {
-    background: rgba(0, 0, 0, 0.75) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(3, 3, 7, 0.82) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 
   body.view-home .top-nav .brand-text {
     color: #FFFFFF !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.07em !important;
   }
 
   body.view-home .top-nav .brand-icon {
-    background: #FFFFFF !important;
-    color: #000000 !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    color: #FFFFFF !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
   }
 
   .brand-icon {
@@ -2802,7 +2808,7 @@ body.view-select-model .no-model-found {
   /* Fix Blank White Space on Mobile Home View */
   body.view-home,
   body.view-home .main-container {
-    background: #000000 !important;
+    background: #030307 !important;
     min-height: 100vh !important;
     min-height: 100dvh !important;
   }
@@ -2813,10 +2819,10 @@ body.view-select-model .no-model-found {
     display: block !important;
     position: relative !important;
     width: 100% !important;
-    min-height: 100vh !important;
-    min-height: 100dvh !important;
+    min-height: calc(100vh - 56px) !important;
+    min-height: calc(100dvh - 56px) !important;
     padding: 0 !important;
-    background: #000000 !important;
+    background: #030307 !important;
     overflow: hidden !important;
   }
 
@@ -2830,7 +2836,7 @@ body.view-select-model .no-model-found {
     height: 100% !important;
     min-height: 100% !important;
     width: 100% !important;
-    background: #000000 !important;
+    background: #030307 !important;
     z-index: 1 !important;
     overflow: hidden !important;
     margin: 0 !important;
@@ -2843,7 +2849,7 @@ body.view-select-model .no-model-found {
     display: none !important;
   }
 
-  /* Elegant Dark Gradient Overlay: Deep black at top & bottom, clear in middle for 3D visual */
+  /* Elegant Dark Gradient Overlay: Ensures absolute legibility for text while showcasing 3D phone */
   .hero-right-pane::after {
     content: '' !important;
     display: block !important;
@@ -2851,13 +2857,13 @@ body.view-select-model .no-model-found {
     inset: 0 !important;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.94) 0%,
-      rgba(0, 0, 0, 0.88) 18%,
-      rgba(0, 0, 0, 0.45) 30%,
-      rgba(0, 0, 0, 0.08) 48%,
-      rgba(0, 0, 0, 0.48) 70%,
-      rgba(0, 0, 0, 0.94) 90%,
-      #000000 100%
+      rgba(3, 3, 7, 0.94) 0%,
+      rgba(3, 3, 7, 0.88) 22%,
+      rgba(3, 3, 7, 0.52) 38%,
+      rgba(3, 3, 7, 0.28) 50%,
+      rgba(3, 3, 7, 0.68) 72%,
+      rgba(3, 3, 7, 0.94) 88%,
+      #030307 100%
     ) !important;
     z-index: 2 !important;
     pointer-events: none !important;
@@ -2870,7 +2876,7 @@ body.view-select-model .no-model-found {
     height: 100% !important;
     display: block !important;
     z-index: 1 !important;
-    opacity: 0.95 !important;
+    opacity: 0.92 !important;
   }
 
   /* Foreground Content Layer */
@@ -2891,10 +2897,11 @@ body.view-select-model .no-model-found {
     max-width: 100% !important;
     min-height: calc(100vh - 56px) !important;
     min-height: calc(100dvh - 56px) !important;
-    padding: 20px 18px 24px !important;
+    padding: 22px 18px 26px !important;
     margin: 0 !important;
     background: transparent !important;
     box-sizing: border-box !important;
+    gap: 16px !important;
   }
 
   /* Top Zone: Centered Apple Keynote Typography */
@@ -2904,7 +2911,7 @@ body.view-select-model .no-model-found {
     align-items: center !important;
     text-align: center !important;
     width: 100% !important;
-    padding-top: 6px !important;
+    padding-top: 4px !important;
     position: relative !important;
     z-index: 5 !important;
   }
@@ -2914,35 +2921,37 @@ body.view-select-model .no-model-found {
     align-items: center !important;
     gap: 7px !important;
     font-family: 'JetBrains Mono', monospace !important;
-    font-size: 9px !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.14em !important;
+    font-size: 9.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
     text-transform: uppercase !important;
     color: #E4E4E7 !important;
-    background: rgba(255, 255, 255, 0.07) !important;
-    border: 1px solid rgba(255, 255, 255, 0.16) !important;
-    padding: 4px 12px !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    padding: 5px 14px !important;
     border-radius: 980px !important;
     margin-bottom: 12px !important;
     width: fit-content !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
   }
 
   .eyebrow-dot {
     width: 5px !important;
     height: 5px !important;
     border-radius: 50% !important;
-    background: #A1A1AA !important;
-    box-shadow: none !important;
+    background: #30D158 !important;
+    box-shadow: 0 0 8px rgba(48, 209, 88, 0.6) !important;
   }
 
   .hero-headline {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", "Inter", sans-serif !important;
-    font-size: clamp(24px, 6.6vw, 31px) !important;
+    font-size: clamp(24px, 6.8vw, 32px) !important;
     font-weight: 800 !important;
-    line-height: 1.15 !important;
-    letter-spacing: -0.038em !important;
+    font-style: normal !important;
+    line-height: 1.14 !important;
+    letter-spacing: -0.035em !important;
     margin: 0 0 10px 0 !important;
     text-align: center !important;
     color: #FFFFFF !important;
@@ -2951,6 +2960,7 @@ body.view-select-model .no-model-found {
   .headline-main {
     display: inline-block !important;
     color: #FFFFFF !important;
+    font-style: normal !important;
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95) !important;
   }
 
@@ -2959,17 +2969,18 @@ body.view-select-model .no-model-found {
     background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
+    font-style: normal !important;
     filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9)) !important;
   }
 
   .hero-desc {
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Plus Jakarta Sans", "Inter", sans-serif !important;
-    font-size: 13px !important;
+    font-size: 13.5px !important;
     font-weight: 400 !important;
-    line-height: 1.54 !important;
+    line-height: 1.58 !important;
     color: #D4D4D8 !important;
     margin: 0 auto !important;
-    max-width: 320px !important;
+    max-width: 330px !important;
     text-align: center !important;
     letter-spacing: -0.01em !important;
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95) !important;
@@ -2995,7 +3006,7 @@ body.view-select-model .no-model-found {
     order: 1 !important;
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 6px !important;
+    gap: 8px !important;
     padding: 0 !important;
     border-top: none !important;
     width: 100% !important;
@@ -3007,12 +3018,13 @@ body.view-select-model .no-model-found {
     flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
-    gap: 5px !important;
+    gap: 6px !important;
     padding: 10px 5px !important;
-    background: rgba(20, 20, 22, 0.88) !important;
+    background: rgba(18, 18, 24, 0.82) !important;
     backdrop-filter: blur(24px) !important;
     -webkit-backdrop-filter: blur(24px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.16) !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45) !important;
   }
@@ -3066,6 +3078,7 @@ body.view-select-model .no-model-found {
     gap: 8px !important;
     margin: 0 !important;
     width: 100% !important;
+    border: none !important;
   }
 
   .apple-primary-btn {
@@ -3078,9 +3091,10 @@ body.view-select-model .no-model-found {
     min-height: 48px !important;
     background: #FFFFFF !important;
     color: #000000 !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.16), 0 0 0 1px rgba(255, 255, 255, 0.12) !important;
     border: none !important;
     letter-spacing: -0.01em !important;
+    cursor: pointer !important;
     transition: transform 0.15s ease, background 0.15s ease !important;
   }
 
@@ -3096,8 +3110,8 @@ body.view-select-model .no-model-found {
   .hero-learn-more-btn {
     width: 100% !important;
     justify-content: center !important;
-    padding: 10px 16px !important;
-    font-size: 12px !important;
+    padding: 11px 16px !important;
+    font-size: 12.5px !important;
     font-weight: 600 !important;
     border-radius: 980px !important;
     background: rgba(255, 255, 255, 0.08) !important;
@@ -3106,6 +3120,8 @@ body.view-select-model .no-model-found {
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
     letter-spacing: -0.01em !important;
+    min-height: 42px !important;
+    cursor: pointer !important;
     transition: background 0.15s ease !important;
   }
 
