@@ -3364,7 +3364,7 @@
 
   function waveAnimationLoop(timestamp) {
     if (!isWavePlaying) return;
-    render3DFrame(timestamp);
+    renderWaveFrame(timestamp);
     waveAnimId = requestAnimationFrame(waveAnimationLoop);
   }
 
