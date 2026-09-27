@@ -85,11 +85,11 @@
       hasNativeCycleCount: true,
       partsHistory: ['Baterai', 'Layar', 'Kamera Belakang', 'Kaca Belakang'],
       officialCodes: 'A3260, A3261',
-      tags: ['Ultra Slim 5.6mm', 'Titanium Grade 5 Frame', 'ProMotion 120Hz', 'Camera Control'], 
-      desc: 'Cek rangka Titanium ultra-kuat untuk mencegah risiko bengkok pada bodi 5.6mm, ketahanan baterai, & layar 120Hz.',
+      tags: ['Ultra Slim 5.5mm', 'Glacier Titanium Frame', 'Bar Kamera Horizontal', 'Camera Control'], 
+      desc: 'Cek rangka Titanium ultra-kuat untuk mencegah risiko bengkok pada bodi 5.5mm, ketahanan baterai, & layar 120Hz.',
       knownFlaws: [
-        '<strong>Rangka Titanium Anti-Bengkok (Anti-Bend)</strong>: Pada bodi setipis 5.6mm, Apple menggunakan rangka Titanium Grade 5 demi mempertahankan rigiditas. Letakkan ponsel di meja datar untuk memastikan bodi tetap lurus sempurna.',
-        '<strong>Kamera Tunggal 48MP Fusion</strong>: Pastikan in-sensor crop zoom 2x tajam dan autofocus tidak hunting.',
+        '<strong>Rangka Titanium Anti-Bengkok (Anti-Bend)</strong>: Pada bodi setipis 5.5mm, Apple menggunakan rangka Titanium Grade 5 demi mempertahankan rigiditas. Letakkan ponsel di meja datar untuk memastikan bodi tetap lurus sempurna.',
+        '<strong>Kamera Tunggal 48MP Fusion Bar Kapsul</strong>: Pastikan lensa tunggal di modul bar horizontal tidak lecet, in-sensor crop zoom 2x tajam, dan autofocus cepat.',
         '<strong>Konektor USB-C Ultra Slim</strong>: Periksa lubang port dari kotoran atau kerenggangan kabel.'
       ]
     },
@@ -1873,19 +1873,20 @@
 
   function getIPhone17AirVisual(model, itemId) {
     var name = (model.name || 'iPhone 17 Air');
-    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip17_air_back.jpg?v=apple_official_v2" alt="' + name + ' Bodi Belakang 5.6mm Ultra-Slim Titanium" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'c_lensa_array' || itemId === 'c_48mp') return { html: '<img src="images/inspection/models/ip17_air_camera.jpg?v=apple_official_v2" alt="' + name + ' Kamera Tunggal 48MP Fusion Bar" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip17_air_camera.jpg?v=apple_official_v2" alt="' + name + ' True Tone Flash Kamera Tunggal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip17_air_back.jpg?v=apple_official_v2" alt="' + name + ' Rangka Titanium 5.6mm Ultra-Slim" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'b_camera_ctrl') return { html: '<img src="images/inspection/b_camera_ctrl.jpg?v=apple_official_v2" alt="' + name + ' Camera Control Safir" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'b_action_btn') return { html: '<img src="images/inspection/b_action_btn.jpg?v=apple_official_v2" alt="' + name + ' Action Button" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') return { html: '<img src="images/inspection/b_pentalobe.jpg?v=apple_official_v2" alt="' + name + ' Port USB-C & Baut Pentalobe" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=apple_official_v2" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=apple_official_v2" alt="' + name + ' Dynamic Island & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip17_air_back.jpg?v=apple_official_v2" alt="' + name + ' Kerataan Kaca Layar ke Rangka Titanium 5.6mm" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=apple_official_v2" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=apple_official_v2" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
-    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=apple_official_v2" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_back_glass') return { html: '<img src="images/inspection/models/ip17_air_back.jpg?v=air_exact_ref_v3" alt="' + name + ' Bodi Belakang 5.5mm Glacier Blue & Bar Kamera Horizontal" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_lensa_array') return { html: '<img src="images/inspection/models/ip17_air_camera.jpg?v=air_exact_ref_v3" alt="' + name + ' Bar Kamera Kapsul Horizontal 48MP" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_48mp') return { html: '<img src="images/inspection/models/ip17_air_48mp.jpg?v=air_exact_ref_v3" alt="' + name + ' Lensa Tunggal 48MP Fusion Safir" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_flash') return { html: '<img src="images/inspection/models/ip17_air_flash.jpg?v=air_exact_ref_v3" alt="' + name + ' True Tone Flash & Mikrofon Bar Kapsul" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_chassis' || itemId === 'b_kerataan') return { html: '<img src="images/inspection/models/ip17_air_chassis.jpg?v=air_exact_ref_v3" alt="' + name + ' Rangka Titanium 5.5mm Ultra-Slim & Anti-Bend" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_camera_ctrl') return { html: '<img src="images/inspection/b_camera_ctrl.jpg?v=air_exact_ref_v3" alt="' + name + ' Camera Control Safir" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_action_btn') return { html: '<img src="images/inspection/models/ip17_air_side.jpg?v=air_exact_ref_v3" alt="' + name + ' Action Button & Profil Ultra-Slim 5.5mm" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_pentalobe' || itemId === 'b_port_usbc') return { html: '<img src="images/inspection/models/ip17_air_port_usbc.jpg?v=air_exact_ref_v3" alt="' + name + ' Port USB-C & Baut Pentalobe 5.5mm" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'b_sim_tray') return { html: '<img src="images/inspection/b_sim_tray.jpg?v=air_exact_ref_v3" alt="SIM Tray" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'c_truedepth') return { html: '<img src="images/inspection/c_truedepth.jpg?v=air_exact_ref_v3" alt="' + name + ' Dynamic Island & Sensor Face ID TrueDepth" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_kerataan_layar') return { html: '<img src="images/inspection/models/ip17_air_chassis.jpg?v=air_exact_ref_v3" alt="' + name + ' Kerataan Kaca Layar ke Rangka Titanium 5.5mm" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_true_tone') return { html: '<img src="images/inspection/s_true_tone.jpg?v=air_exact_ref_v3" alt="True Tone Display" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 's_parts_history') return { html: '<img src="images/inspection/s_parts_history.jpg?v=air_exact_ref_v3" alt="Riwayat Servis Resmi iOS (Genuine vs Unknown Part)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
+    if (itemId === 'm_model_num' || itemId === 'm_region_code') return { html: '<img src="images/inspection/m_model_num.jpg?v=air_exact_ref_v3" alt="' + name + ' Nomor Model & Garansi Resmi Indonesia (PA/A)" class="inspection-real-img" loading="lazy" />', isRealPhoto: true };
     return { html: (DIAGRAMS[itemId] || DIAGRAMS['b_chassis'] || ''), isRealPhoto: false };
   }
 
@@ -2225,7 +2226,7 @@
       var diagramInner = visual.html + '<span class="img-zoom-cue">' + cueText + '</span>';
 
       return '<div class="check-item status-'+state[it.id]+'" data-id="'+it.id+'">'+
-        '<div class="diagram' + hasRealImgClass + '" data-item-id="' + it.id + '" role="button" tabindex="0" title="Klik untuk memperbesar gambar inspeksi">' + diagramInner + '</div>'+
+        '<div class="diagram' + hasRealImgClass + '" data-item-id="' + it.id + '" role="button" tabindex="0" aria-label="Klik untuk memperbesar gambar inspeksi">' + diagramInner + '</div>'+
         '<div class="check-item-main">'+
           '<p class="check-item-title">'+it.title + tagHtml + '</p>'+
           '<p class="check-item-desc">'+it.desc+'</p>'+
@@ -2839,8 +2840,8 @@
 
   // ==========================================================
   // ==========================================================
-  // DYNAMIC 3D SPATIAL VISUALIZATION ENGINE (SELECT-MODEL SCREEN)
-  // Apple Keynote-Grade 3D Perspective Wireframe & Spatial Mesh
+  // VOLUMETRIC ATMOSPHERIC STUDIO LIGHTING (SELECT-MODEL SCREEN)
+  // Apple Keynote-Grade Obsidian Depth & Ambient Spatial Glow
   // ==========================================================
   var waveCanvas = document.getElementById('modelWaveCanvas');
   var waveCtx = waveCanvas ? waveCanvas.getContext('2d') : null;
@@ -2851,17 +2852,12 @@
   var lastCanvasWidth = 0;
   var lastCanvasHeight = 0;
 
-  // 3D Perspective Camera & Parallax State
-  var camera3D = {
-    focalLength: 540,
-    targetYaw: 0,
-    targetPitch: 0,
-    yaw: 0,
-    pitch: 0,
-    roll: 0,
-    camX: 0,
-    camY: -30,
-    camZ: -480
+  // Responsive Ambient Parallax Lighting
+  var studioLight = {
+    targetX: 0,
+    targetY: 0,
+    currentX: 0,
+    currentY: 0
   };
 
   function resizeWaveCanvas(force) {
@@ -2880,172 +2876,6 @@
     waveCanvas.style.height = h + 'px';
   }
 
-  // 3D Perspective Projection Function
-  function project3D(x, y, z, cx, cy, dpr) {
-    // 1. Rotate around Y axis (Yaw)
-    var cosY = Math.cos(camera3D.yaw);
-    var sinY = Math.sin(camera3D.yaw);
-    var x1 = x * cosY + z * sinY;
-    var z1 = -x * sinY + z * cosY;
-
-    // 2. Rotate around X axis (Pitch)
-    var cosP = Math.cos(camera3D.pitch);
-    var sinP = Math.sin(camera3D.pitch);
-    var y2 = y * cosP - z1 * sinP;
-    var z2 = y * sinP + z1 * cosP;
-
-    // 3. Rotate around Z axis (Roll)
-    var cosR = Math.cos(camera3D.roll);
-    var sinR = Math.sin(camera3D.roll);
-    var x3 = x1 * cosR - y2 * sinR;
-    var y3 = x1 * sinR + y2 * cosR;
-
-    // Camera offset
-    var fz = z2 - camera3D.camZ;
-    if (fz <= 30) return null; // Near-plane clipping
-
-    var scale = camera3D.focalLength / fz;
-    return {
-      sx: cx + (x3 - camera3D.camX) * scale * dpr,
-      sy: cy + (y3 - camera3D.camY) * scale * dpr,
-      scale: scale,
-      depth: fz
-    };
-  }
-
-  // Generate 3D Spatial Particles (Stardust & Floating Energy Nodes)
-  var NUM_PARTICLES = 130;
-  var particles3D = [];
-  for (var pi = 0; pi < NUM_PARTICLES; pi++) {
-    particles3D.push({
-      x: (Math.random() - 0.5) * 1400,
-      y: (Math.random() - 0.5) * 1000,
-      z: Math.random() * 1000 + 40,
-      radius: Math.random() * 1.6 + 0.8,
-      speedZ: Math.random() * 24 + 14,
-      driftX: (Math.random() - 0.5) * 6,
-      driftY: (Math.random() - 0.5) * 6,
-      seed: Math.random() * Math.PI * 2,
-      baseAlpha: Math.random() * 0.35 + 0.35
-    });
-  }
-
-  // Model 1: 3D iPhone Titanium Frame Geometry
-  function createIPhoneWireframe() {
-    var fw = 115, fh = 230, fd = 16;
-    var r = 22;
-    var segs = 4;
-    var frontVerts = [];
-    var backVerts = [];
-
-    var corners = [
-      { cx: fw/2 - r, cy: -fh/2 + r, startAngle: -Math.PI/2 },
-      { cx: fw/2 - r, cy: fh/2 - r, startAngle: 0 },
-      { cx: -fw/2 + r, cy: fh/2 - r, startAngle: Math.PI/2 },
-      { cx: -fw/2 + r, cy: -fh/2 + r, startAngle: Math.PI }
-    ];
-
-    corners.forEach(function(c) {
-      for (var s = 0; s <= segs; s++) {
-        var a = c.startAngle + (s / segs) * (Math.PI / 2);
-        var vx = c.cx + Math.cos(a) * r;
-        var vy = c.cy + Math.sin(a) * r;
-        frontVerts.push({ x: vx, y: vy, z: -fd/2 });
-        backVerts.push({ x: vx, y: vy, z: fd/2 });
-      }
-    });
-
-    // Camera island plateau on back
-    var camPlateau = [
-      { x: -fw/2 + 8, y: -fh/2 + 8, z: fd/2 + 5 },
-      { x: -fw/2 + 62, y: -fh/2 + 8, z: fd/2 + 5 },
-      { x: -fw/2 + 62, y: -fh/2 + 62, z: fd/2 + 5 },
-      { x: -fw/2 + 8, y: -fh/2 + 62, z: fd/2 + 5 }
-    ];
-
-    // 3 Camera lens rings
-    var lens1 = [], lens2 = [], lens3 = [];
-    for (var a = 0; a < Math.PI * 2; a += Math.PI / 6) {
-      lens1.push({ x: -fw/2 + 24 + Math.cos(a) * 11, y: -fh/2 + 24 + Math.sin(a) * 11, z: fd/2 + 7 });
-      lens2.push({ x: -fw/2 + 24 + Math.cos(a) * 11, y: -fh/2 + 48 + Math.sin(a) * 11, z: fd/2 + 7 });
-      lens3.push({ x: -fw/2 + 46 + Math.cos(a) * 11, y: -fh/2 + 36 + Math.sin(a) * 11, z: fd/2 + 7 });
-    }
-
-    return {
-      frontVerts: frontVerts,
-      backVerts: backVerts,
-      camPlateau: camPlateau,
-      lensRings: [lens1, lens2, lens3]
-    };
-  }
-  var iphoneWireframe = createIPhoneWireframe();
-
-  // Model 2: 3D Precision Concentric Optical Rings
-  function createOpticalRings() {
-    var rings = [];
-    var radii = [64, 48, 34, 20];
-    radii.forEach(function(r, idx) {
-      var pts = [];
-      var segs = 24;
-      for (var i = 0; i <= segs; i++) {
-        var a = (i / segs) * Math.PI * 2;
-        pts.push({
-          x: Math.cos(a) * r,
-          y: Math.sin(a) * r,
-          z: idx * 9 - 14
-        });
-      }
-      rings.push(pts);
-    });
-    return rings;
-  }
-  var opticalRings = createOpticalRings();
-
-  // Model 3: 3D Faceted Octahedron (Bionic Core Crystal)
-  var chipOctahedron = {
-    verts: [
-      { x: 0, y: -42, z: 0 },
-      { x: 42, y: 0, z: 0 },
-      { x: 0, y: 0, z: 42 },
-      { x: -42, y: 0, z: 0 },
-      { x: 0, y: 0, z: -42 },
-      { x: 0, y: 42, z: 0 }
-    ],
-    edges: [
-      [0, 1], [0, 2], [0, 3], [0, 4],
-      [5, 1], [5, 2], [5, 3], [5, 4],
-      [1, 2], [2, 3], [3, 4], [4, 1]
-    ]
-  };
-
-  // 3D Object Transformation Helper
-  function transformVert(v, rotX, rotY, rotZ, transX, transY, transZ) {
-    // Roll
-    var cosR = Math.cos(rotZ);
-    var sinR = Math.sin(rotZ);
-    var x1 = v.x * cosR - v.y * sinR;
-    var y1 = v.x * sinR + v.y * cosR;
-    var z1 = v.z;
-
-    // Pitch
-    var cosP = Math.cos(rotX);
-    var sinP = Math.sin(rotX);
-    var y2 = y1 * cosP - z1 * sinP;
-    var z2 = y1 * sinP + z1 * cosP;
-
-    // Yaw
-    var cosY = Math.cos(rotY);
-    var sinY = Math.sin(rotY);
-    var x3 = x1 * cosY + z2 * sinY;
-    var z3 = -x1 * sinY + z2 * cosY;
-
-    return {
-      x: x3 + transX,
-      y: y2 + transY,
-      z: z3 + transZ
-    };
-  }
-
   function renderWaveFrame(timestamp) {
     if (!waveCanvas || !waveCtx) return;
     var w = waveCanvas.width;
@@ -3059,305 +2889,61 @@
     waveElapsedTime += dt;
 
     var cx = w * 0.5;
-    var cy = h * 0.46;
+    var cy = h * 0.45;
     var t = waveElapsedTime;
 
-    // Smooth inertia lerp for camera parallax
-    camera3D.yaw += (camera3D.targetYaw - camera3D.yaw) * 0.05;
-    camera3D.pitch += (camera3D.targetPitch - camera3D.pitch) * 0.05;
-    // Add subtle organic auto-breathing motion
-    camera3D.roll = Math.sin(t * 0.3) * 0.02;
-    camera3D.camY = -30 + Math.sin(t * 0.5) * 12;
+    // Smooth inertia interpolation for mouse parallax
+    studioLight.currentX += (studioLight.targetX - studioLight.currentX) * 0.04;
+    studioLight.currentY += (studioLight.targetY - studioLight.currentY) * 0.04;
 
-    // 1. Clear Canvas with Deep Space Obsidian
+    // 1. Pristine Deep Space Obsidian Foundation
     waveCtx.fillStyle = '#020205';
     waveCtx.fillRect(0, 0, w, h);
 
-    // 2. Ambient Volumetric Atmospheric Spotlights
-    var lightAX = cx + Math.sin(t * 0.4) * (w * 0.22);
-    var lightAY = cy + Math.cos(t * 0.35) * (h * 0.18);
-    var gradA = waveCtx.createRadialGradient(lightAX, lightAY, 10 * dpr, lightAX, lightAY, Math.max(w, h) * 0.65);
-    gradA.addColorStop(0, 'rgba(195, 215, 245, 0.07)');
-    gradA.addColorStop(0.4, 'rgba(140, 160, 200, 0.03)');
-    gradA.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    // 2. Dynamic breathing parameters (ultra-calm 8-12s cycle)
+    var breathA = Math.sin(t * 0.4) * 0.012;
+    var breathB = Math.cos(t * 0.32) * 0.008;
+
+    // 3. Primary Overhead Studio Softbox (Subtle Titanium Slate Spotlight)
+    // Positioned overhead to gently illuminate the title and search bar with zero visual distraction
+    var spotAX = cx + (studioLight.currentX * dpr) + Math.sin(t * 0.25) * (w * 0.04);
+    var spotAY = (cy * 0.35) + (studioLight.currentY * dpr) + Math.cos(t * 0.2) * (h * 0.03);
+    var radA = Math.max(w, h) * (0.68 + Math.sin(t * 0.3) * 0.03);
+    var gradA = waveCtx.createRadialGradient(spotAX, spotAY, 12 * dpr, spotAX, spotAY, radA);
+    gradA.addColorStop(0, 'rgba(85, 120, 180, ' + Math.max(0.04, 0.085 + breathA) + ')');
+    gradA.addColorStop(0.35, 'rgba(45, 68, 115, ' + Math.max(0.02, 0.04 + breathA * 0.5) + ')');
+    gradA.addColorStop(0.7, 'rgba(18, 26, 48, 0.012)');
+    gradA.addColorStop(1, 'rgba(2, 2, 5, 0)');
     waveCtx.fillStyle = gradA;
     waveCtx.fillRect(0, 0, w, h);
 
-    var lightBX = cx - Math.cos(t * 0.3) * (w * 0.25);
-    var lightBY = cy + Math.sin(t * 0.45) * (h * 0.22);
-    var gradB = waveCtx.createRadialGradient(lightBX, lightBY, 20 * dpr, lightBX, lightBY, Math.max(w, h) * 0.55);
-    gradB.addColorStop(0, 'rgba(160, 140, 210, 0.05)');
-    gradB.addColorStop(0.5, 'rgba(90, 80, 130, 0.02)');
-    gradB.addColorStop(1, 'rgba(0, 0, 0, 0)');
+    // 4. Secondary Horizon Accent (Ultra-soft Deep Indigo / Midnight Violet)
+    var spotBX = cx + Math.cos(t * 0.18) * (w * 0.24) - (studioLight.currentX * 0.5 * dpr);
+    var spotBY = (cy * 0.85) + Math.sin(t * 0.22) * (h * 0.12);
+    var radB = Math.max(w, h) * 0.55;
+    var gradB = waveCtx.createRadialGradient(spotBX, spotBY, 20 * dpr, spotBX, spotBY, radB);
+    gradB.addColorStop(0, 'rgba(95, 70, 145, ' + Math.max(0.02, 0.045 + breathB) + ')');
+    gradB.addColorStop(0.55, 'rgba(40, 30, 75, 0.015)');
+    gradB.addColorStop(1, 'rgba(2, 2, 5, 0)');
     waveCtx.fillStyle = gradB;
     waveCtx.fillRect(0, 0, w, h);
 
-    // 3. Render 3D Spatial Waveform Mesh (Quantum Surface Topography)
-    var gridCols = 24;
-    var gridRows = 16;
-    var gridWidth = 1100;
-    var gridDepth = 850;
-    var gridOriginZ = 60;
-    var gridOriginY = 120;
+    // 5. Counter-Fill Ambient Radiance (Cool Oceanic Slate at lower-left)
+    var spotCX = cx - Math.sin(t * 0.22) * (w * 0.22);
+    var spotCY = (cy * 0.95) + Math.cos(t * 0.26) * (h * 0.1);
+    var radC = Math.max(w, h) * 0.5;
+    var gradC = waveCtx.createRadialGradient(spotCX, spotCY, 10 * dpr, spotCX, spotCY, radC);
+    gradC.addColorStop(0, 'rgba(35, 75, 110, 0.035)');
+    gradC.addColorStop(0.6, 'rgba(15, 35, 55, 0.01)');
+    gradC.addColorStop(1, 'rgba(2, 2, 5, 0)');
+    waveCtx.fillStyle = gradC;
+    waveCtx.fillRect(0, 0, w, h);
 
-    var meshPoints = [];
-    for (var r = 0; r <= gridRows; r++) {
-      var row = [];
-      var rz = gridOriginZ + (r / gridRows) * gridDepth;
-      for (var c = 0; c <= gridCols; c++) {
-        var rx = -gridWidth * 0.5 + (c / gridCols) * gridWidth;
-        var elevation = Math.sin(rx * 0.005 + t * 0.75) * Math.cos(rz * 0.0045 + t * 0.6) * 52
-                      + Math.sin((rx + rz) * 0.004 - t * 0.5) * 28;
-        var ry = gridOriginY + elevation;
-        var proj = project3D(rx, ry, rz, cx, cy, dpr);
-        row.push(proj);
-      }
-      meshPoints.push(row);
-    }
-
-    // Draw 3D Grid Longitudinal Curves (along depth Z)
-    for (var c = 0; c <= gridCols; c += 2) {
-      waveCtx.beginPath();
-      var started = false;
-      for (var r = 0; r <= gridRows; r++) {
-        var p = meshPoints[r][c];
-        if (!p) continue;
-        if (!started) {
-          waveCtx.moveTo(p.sx, p.sy);
-          started = true;
-        } else {
-          waveCtx.lineTo(p.sx, p.sy);
-        }
-      }
-      var colAlpha = (1 - Math.abs(c - gridCols / 2) / (gridCols / 2)) * 0.22 + 0.05;
-      waveCtx.strokeStyle = 'rgba(255, 255, 255, ' + colAlpha + ')';
-      waveCtx.lineWidth = 1.0 * dpr;
-      waveCtx.stroke();
-    }
-
-    // Draw 3D Grid Latitudinal Lines (across X)
-    for (var r = 0; r <= gridRows; r += 2) {
-      waveCtx.beginPath();
-      var started = false;
-      for (var c = 0; c <= gridCols; c++) {
-        var p = meshPoints[r][c];
-        if (!p) continue;
-        if (!started) {
-          waveCtx.moveTo(p.sx, p.sy);
-          started = true;
-        } else {
-          waveCtx.lineTo(p.sx, p.sy);
-        }
-      }
-      var depthAlpha = Math.max(0, (1 - r / gridRows) * 0.28);
-      waveCtx.strokeStyle = 'rgba(235, 240, 255, ' + depthAlpha + ')';
-      waveCtx.lineWidth = 1.0 * dpr;
-      waveCtx.stroke();
-    }
-
-    // Glowing Crest Nodes on the Waveform
-    for (var r = 0; r <= gridRows; r += 4) {
-      for (var c = 0; c <= gridCols; c += 4) {
-        var p = meshPoints[r][c];
-        if (!p) continue;
-        var nodeAlpha = Math.max(0, (1 - p.depth / 900) * 0.45);
-        waveCtx.fillStyle = 'rgba(255, 255, 255, ' + nodeAlpha + ')';
-        waveCtx.beginPath();
-        waveCtx.arc(p.sx, p.sy, 2.0 * p.scale * dpr, 0, Math.PI * 2);
-        waveCtx.fill();
-      }
-    }
-
-    // 4. Render 3D Floating Geometry Models
-    var isMobile = w < 680 * dpr;
-
-    // Object 1: 3D iPhone Titanium Chassis (Floats gracefully on left/mid-left)
-    var ipRotY = t * 0.22;
-    var ipRotX = 0.32 + Math.sin(t * 0.28) * 0.12;
-    var ipRotZ = -0.15 + Math.cos(t * 0.2) * 0.08;
-    var ipPosX = isMobile ? -60 : -360;
-    var ipPosY = isMobile ? -90 : -20;
-    var ipPosZ = isMobile ? 320 : 250;
-
-    var projFront = [];
-    var projBack = [];
-
-    iphoneWireframe.frontVerts.forEach(function(v) {
-      var tv = transformVert(v, ipRotX, ipRotY, ipRotZ, ipPosX, ipPosY, ipPosZ);
-      projFront.push(project3D(tv.x, tv.y, tv.z, cx, cy, dpr));
-    });
-
-    iphoneWireframe.backVerts.forEach(function(v) {
-      var tv = transformVert(v, ipRotX, ipRotY, ipRotZ, ipPosX, ipPosY, ipPosZ);
-      projBack.push(project3D(tv.x, tv.y, tv.z, cx, cy, dpr));
-    });
-
-    // Draw Front Frame
-    if (projFront.length && projFront[0]) {
-      waveCtx.beginPath();
-      waveCtx.moveTo(projFront[0].sx, projFront[0].sy);
-      for (var fi = 1; fi < projFront.length; fi++) {
-        if (projFront[fi]) waveCtx.lineTo(projFront[fi].sx, projFront[fi].sy);
-      }
-      waveCtx.closePath();
-      waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.42)';
-      waveCtx.lineWidth = 1.3 * dpr;
-      waveCtx.stroke();
-    }
-
-    // Draw Back Frame
-    if (projBack.length && projBack[0]) {
-      waveCtx.beginPath();
-      waveCtx.moveTo(projBack[0].sx, projBack[0].sy);
-      for (var bi = 1; bi < projBack.length; bi++) {
-        if (projBack[bi]) waveCtx.lineTo(projBack[bi].sx, projBack[bi].sy);
-      }
-      waveCtx.closePath();
-      waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
-      waveCtx.lineWidth = 1.0 * dpr;
-      waveCtx.stroke();
-    }
-
-    // Connect corner struts between front and back
-    for (var ci = 0; ci < projFront.length; ci += 5) {
-      if (projFront[ci] && projBack[ci]) {
-        waveCtx.beginPath();
-        waveCtx.moveTo(projFront[ci].sx, projFront[ci].sy);
-        waveCtx.lineTo(projBack[ci].sx, projBack[ci].sy);
-        waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
-        waveCtx.lineWidth = 0.9 * dpr;
-        waveCtx.stroke();
-      }
-    }
-
-    // Camera Plateau & Lens Rings
-    waveCtx.beginPath();
-    var plateauStarted = false;
-    iphoneWireframe.camPlateau.forEach(function(v) {
-      var tv = transformVert(v, ipRotX, ipRotY, ipRotZ, ipPosX, ipPosY, ipPosZ);
-      var p = project3D(tv.x, tv.y, tv.z, cx, cy, dpr);
-      if (p) {
-        if (!plateauStarted) { waveCtx.moveTo(p.sx, p.sy); plateauStarted = true; }
-        else waveCtx.lineTo(p.sx, p.sy);
-      }
-    });
-    waveCtx.closePath();
-    waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-    waveCtx.lineWidth = 1.0 * dpr;
-    waveCtx.stroke();
-
-    iphoneWireframe.lensRings.forEach(function(ring) {
-      waveCtx.beginPath();
-      var rStarted = false;
-      ring.forEach(function(v) {
-        var tv = transformVert(v, ipRotX, ipRotY, ipRotZ, ipPosX, ipPosY, ipPosZ);
-        var p = project3D(tv.x, tv.y, tv.z, cx, cy, dpr);
-        if (p) {
-          if (!rStarted) { waveCtx.moveTo(p.sx, p.sy); rStarted = true; }
-          else waveCtx.lineTo(p.sx, p.sy);
-        }
-      });
-      waveCtx.closePath();
-      waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.48)';
-      waveCtx.lineWidth = 1.1 * dpr;
-      waveCtx.stroke();
-    });
-
-    // Object 2: 3D Precision Concentric Optical Rings (Right side)
-    var optRotY = -t * 0.3;
-    var optRotX = 0.42 + Math.cos(t * 0.25) * 0.15;
-    var optPosX = isMobile ? 80 : 380;
-    var optPosY = isMobile ? -80 : -50;
-    var optPosZ = isMobile ? 360 : 310;
-
-    opticalRings.forEach(function(ring, idx) {
-      waveCtx.beginPath();
-      var started = false;
-      ring.forEach(function(v) {
-        var tv = transformVert(v, optRotX, optRotY, 0, optPosX, optPosY, optPosZ);
-        var p = project3D(tv.x, tv.y, tv.z, cx, cy, dpr);
-        if (p) {
-          if (!started) { waveCtx.moveTo(p.sx, p.sy); started = true; }
-          else waveCtx.lineTo(p.sx, p.sy);
-        }
-      });
-      waveCtx.closePath();
-      var ringAlpha = (1 - idx * 0.2) * 0.38;
-      waveCtx.strokeStyle = 'rgba(230, 240, 255, ' + ringAlpha + ')';
-      waveCtx.lineWidth = (1.4 - idx * 0.2) * dpr;
-      waveCtx.stroke();
-    });
-
-    // Object 3: 3D Faceted Octahedron (Bionic Chip Core Crystal)
-    var chipRotY = t * 0.45;
-    var chipRotX = t * 0.35;
-    var chipPosX = isMobile ? 0 : 250;
-    var chipPosY = isMobile ? 120 : 160;
-    var chipPosZ = 440;
-
-    var chipProj = [];
-    chipOctahedron.verts.forEach(function(v) {
-      var tv = transformVert(v, chipRotX, chipRotY, 0, chipPosX, chipPosY, chipPosZ);
-      chipProj.push(project3D(tv.x, tv.y, tv.z, cx, cy, dpr));
-    });
-
-    chipOctahedron.edges.forEach(function(edge) {
-      var p1 = chipProj[edge[0]];
-      var p2 = chipProj[edge[1]];
-      if (p1 && p2) {
-        waveCtx.beginPath();
-        waveCtx.moveTo(p1.sx, p1.sy);
-        waveCtx.lineTo(p2.sx, p2.sy);
-        waveCtx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-        waveCtx.lineWidth = 1.0 * dpr;
-        waveCtx.stroke();
-      }
-    });
-
-    // 5. Render 3D Spatial Stardust Particles
-    for (var i = 0; i < particles3D.length; i++) {
-      var part = particles3D[i];
-      part.z -= part.speedZ * dt;
-      part.x += part.driftX * dt;
-      part.y += part.driftY * dt;
-
-      if (part.z < 40) {
-        part.z = 1050;
-        part.x = (Math.random() - 0.5) * 1400;
-        part.y = (Math.random() - 0.5) * 1000;
-      }
-
-      var pp = project3D(part.x, part.y, part.z, cx, cy, dpr);
-      if (!pp) continue;
-
-      var pAlpha = part.baseAlpha * Math.sin(t * 2.2 + part.seed) * 0.25 + part.baseAlpha;
-      pAlpha *= Math.min(1, part.z / 150) * Math.max(0, 1 - part.z / 1000);
-
-      var pRad = part.radius * pp.scale * dpr;
-
-      // Near-field bokeh soft glow
-      if (part.z < 350) {
-        var pGrad = waveCtx.createRadialGradient(pp.sx, pp.sy, 0, pp.sx, pp.sy, pRad * 3.5);
-        pGrad.addColorStop(0, 'rgba(255, 255, 255, ' + (pAlpha * 0.8) + ')');
-        pGrad.addColorStop(0.5, 'rgba(220, 230, 255, ' + (pAlpha * 0.25) + ')');
-        pGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        waveCtx.fillStyle = pGrad;
-        waveCtx.beginPath();
-        waveCtx.arc(pp.sx, pp.sy, pRad * 3.5, 0, Math.PI * 2);
-        waveCtx.fill();
-      }
-
-      waveCtx.fillStyle = 'rgba(255, 255, 255, ' + pAlpha + ')';
-      waveCtx.beginPath();
-      waveCtx.arc(pp.sx, pp.sy, Math.max(0.8 * dpr, pRad), 0, Math.PI * 2);
-      waveCtx.fill();
-    }
-
-    // 6. Vignette Outer Fade (Ensures pristine contrast for UI cards & text)
-    var vigGrad = waveCtx.createRadialGradient(cx, cy, Math.min(w, h) * 0.35, cx, cy, Math.max(w, h) * 0.72);
+    // 6. Master Studio Vignette (Pure Edge Contrast for Glassmorphic Cards)
+    var vigGrad = waveCtx.createRadialGradient(cx, cy * 0.6, Math.min(w, h) * 0.3, cx, cy * 0.6, Math.max(w, h) * 0.8);
     vigGrad.addColorStop(0, 'rgba(0, 0, 0, 0)');
-    vigGrad.addColorStop(0.7, 'rgba(2, 2, 5, 0.35)');
-    vigGrad.addColorStop(1, 'rgba(0, 0, 0, 0.85)');
+    vigGrad.addColorStop(0.65, 'rgba(2, 2, 5, 0.25)');
+    vigGrad.addColorStop(1, 'rgba(2, 2, 5, 0.88)');
     waveCtx.fillStyle = vigGrad;
     waveCtx.fillRect(0, 0, w, h);
   }
@@ -3387,17 +2973,17 @@
     lastFrameTimestamp = 0;
   }
 
-  // Smooth global 3D camera parallax on mouse move
+  // Smooth tactile ambient studio parallax on pointer move
   window.addEventListener('pointermove', function(e){
     var w = window.innerWidth || 1;
     var h = window.innerHeight || 1;
-    camera3D.targetYaw = ((e.clientX / w) - 0.5) * 0.45;
-    camera3D.targetPitch = ((e.clientY / h) - 0.5) * 0.32;
+    studioLight.targetX = ((e.clientX / w) - 0.5) * 70;
+    studioLight.targetY = ((e.clientY / h) - 0.5) * 50;
   }, { passive: true });
 
   window.addEventListener('pointerleave', function(){
-    camera3D.targetYaw = 0;
-    camera3D.targetPitch = 0;
+    studioLight.targetX = 0;
+    studioLight.targetY = 0;
   }, { passive: true });
 
   window.addEventListener('resize', function(){
